@@ -8,6 +8,11 @@ layout: true
 class: content
 ---
 class: left, middle
+# Acknowledgements
+
+Tutorial and slides adopted from Melbourne Bioinformatics' Containerized Bioinformatics tutorial: [https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/).
+
+---
 # Dr. Rachael Ainsworth
 * Research Associate in Radio Astronomy & Open Science Champion @ JBCA, UoM
 * Mozilla Open Leader (Round 4 Project Lead, Round 5 Mentor & Cohort Host)
@@ -16,6 +21,26 @@ class: left, middle
 * HER+Data MCR Organiser
 * Tech Future Female Leaders Cohort 1
 * Likes meeting new people, learning new things, coffee & travelling.
+---
+# Outline
+* Learning objectives
+* Feedback practice: Software Carpentry style post-its
+* Introduction to Reproducibility through Containerisation
+* Exercise: Hello world!
+* Comfort break
+* Exercise: Run an application in an existing container
+* Exercise: Build your own container
+* Exercise: Upload your container to DockerHub
+* Summary
+---
+# Learning Objectives
+
+After the workshop, participants should know:
+* what containerisation is and why they might use it in their research
+* some common containerisation tools and when to use them
+* how to find and run containers built by other people
+* how to build their own container
+* how to distribute their container online
 ---
 class: center, middle
 # Part 1
