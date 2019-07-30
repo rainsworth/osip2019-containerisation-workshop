@@ -1,5 +1,5 @@
-# Containerised Bioinformatics
-##  Docker and other tools for reproducible analysis
+# Reproducible Research through Containerisation
+##  Docker and Singularity
 .img-half[
 ![](assets/container.svg)
 ]
@@ -7,20 +7,30 @@
 layout: true
 class: content
 ---
+class: left, middle
+# Dr. Rachael Ainsworth
+* Research Associate in Radio Astronomy & Open Science Champion @ JBCA, UoM
+* Mozilla Open Leader (Round 4 Project Lead, Round 5 Mentor & Cohort Host)
+* FOSTER Open Science Trainer
+* The Turing Way Contributor
+* HER+Data MCR Organiser
+* Tech Future Female Leaders Cohort 1
+* Likes meeting new people, learning new things, coffee & travelling.
+---
 class: center, middle
 # Part 1
 ## Docker and Containers
 ---
-# Containerization
-* Containerization is any system that allows multiple isolated operating systems to run inside a larger, host system
-* The most basic type of containerization is `chroot`, which runs an application in a *jail* where it cannot see or access anything outside of its jail
-* The most popular and well supported system for containerization is Docker, which will be the focus of this workshop
+# Containerisation
+* Containerisation is any system that allows multiple isolated operating systems to run inside a larger, host system
+* The most basic type of Containerisation is `chroot`, which runs an application in a *jail* where it cannot see or access anything outside of its jail
+* The most popular and well supported systems for Containerisation are Docker and Singularity, which will be the focus of this workshop
 
 .center[
 <img style="width:500px" src="assets/docker_logo.png"/>
 ]
 ---
-# What is Docker? 
+# What is Docker?
 > A container image is a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings
 
 > — https://www.docker.com/what-container
@@ -146,7 +156,7 @@ class: center, middle
 ## Running Containers
 ---
 # Docker Run
-* To run a container, all you need to do is specify the image name, and docker will pull the image from Docker Hub, and begin running it 
+* To run a container, all you need to do is specify the image name, and docker will pull the image from Docker Hub, and begin running it
 * `docker run <IMAGE NAME>`
 
 .message.is-info[
@@ -241,7 +251,7 @@ docker run [docker options] <IMAGE NAME> [image arguments]
 * This command means "map port 8080 inside this container to port 80 on the host machine"
     ```
     docker run -p 80:8080 <IMAGE NAME>
-    ``` 
+    ```
 * Note that the host port and container port *can be the same*, and this is quite common
 
 ![](assets/Ports.svg)
@@ -471,7 +481,7 @@ class: center, middle
 FROM ubuntu
 
 # Install apt dependencies
-RUN apt-get update && apt-get install -y curl make build-essential libssl-dev 
+RUN apt-get update && apt-get install -y curl make build-essential libssl-dev
 
 # Copy in the repository
 COPY . /opt/cpipe
@@ -608,7 +618,7 @@ RUN apt-get update && apt-get install -y git build-essential zlib1g-dev libbz2-d
 WORKDIR /tmp
 RUN git clone --recursive git://github.com/ekg/freebayes.git
 WORKDIR freebayes
-RUN make 
+RUN make
 RUN make install
 ENTRYPOINT ["freebayes"]
 ```
@@ -638,7 +648,7 @@ Conveniently, the images you just make are just the right ones for running a var
 Exercise
 ]
 .message-body[
-Try running 
+Try running
 ```bash
 cwltool cwl_workflow/workflow.cwl \
 	--read_1 data/NA12878_CARDIACM_MUTATED_L001_R1.fastq.gz \
