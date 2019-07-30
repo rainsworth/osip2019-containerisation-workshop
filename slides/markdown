@@ -9,9 +9,7 @@ class: content
 ---
 class: left, middle
 # Acknowledgements
-
-Tutorial and slides adopted from Melbourne Bioinformatics' Containerized Bioinformatics tutorial: [https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/).
-
+Tutorial and slides adopted from [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/).
 ---
 # Dr. Rachael Ainsworth
 * Research Associate in Radio Astronomy & Open Science Champion @ JBCA, UoM
