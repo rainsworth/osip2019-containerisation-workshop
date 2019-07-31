@@ -63,6 +63,57 @@ Practice:
   ]
 ]
 ---
+# Feedback practice: traffic lights
+
+Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
+
+.center[
+#### Today I am using: Linux (any flavour).
+]
+
+.columns[
+  .column[.center[Agree]
+    ![](assets/postit-green.png)
+  ]
+  .column[.center[Disagree]
+    ![](assets/postit-red.png)
+  ]
+]
+---
+# Feedback practice: traffic lights
+
+Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
+
+.center[
+#### Today I am using: Mac (OSX).
+]
+
+.columns[
+  .column[.center[Agree]
+    ![](assets/postit-green.png)
+  ]
+  .column[.center[Disagree]
+    ![](assets/postit-red.png)
+  ]
+]
+---
+# Feedback practice: traffic lights
+
+Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
+
+.center[
+#### Today I am using: Windows.
+]
+
+.columns[
+  .column[.center[Agree]
+    ![](assets/postit-green.png)
+  ]
+  .column[.center[Disagree]
+    ![](assets/postit-red.png)
+  ]
+]
+---
 class: center, middle
 # Part 1
 ## Docker and Containers
