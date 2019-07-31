@@ -45,20 +45,20 @@ After the workshop, participants should know:
 * How to build their own container.
 * How to distribute their container online.
 ---
-# Feedback practice: Software Carpentry style post-its
+# Feedback practice: traffic lights
 
 Indicate how much you agree with the follow statements using traffic lights.
 
 .center[
 Practice:
-### I feel fully caffeinated this morning.
+**I feel fully caffeinated this morning.**
 ]
 
 .columns[
-  .column[Agree
+  .column[.center[Agree]
     ![](assets/postit-green.png)
   ]
-  .column[Disagree
+  .column[.center[Disagree]
     ![](assets/postit-red.png)
   ]
 ]
