@@ -47,11 +47,11 @@ After the workshop, participants should know:
 ---
 # Feedback practice: traffic lights
 
-Indicate how much you agree with the follow statements using traffic lights.
+Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
 
 .center[
-Practice:
-**I feel fully caffeinated this morning.**
+Practice:  
+#### I feel fully caffeinated this morning.
 ]
 
 .columns[
