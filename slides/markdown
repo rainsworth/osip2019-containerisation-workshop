@@ -1,4 +1,5 @@
-# Reproducible Research through Containerisation
+class: left, middle
+# Reproducible Research through Containerisation:
 ##  Docker and Singularity
 .img-half[
 ![](assets/container.svg)
@@ -9,18 +10,22 @@ class: content
 ---
 class: left, middle
 # Acknowledgements
+
 Tutorial and slides adopted from [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/).
 ---
 # Dr. Rachael Ainsworth
+
 * Research Associate in Radio Astronomy & Open Science Champion @ JBCA, UoM
-* Mozilla Open Leader (Round 4 Project Lead, Round 5 Mentor & Cohort Host)
+* Software Sustainability Institute Fellow
 * FOSTER Open Science Trainer
+* Mozilla Open Leader (Round 4 Project Lead, Round 5 Mentor & Cohort Host)
 * The Turing Way Contributor
 * HER+Data MCR Organiser
-* Tech Future Female Leaders Cohort 1
+* Tech Future Female Leader
 * Likes meeting new people, learning new things, coffee & travelling.
 ---
 # Outline
+
 * Learning objectives
 * Feedback practice: Software Carpentry style post-its
 * Introduction to Reproducibility through Containerisation
@@ -34,11 +39,29 @@ Tutorial and slides adopted from [Melbourne Bioinformatics' Containerized Bioinf
 # Learning Objectives
 
 After the workshop, participants should know:
-* what containerisation is and why they might use it in their research
-* some common containerisation tools and when to use them
-* how to find and run containers built by other people
-* how to build their own container
-* how to distribute their container online
+* What containerisation is and why they might use it in their research.
+* Some common containerisation tools and when to use them.
+* How to find and run containers built by other people.
+* How to build their own container.
+* How to distribute their container online.
+---
+# Feedback practice: Software Carpentry style post-its
+
+Indicate how much you agree with the follow statements using traffic lights.
+
+.center[
+Practice:
+### I feel fully caffeinated this morning.
+]
+
+.columns[
+  .column[Agree
+    ![](assets/postit-green.png)
+  ]
+  .column[Disagree
+    ![](assets/postit-red.png)
+  ]
+]
 ---
 class: center, middle
 # Part 1
