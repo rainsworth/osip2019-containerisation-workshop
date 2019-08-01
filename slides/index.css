@@ -28,6 +28,12 @@ img {
 .img-half img {
   max-width: 50%;
 }
+.img-med {
+  text-align: center;
+}
+.img-med img {
+  max-width: 75%;
+}
 .message-body ul {
   margin-top: 0;
 }

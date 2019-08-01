@@ -6,7 +6,7 @@ class: left, middle
 EPFL, Lausanne, Switzerland  
 11:00-13:00, 5 September 2019  
 <br><br>
-Speaker: Dr. Rachael Ainsworth, University of Manchester
+Speaker: Dr. Rachael Ainsworth, University of Manchester  
 Twitter: [@rachaelevelyn](https://twitter.com/rachaelevelyn), GitHub: [@rainsworth](https://github.com/rainsworth/)
 ---
 layout: true
@@ -16,10 +16,11 @@ class: left, middle
 # Acknowledgements
 
 Resources used to develop this workshop:
-* _The Turing Way_: [GitHub]](https://github.com/alan-turing-institute/the-turing-way), [Book](https://the-turing-way.netlify.com), [Zenodo](http://doi.org/10.5281/zenodo.3233986  )
+* _The Turing Way_: [GitHub](https://github.com/alan-turing-institute/the-turing-way), [Book](https://the-turing-way.netlify.com), [Zenodo](http://doi.org/10.5281/zenodo.3233986)
 * [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)
 * [Getting started with Docker](https://docs.docker.com/get-started/)
 ---
+class: left, middle
 # Dr. Rachael Ainsworth
 
 * Research Associate & Open Science Champion, University of Manchester
@@ -29,13 +30,13 @@ Resources used to develop this workshop:
 * _The Turing Way_ Core Contributor
 * HER+Data MCR Organiser
 * Likes meeting new people, learning new things, coffee & travelling.
-
-Twitter: [@rachaelevelyn](https://twitter.com/rachaelevelyn)  
-GitHub: [@rainsworth](https://github.com/rainsworth/)
+* Twitter: [@rachaelevelyn](https://twitter.com/rachaelevelyn)  
+* GitHub: [@rainsworth](https://github.com/rainsworth/)
 
 ---
+class: left, middle
 # Agenda
-.middle[
+
 1. Learning objectives
 2. Feedback practice: Software Carpentry style traffic lights
 3. Introduction to Reproducibility through Containerisation
@@ -45,11 +46,12 @@ GitHub: [@rainsworth](https://github.com/rainsworth/)
 7. Exercise: Build your own container
 8. Exercise: Upload your container to DockerHub
 9. Summary and closing
-]
+
 ---
 class: center, middle
 # Learning Objectives
 ---
+class: left, middle
 # Learning Objectives
 
 After the workshop, participants should know:
@@ -62,6 +64,7 @@ After the workshop, participants should know:
 class: center, middle
 # Feedback practice: Software Carpentry style traffic lights
 ---
+class: left, middle
 # Feedback practice: traffic lights
 
 Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
@@ -190,7 +193,7 @@ class: center, middle
 ---
 # Reproducible Environments
 
-.center[
+.img-half[
 ![](assets/ReproducibleEnvironments.png)
 ]
 
