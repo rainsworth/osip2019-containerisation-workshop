@@ -73,7 +73,7 @@ Indicate how much you agree with the follow statements using Software Carpentry 
   ]
 ]
 
-.right[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
+.center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 # Feedback practice: traffic lights
 
@@ -92,7 +92,7 @@ Indicate how much you agree with the follow statements using Software Carpentry 
   ]
 ]
 
-.right[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
+.center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 # Feedback practice: traffic lights
 
@@ -111,7 +111,7 @@ Indicate how much you agree with the follow statements using Software Carpentry 
   ]
 ]
 
-.right[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
+.center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 # Feedback practice: traffic lights
 
@@ -130,7 +130,7 @@ Indicate how much you agree with the follow statements using Software Carpentry 
   ]
 ]
 
-.right[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
+.center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 # Feedback practice: traffic lights
 
@@ -149,7 +149,7 @@ Indicate how much you agree with the follow statements using Software Carpentry 
   ]
 ]
 
-.right[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
+.center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 # Feedback practice: traffic lights
 
@@ -168,18 +168,27 @@ Indicate how much you agree with the follow statements using Software Carpentry 
   ]
 ]
 
-.right[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
+.center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 class: center, middle
 # Introduction to Reproducibility through Containerisation
 ---
 # Reproducibility
+
 .img-half[
-![](ReproducibilitySpectrum.jpg)
+![](assets/ReproducibilitySpectrum.jpg)
 ]
 
 > Computational science has led to exciting new developments, but the nature of the work has exposed limitations in our ability to evaluate published findings. Reproducibility has the potential to serve as a minimum standard for judging scientific claims when full independent replication of a study is not possible.” (Peng 2011; https://doi.org/10.1126/science.1213847)
 
+---
+# Reproducible Environments
+
+.img-half[
+![](assets/ReproducibleEnvironments.png)
+]
+
+.center[Attribution: [The Turing Way](https://the-turing-way.netlify.com/reproducible_environments/01/options.html)]
 ---
 # Containerisation
 * Containerisation is any system that allows multiple isolated operating systems to run inside a larger, host system
