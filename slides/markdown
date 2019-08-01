@@ -1,13 +1,13 @@
 class: left, middle
 # Reproducible Research through Containerisation:
 ##  Docker and Singularity
-
+<br><br>
 [Open Science In Practice](http://osip2019.epfl.ch/)  
 EPFL, Lausanne, Switzerland  
 11:00-13:00, 5 September 2019  
-
-Speaker: Dr. Rachael Ainsworth  
-University of Manchester
+<br><br>
+Speaker: Dr. Rachael Ainsworth, University of Manchester
+Twitter: [@rachaelevelyn](https://twitter.com/rachaelevelyn), GitHub: [@rainsworth](https://github.com/rainsworth/)
 ---
 layout: true
 class: content
@@ -15,7 +15,8 @@ class: content
 class: left, middle
 # Acknowledgements
 
-Tutorial and slides adopted from:
+Resources used to develop this workshop:
+* _The Turing Way_: [GitHub]](https://github.com/alan-turing-institute/the-turing-way), [Book](https://the-turing-way.netlify.com), [Zenodo](http://doi.org/10.5281/zenodo.3233986  )
 * [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)
 * [Getting started with Docker](https://docs.docker.com/get-started/)
 ---
@@ -25,12 +26,16 @@ Tutorial and slides adopted from:
 * Software Sustainability Institute Fellow
 * FOSTER Open Science Trainer
 * Mozilla Open Leader (Round 4 Project Lead, Round 5 Mentor & Cohort Host)
-* The Turing Way Contributor
+* _The Turing Way_ Core Contributor
 * HER+Data MCR Organiser
 * Likes meeting new people, learning new things, coffee & travelling.
+
+Twitter: [@rachaelevelyn](https://twitter.com/rachaelevelyn)  
+GitHub: [@rainsworth](https://github.com/rainsworth/)
+
 ---
 # Agenda
-
+.middle[
 1. Learning objectives
 2. Feedback practice: Software Carpentry style traffic lights
 3. Introduction to Reproducibility through Containerisation
@@ -40,6 +45,7 @@ Tutorial and slides adopted from:
 7. Exercise: Build your own container
 8. Exercise: Upload your container to DockerHub
 9. Summary and closing
+]
 ---
 class: center, middle
 # Learning Objectives
@@ -175,7 +181,7 @@ class: center, middle
 ---
 # Reproducibility
 
-.img-half[
+.center[
 ![](assets/ReproducibilitySpectrum.jpg)
 ]
 
@@ -184,7 +190,7 @@ class: center, middle
 ---
 # Reproducible Environments
 
-.img-half[
+.center[
 ![](assets/ReproducibleEnvironments.png)
 ]
 
