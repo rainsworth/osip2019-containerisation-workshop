@@ -25,7 +25,7 @@ Tutorial and slides adopted from [Melbourne Bioinformatics' Containerized Bioinf
 * Tech Future Female Leader
 * Likes meeting new people, learning new things, coffee & travelling.
 ---
-# Outline
+# Agenda
 
 * Learning objectives
 * Feedback practice: Software Carpentry style post-its
@@ -35,7 +35,7 @@ Tutorial and slides adopted from [Melbourne Bioinformatics' Containerized Bioinf
 * Exercise: Run an application in an existing container
 * Exercise: Build your own container
 * Exercise: Upload your container to DockerHub
-* Summary
+* Summary and closing
 ---
 # Learning Objectives
 
@@ -57,10 +57,10 @@ Practice:
 
 .columns[
   .column[.center[Agree]
-    ![](assets/postit-green.png)
+    .image.is-300x300[![](assets/postit-green.png)]
   ]
   .column[.center[Disagree]
-    ![](assets/postit-red.png)
+    .image.is-300x300[![](assets/postit-red.png)]
   ]
 ]
 ---
