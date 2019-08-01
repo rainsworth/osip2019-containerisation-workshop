@@ -235,9 +235,13 @@ It is vital for researchers to understand and capture the computational environm
 work, as it has the potential to impact:
 
 * **You**: Your working environment evolves over time as you update software, install new software and move to different computers. If the project environment is not captured and you need to return to that project after months or years (as is common in research), you may have no way of knowing what changes to the environment have occurred. This will impact your ability to run the code and on the results.
+
 --
+
 * **Your collaborators**: Research is collaborative, and conducting research in multiple different computational environments opens up a minefield of potential bugs. Trying to fix these kinds of issues is often time consuming and frustrating as researchers have to figure out what the differences between computational environments are and their effects. Worse, some bugs may remain undetected, potentially impacting the results.
+
 --
+
 * **Science**: How research is conducted has evolved significantly over the past decade, but the same cannot be said for the methods by which research processes are captured and disseminated. Research articles alone are no longer sufficient to verify, reproduce and extend scientific results. For research to be reproducible, researchers must publish and distribute the entire contained analysis, not just its results. Any research that is limited to where it can be deployed is instantly limited in the extent that it can be reproduced.
 
 .center[Attribution: [The Turing Way](https://the-turing-way.netlify.com/reproducible_environments/01/options.html)]
@@ -250,13 +254,57 @@ work, as it has the potential to impact:
 
 .center[Attribution: [The Turing Way](https://the-turing-way.netlify.com/reproducible_environments/01/options.html)]
 ---
+# Virtual Machines (VMs) vs Containers
+
+* A **virtual machine (VM)** is a simulated computer. A VM runs a full-blown “guest” operating system with virtual access to the desktop, file system, default software libraries and other features of the specified machine, which can be interacted with as if it was a real computer. In general, VMs provide an environment with more resources than most applications need.
+* By contrast, a **container** shares the kernel of the host machine and only contains the software and files explicitly defined within them in order to run the application or analysis. This makes them far more lightweight than virtual machines.
+
+.columns[
+  .column[
+    ![](assets/vm_stack.png)
+  ]
+  .column[
+    ![](assets/container_stack.png)
+  ]
+]
+
+.center[Attribution: Get started with Docker, https://docs.docker.com/get-started/; [The Turing Way](https://the-turing-way.netlify.com/reproducible_environments/01/options.html)]
+---
+# Terminology: Images and Containers
+
+A container is launched by running an image.
+
+* An **image** is an executable package that includes everything needed to run an application - the code, a runtime, libraries, environment variables and configuration files.
+* A **container** is a runtime instance of an image - what the image becomes in memory when executed.
+
+.center[![](assets/Image_Container.svg)]
+
+.center[Attribution: Get started with Docker, https://docs.docker.com/get-started/]
+---
+# Terminology: Host
+* The **host** machine is the machine running Docker, on which images and containers are stored
+![](assets/Host.svg)
+
+---
 # Containerisation
 * Containerisation is any system that allows multiple isolated operating systems to run inside a larger, host system
-* The most basic type of Containerisation is `chroot`, which runs an application in a *jail* where it cannot see or access anything outside of its jail
 * The most popular and well supported systems for Containerisation are Docker and Singularity, which will be the focus of this workshop
 
-.center[
-<img style="width:500px" src="assets/docker_logo.png"/>
+.columns[
+.column[
+]
+.column[
+.img-half[
+![](assets/docker_logo.png)
+]
+]
+.column[
+.img-half[
+![](assets/singularity.png)
+]
+]
+.column[
+]
 ]
 ---
 # What is Docker?
@@ -268,84 +316,6 @@ work, as it has the potential to impact:
 ![](assets/container_stack.png)
 ]
 ---
-# Use-cases
-* Docker is the ideal way of deploying applications such as:
-    * Web applications that need a proxy server, database and application code, and a consistent
-    operating environment
-        * Examples: Galaxy (a bioinformatics platform), GitLab (a git host), Ghost (blogging platform)
-    * Analysis pipelines or pipeline stages that require many runtimes (Python, Perl, Java etc.) and
-    many tools (Samtools, GATK, VEP)
-        * Examples: Pipelines written in CWL, WDL, Snakemake, Nextflow
-
-.columns[
-.column[
-]
-.column[
-.image.is-128x128[
-![](assets/galaxy.png)
-]
-]
-.column[
-.image.is-128x128[
-![](assets/cwl.svg)
-]
-]
-.column[
-]
-]
----
-# Use-cases
-
-* Testing and continuous integration, allowing your tests to run in a consistent
-environment with a very precisely defined set of dependencies
-    * Examples: Jenkins, Drone CI
-* Complex or fragile applications that would be difficult to compile locally
-    * Examples: PennCNV, hap.py
-* Self-contained analyses that need a specific and reproducible environment
-    * Examples: Jupyter notebooks, particularly [Docker Stacks](https://jupyter-docker-stacks.readthedocs.io/)
-
-
-.columns[
-.column[
-]
-.column[
-.image.is-128x128[
-![](assets/jenkins.svg)
-]
-]
-.column[
-.image.is-128x128[
-    ![](assets/jupyter.png)
-]
-]
-.column[
-]
-]
----
-# Use-cases
-* Docker is not ideal for (but can still be used for):
-    * Command-line utilities or tools that manipulate files or use the filesystem
-        * Examples: samtools, bwa, vim
-    * Graphical/GUI applications
-        * Examples: Atom (text editor), Firefox, fastqc
-
-.columns[
-.column[
-]
-.column[
-.image.is-128x128[
-![](assets/vim.svg)
-]
-]
-.column[
-.image.is-128x128[
-![](assets/firefox.svg)
-]
-]
-.column[
-]
-]
----
 # Advantages
 
 Distributing and using software as a Docker image gives you:
@@ -355,30 +325,6 @@ Distributing and using software as a Docker image gives you:
 * **Safety** – Files in a container can’t access files on the host machine, so users can trust dockerized applications
 * **Ease-of-Use** – Docker containers can always be run using one single docker run command
 * **Easy Upgrades** – Docker containers can be easily swapped out for newer versions, while all persistent data can be retained in a data volume
----
-# Docker vs VMs
-* Virtual machines solve the same problem as docker, but are much less lightweight
-* Virtual machines package the entire guest OS, while Docker uses the host kernel and a minimal OS that can be shared between containers
-
-.columns[
-  .column[
-    ![](assets/container_stack.png)
-  ]
-  .column[
-    ![](assets/vm_stack.png)
-  ]
-]
----
-# Terminology - Images and Containers
-* A docker **image** is an archive containing all the data needed to run the application
-* When you run an **image**, it creates a **container**, which you can start and stop and delete without it affecting the image
-* You can have many containers running the same image
-* You can think of a Docker image as like a class in Object-Oriented Programming, and a docker container as like an object
-![](assets/Image_Container.svg)
----
-# Terminology - Host
-* The **host** machine is the machine running Docker, on which images and containers are stored
-![](assets/Host.svg)
 ---
 class: center, middle
 # Part 2
