@@ -1,9 +1,13 @@
 class: left, middle
 # Reproducible Research through Containerisation:
 ##  Docker and Singularity
-.img-half[
-![](assets/container.svg)
-]
+
+[Open Science In Practice](http://osip2019.epfl.ch/)  
+EPFL, Lausanne, Switzerland  
+11:00-13:00, 5 September 2019  
+
+Speaker: Dr. Rachael Ainsworth  
+University of Manchester
 ---
 layout: true
 class: content
@@ -11,30 +15,34 @@ class: content
 class: left, middle
 # Acknowledgements
 
-Tutorial and slides adopted from [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/).
+Tutorial and slides adopted from:
+* [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)
+* [Getting started with Docker](https://docs.docker.com/get-started/)
 ---
 # Dr. Rachael Ainsworth
 
-* Research Associate in Radio Astronomy & Open Science Champion @ JBCA, UoM
+* Research Associate & Open Science Champion, University of Manchester
 * Software Sustainability Institute Fellow
 * FOSTER Open Science Trainer
 * Mozilla Open Leader (Round 4 Project Lead, Round 5 Mentor & Cohort Host)
 * The Turing Way Contributor
 * HER+Data MCR Organiser
-* Tech Future Female Leader
 * Likes meeting new people, learning new things, coffee & travelling.
 ---
 # Agenda
 
-* Learning objectives
-* Feedback practice: Software Carpentry style post-its
-* Introduction to Reproducibility through Containerisation
-* Exercise: Hello world!
-* Comfort break
-* Exercise: Run an application in an existing container
-* Exercise: Build your own container
-* Exercise: Upload your container to DockerHub
-* Summary and closing
+1. Learning objectives
+2. Feedback practice: Software Carpentry style traffic lights
+3. Introduction to Reproducibility through Containerisation
+4. Exercise: Hello world!
+5. Comfort break
+6. Exercise: Run an application in an existing container
+7. Exercise: Build your own container
+8. Exercise: Upload your container to DockerHub
+9. Summary and closing
+---
+class: center, middle
+# Learning Objectives
 ---
 # Learning Objectives
 
@@ -45,12 +53,14 @@ After the workshop, participants should know:
 * How to build their own container.
 * How to distribute their container online.
 ---
+class: center, middle
+# Feedback practice: Software Carpentry style traffic lights
+---
 # Feedback practice: traffic lights
 
 Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
 
 .center[
-Practice:  
 #### I feel fully caffeinated this morning.
 ]
 
@@ -63,7 +73,7 @@ Practice:
   ]
 ]
 
-Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522
+.right[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 # Feedback practice: traffic lights
 
@@ -82,7 +92,7 @@ Indicate how much you agree with the follow statements using Software Carpentry 
   ]
 ]
 
-Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522
+.right[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 # Feedback practice: traffic lights
 
@@ -101,7 +111,7 @@ Indicate how much you agree with the follow statements using Software Carpentry 
   ]
 ]
 
-Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522
+.right[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 # Feedback practice: traffic lights
 
@@ -120,7 +130,7 @@ Indicate how much you agree with the follow statements using Software Carpentry 
   ]
 ]
 
-Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522
+.right[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 # Feedback practice: traffic lights
 
@@ -139,7 +149,7 @@ Indicate how much you agree with the follow statements using Software Carpentry 
   ]
 ]
 
-Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522
+.right[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 # Feedback practice: traffic lights
 
@@ -158,11 +168,18 @@ Indicate how much you agree with the follow statements using Software Carpentry 
   ]
 ]
 
-Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522
+.right[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 class: center, middle
-# Part 1
-## Docker and Containers
+# Introduction to Reproducibility through Containerisation
+---
+# Reproducibility
+.img-half[
+![](ReproducibilitySpectrum.jpg)
+]
+
+> Computational science has led to exciting new developments, but the nature of the work has exposed limitations in our ability to evaluate published findings. Reproducibility has the potential to serve as a minimum standard for judging scientific claims when full independent replication of a study is not possible.” (Peng 2011; https://doi.org/10.1126/science.1213847)
+
 ---
 # Containerisation
 * Containerisation is any system that allows multiple isolated operating systems to run inside a larger, host system
