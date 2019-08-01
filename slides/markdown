@@ -7,7 +7,6 @@ class: left, middle
 ---
 layout: true
 class: content
-.footer[These slides available at <http://bit.ly/myslides>]
 ---
 class: left, middle
 # Acknowledgements
@@ -56,11 +55,11 @@ Practice:
 ]
 
 .columns[
-  .column[.center[Agree]
-    .image.is-300x300[![](assets/postit-green.png)]
+  .column[
+    ![](assets/postit-green.png)
   ]
-  .column[.center[Disagree]
-    .image.is-300x300[![](assets/postit-red.png)]
+  .column[
+    ![](assets/postit-red.png)
   ]
 ]
 ---
