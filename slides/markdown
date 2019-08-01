@@ -184,7 +184,7 @@ class: center, middle
 ---
 # Reproducibility
 
-.center[
+.img-med[
 ![](assets/TuringWayReproducible.jpg)
 ]
 .center[Attribution: The Turing Way Community & Scriberia, http://doi.org/10.5281/zenodo.3332808]
@@ -202,7 +202,7 @@ class: center, middle
 ---
 # Reproducible Environments
 
-.img-mid[
+.img-med[
 ![](assets/ReproducibleEnvironments.png)
 ]
 
