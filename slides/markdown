@@ -7,6 +7,7 @@ class: left, middle
 ---
 layout: true
 class: content
+.footer[These slides available at <http://bit.ly/myslides>]
 ---
 class: left, middle
 # Acknowledgements
