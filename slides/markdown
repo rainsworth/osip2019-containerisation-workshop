@@ -291,25 +291,18 @@ A container is launched by running an image.
 
 ---
 # Containerisation
-* Containerisation is any system that allows multiple isolated operating systems to run inside a larger, host system
-* The most popular and well supported systems for Containerisation are [Docker](https://www.docker.com/) and [Singularity](https://sylabs.io/singularity/), which will be the focus of this workshop
+* The use of Linux containers to deploy applications is called **containerisation**.
+* The most popular and well supported platforms to develop, deploy and run applications with containers are [Docker](https://www.docker.com/) and [Singularity](https://sylabs.io/singularity/), which will be the focus of this workshop
 
 .columns[
-.column[
+  .column[
+    ![](assets/docker_logo.png)
+  ]
+  .column[
+    ![](assets/singularity.png)
+  ]
 ]
-.column[
-.img-half[
-![](assets/docker_logo.png)
-]
-]
-.column[
-.img-half[
-![](assets/singularity.png)
-]
-]
-.column[
-]
-]
+
 ---
 # What is Docker?
 > A container image is a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings
