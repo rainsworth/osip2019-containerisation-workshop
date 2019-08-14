@@ -267,8 +267,6 @@ It is vital for researchers to understand and capture the computational environm
 
 .columns[
 .column[
-]
-.column[
 .img-med[
 ![](assets/vm_stack.png)
 ]
@@ -277,8 +275,6 @@ It is vital for researchers to understand and capture the computational environm
 .img-med[
     ![](assets/container_stack.png)
 ]
-]
-.column[
 ]
 ]
 
