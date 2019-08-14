@@ -25,18 +25,22 @@ Prior to this workshop, participants will need:
 
 ## Agenda
 
-* Learning objectives
-* Feedback practice: Software Carpentry style post-its
-* Introduction to Reproducibility through Containerisation
-* Exercise: Hello world!
-* Comfort break
-* Exercise: Run an application in an existing container
-* Exercise: Build your own container
-* Exercise: Upload your container to DockerHub
-* Summary and closing
+1. Learning objectives
+2. Feedback practice: Software Carpentry style traffic lights
+3. Introduction to Reproducibility through Containerisation
+4. Exercise: Hello world!
+5. Comfort break
+6. Exercise: Run an application in an existing container
+7. Exercise: Build your own container
+8. Exercise: Upload your container to DockerHub
+9. Summary and closing
 
 ## Slides
 
 You can find the slides to this workshop [here](https://rainsworth.github.io/osip2019-containerisation-workshop/slides/).
 
 Attribution: The tutorial and slides have been adopted from the [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/).
+
+## Speaker
+
+Dr. Rachael Ainsworth is a Research Associate in Radio Astronomy and Open Science Champion at the Jodrell Bank Centre for Astrophysics, University of Manchester. She is passionate about openness, transparency, reproducibility and inclusion in research. She is also a Software Sustainability Institute Fellow, FOSTER certified Open Science Trainer, Mozilla Open Leader, member of The Turing Way community, organiser for the women in data meetup group HER+Data MCR and member of the first cohort of Tech Future Female Leaders.
