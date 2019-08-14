@@ -184,16 +184,13 @@ class: center, middle
 ---
 # Reproducibility
 
-.img-med[
-![](assets/TuringWayReproducible.jpg)
-]
+.img-med[![](assets/TuringWayReproducible.jpg)]
+
 .center[Attribution: The Turing Way Community & Scriberia, http://doi.org/10.5281/zenodo.3332808]
 ---
 # Reproducibility Spectrum
 
-.center[
-![](assets/ReproducibilitySpectrum.jpg)
-]
+.img-med[![](assets/ReproducibilitySpectrum.jpg)]
 
 > Computational science has led to exciting new developments, but the nature of the work has exposed limitations in our ability to evaluate published findings. Reproducibility has the potential to serve as a minimum standard for judging scientific claims when full independent replication of a study is not possible.”  
 
@@ -264,10 +261,10 @@ It is vital for researchers to understand and capture the computational environm
 
 .columns[
   .column[
-    .img-med[![](assets/vm_stack.png)]
+    ![](assets/vm_stack.png)
   ]
   .column[
-    .img-med[![](assets/container_stack.png)]
+    ![](assets/container_stack.png)
   ]
 ]
 
@@ -280,7 +277,7 @@ A container is launched by running an image.
 * An **image** is an executable package that includes everything needed to run an application - the code, a runtime, libraries, environment variables and configuration files.
 * A **container** is a runtime instance of an image - what the image becomes in memory when executed.
 
-.center[.img-med[![](assets/Image_Container.svg)]]
+.center[![](assets/Image_Container.svg)]
 
 .center[Attribution: Get started with Docker, https://docs.docker.com/get-started/]
 ---
@@ -288,7 +285,7 @@ A container is launched by running an image.
 
 * The **host** machine is the machine running Docker, on which images and containers are stored
 
-.center[![](assets/Host.png)]
+.img-med[![](assets/Host.png)]
 
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 
