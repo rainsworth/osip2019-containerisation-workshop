@@ -323,17 +323,17 @@ A container is launched by running an image.
 
 > — https://www.docker.com/what-container
 
-.img-med[
+.img-half[
 ![](assets/container_stack.png)
 ]
 ---
 # Advantages
 
 Distributing and using software as a Docker image gives you:
-* **Bundled Dependencies** – Docker images contain all their own dependencies, which means you don’t have to do any installation yourself (compared to an application that is just source code or a .deb installer)
+* **Bundled Dependencies** – Docker images contain all their own dependencies, which means you don’t have to do any installation yourself
 * **Cross-platform Installation** – Docker containers contain their own operating system, so they will run on any platform (even Windows!)
-* **Easy Distribution** - Can be distributed as a single .tar image file, or put on docker hub so it can be `docker pull`'d
-* **Safety** – Files in a container can’t access files on the host machine, so users can trust dockerized applications
+* **Easy Distribution** - Can be distributed as a single .tar image file, or put on [Docker Hub](https://hub.docker.com/) so it can be `docker pull`'d
+* **Safety** – Files in a container can’t access files on the host machine, so users can trust Dockerised applications
 * **Ease-of-Use** – Docker containers can always be run using one single docker run command
 * **Easy Upgrades** – Docker containers can be easily swapped out for newer versions, while all persistent data can be retained in a data volume
 ---
@@ -379,8 +379,7 @@ This message shows that your installation appears to be working correctly.
 Exercise
 ]
 .message-body[
-Search on Docker Hub for the best docker image for the `galaxy` platform. What name would you use
-if you wanted to run this container? Hint: the right one links to <https://www.galaxyproject.org/>, and has a high download count
+Search on Docker Hub for the best Docker image for programming in `python`. What name would you use if you wanted to run this container?
 ]
 ]
 ---
@@ -390,7 +389,7 @@ if you wanted to run this container? Hint: the right one links to <https://www.g
 Answer
 ]
 .message-body[
-    ![](assets/docker_store.png)
+    ![](assets/docker_hub_python.png)
 ]
 ]
 ---
