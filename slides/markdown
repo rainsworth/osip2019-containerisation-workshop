@@ -215,30 +215,27 @@ print(a/b)
 
 --
 
-Output of 1 divided by 5 in Python 3: `0.2`
+* Output of 1 divided by 5 in Python 3: `0.2`
 
 --
 
-Output of 1 divided by 5 in Python 2: `0`
+* Output of 1 divided by 5 in Python 2: `0`
 
 --
 
-This is because integer division is applied to integers in Python 2, but (normal) division is applied to all types, including integers, in Python 3.  
+* This is because integer division is applied to integers in Python 2, but (normal) division is applied to all types, including integers, in Python 3.  
 
 --
 
-This extremely simple script therefore returns _different_ answers depending on the computational environment in which it is run. 
-
-Using the wrong version of Python is easy to do, and demonstrates how a perfectly valid piece of code can give different results depending on its environment. 
-
-If such issues can impact a simple script like this, imagine how many could appear in a complex analysis procedure which may involve thousands of lines of code and dozens of dependent packages!
+* This very simple script returns _different_ answers depending on the computational environment in which it is run. 
+* Using the wrong version of Python is easy to do, and demonstrates how a perfectly valid piece of code can give different results depending on its environment. 
+* If such issues can impact a simple script like this, imagine how many could appear in a complex analysis procedure which may involve thousands of lines of code and dozens of dependent packages!
 
 .center[Attribution: [The Turing Way](https://the-turing-way.netlify.com/reproducible_environments/01/options.html)]
 ---
 # Reproducible Environments: Impact
 
-It is vital for researchers to understand and capture the computational environments in which they are conducting their
-work, as it has the potential to impact:
+It is vital for researchers to understand and capture the computational environments in which they are conducting their work, as it has the potential to impact:
 
 * **You**: Your working environment evolves over time as you update software, install new software and move to different computers. If the project environment is not captured and you need to return to that project after months or years (as is common in research), you may have no way of knowing what changes to the environment have occurred. This will impact your ability to run the code and on the results.
 
