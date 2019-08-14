@@ -261,7 +261,8 @@ It is vital for researchers to understand and capture the computational environm
 # Virtual Machines (VMs) vs Containers
 
 * A **virtual machine (VM)** is a program that emulates a complete computer and imitates dedicated hardware. It shares physical hardware resources with other users but isolates the operating system. The end user has the same experience on a VM as they would have on dedicated hardware. 
-* In contrast, a **container** shares the kernel of the host machine and only contains the software and files explicitly defined within them in order to run the application or analysis which makes them far more lightweight than VMs.
+* In contrast, a **container** is a stand-alone, executable package of a piece of software that only includes the software and files needed to run it: code, runtime, system tools, system libraries, settings - making them far more lightweight than VMs.
+A container image is a lightweight, 
 
 .columns[
 .column[
@@ -318,24 +319,15 @@ A container is launched by running an image.
 ]
 
 ---
-# What is Docker?
-> A container image is a lightweight, stand-alone, executable package of a piece of software that includes everything needed to run it: code, runtime, system tools, system libraries, settings
-
-> — https://www.docker.com/what-container
-
-.img-half[
-![](assets/container_stack.png)
-]
----
 # Advantages
 
-Distributing and using software as a Docker image gives you:
-* **Bundled Dependencies** – Docker images contain all their own dependencies, which means you don’t have to do any installation yourself
-* **Cross-platform Installation** – Docker containers contain their own operating system, so they will run on any platform (even Windows!)
-* **Easy Distribution** - Can be distributed as a single .tar image file, or put on [Docker Hub](https://hub.docker.com/) so it can be `docker pull`'d
-* **Safety** – Files in a container can’t access files on the host machine, so users can trust Dockerised applications
-* **Ease-of-Use** – Docker containers can always be run using one single docker run command
-* **Easy Upgrades** – Docker containers can be easily swapped out for newer versions, while all persistent data can be retained in a data volume
+Distributing and using software as a container image gives you:
+* **Bundled Dependencies** – they contain all their own dependencies, which means you don’t have to do any installation yourself
+* **Cross-platform Installation** – they contain their own operating system, so they will run on any platform (even Windows!)
+* **Easy Distribution** - they can be distributed as a single .tar image file, or put on [Docker Hub](https://hub.docker.com/) so it can be `docker pull`'d (or on [Singularity Hub](https://singularity-hub.org/) and `singularity pull`'d')
+* **Safety** – files in a container can’t access files on the host machine, so users can trust containerised applications
+* **Ease-of-Use** – they can always be run using a single run command
+* **Easy Upgrades** – they can be easily swapped out for newer versions, while all persistent data can be retained in a data volume
 ---
 class: center, middle
 # Part 2
