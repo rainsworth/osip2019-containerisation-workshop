@@ -263,8 +263,6 @@ It is vital for researchers to understand and capture the computational environm
 * A **virtual machine (VM)** is a program that emulates a complete computer and imitates dedicated hardware. It shares physical hardware resources with other users but isolates the operating system. The end user has the same experience on a VM as they would have on dedicated hardware. 
 * In contrast, a **container** shares the kernel of the host machine and only contains the software and files explicitly defined within them in order to run the application or analysis which makes them far more lightweight than VMs.
 
-
-
 .columns[
 .column[
 .img-med[
@@ -273,7 +271,7 @@ It is vital for researchers to understand and capture the computational environm
 ]
 .column[
 .img-med[
-    ![](assets/container_stack.png)
+![](assets/container_stack.png)
 ]
 ]
 ]
@@ -304,19 +302,19 @@ A container is launched by running an image.
 ---
 # Containerisation
 * The use of Linux containers to deploy applications is called **containerisation**.
-* The most popular and well supported platforms to develop, deploy and run applications with containers are [Docker](https://www.docker.com/) and [Singularity](https://sylabs.io/singularity/), which will be the focus of this workshop
+* The most popular and well supported platforms to develop, deploy and run applications with containers are [Docker](https://www.docker.com/) and [Singularity](https://sylabs.io/singularity/), which will be the focus of this workshop.
 
 .columns[
-  .column[
-    .img-med[
-      ![](assets/docker_logo.png)
-    ]
-  ]
-  .column[
-    .img-med[
-      ![](assets/singularity.png)
-    ]
-  ]
+.column[
+.img-med[
+![](assets/docker_logo.png)
+]
+]
+.column[
+.img-med[
+![](assets/singularity.png)
+]
+]
 ]
 
 ---
@@ -325,7 +323,7 @@ A container is launched by running an image.
 
 > — https://www.docker.com/what-container
 
-.img-half[
+.img-med[
 ![](assets/container_stack.png)
 ]
 ---
