@@ -264,10 +264,10 @@ It is vital for researchers to understand and capture the computational environm
 
 .columns[
   .column[
-    ![](assets/vm_stack.png)
+    .img-med[![](assets/vm_stack.png)]
   ]
   .column[
-    ![](assets/container_stack.png)
+    .img-med[![](assets/container_stack.png)]
   ]
 ]
 
@@ -280,7 +280,7 @@ A container is launched by running an image.
 * An **image** is an executable package that includes everything needed to run an application - the code, a runtime, libraries, environment variables and configuration files.
 * A **container** is a runtime instance of an image - what the image becomes in memory when executed.
 
-.center[![](assets/Image_Container.svg)]
+.center[.img-med[![](assets/Image_Container.svg)]]
 
 .center[Attribution: Get started with Docker, https://docs.docker.com/get-started/]
 ---
@@ -288,7 +288,7 @@ A container is launched by running an image.
 
 * The **host** machine is the machine running Docker, on which images and containers are stored
 
-.center[![](assets/Host.svg)]
+.center[![](assets/Host.png)]
 
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 
