@@ -261,8 +261,7 @@ It is vital for researchers to understand and capture the computational environm
 # Virtual Machines (VMs) vs Containers
 
 * A **virtual machine (VM)** is a program that emulates a complete computer and imitates dedicated hardware. It shares physical hardware resources with other users but isolates the operating system. The end user has the same experience on a VM as they would have on dedicated hardware. 
-* In contrast, a **container** is a stand-alone, executable package of a piece of software that only includes the software and files needed to run it: code, runtime, system tools, system libraries, settings - making them far more lightweight than VMs.
-A container image is a lightweight, 
+* In contrast, a **container** is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another (far more lightweight than VMs).
 
 .columns[
 .column[
@@ -278,27 +277,6 @@ A container image is a lightweight,
 ]
 
 .center[Attribution: Docker Documentation, https://docs.docker.com/; [The Turing Way](https://the-turing-way.netlify.com/reproducible_environments/01/options.html)]
----
-# Terminology: Images and Containers
-
-A container is launched by running an image.
-
-* An **image** is an executable package that includes everything needed to run an application - the code, a runtime, libraries, environment variables and configuration files.
-* A **container** is a runtime instance of an image - what the image becomes in memory when executed.
-
-.center[![](assets/Image_Container.svg)]
-
-.center[Attribution: Get started with Docker, https://docs.docker.com/get-started/]
----
-# Terminology: Host
-
-* The **host** machine is the machine running Docker, on which images and containers are stored
-
-.img-half[
-![](assets/Host.png)
-]
-
-.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 
 ---
 # Containerisation
@@ -317,7 +295,27 @@ A container is launched by running an image.
 ]
 ]
 ]
+---
+# Terminology: Images and Containers
 
+A container is launched by running an image.
+
+* An **image** is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
+* A **container** is a runtime instance of an image - what the image becomes in memory when executed.
+
+.center[![](assets/Image_Container.svg)]
+
+.center[Attribution: Get started with Docker, https://docs.docker.com/get-started/]
+---
+# Terminology: Host
+
+* The **host** machine is the machine running the container engine (such as Docker or Singularity), on which images and containers are stored
+
+.img-half[
+![](assets/Host.png)
+]
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
 # Advantages
 
@@ -328,6 +326,8 @@ Distributing and using software as a container image gives you:
 * **Safety** – files in a container can’t access files on the host machine, so users can trust containerised applications
 * **Ease-of-Use** – they can always be run using a single run command
 * **Easy Upgrades** – they can be easily swapped out for newer versions, while all persistent data can be retained in a data volume
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
 class: center, middle
 # Part 2
@@ -372,6 +372,15 @@ Exercise
 ]
 .message-body[
 Search on Docker Hub for the best Docker image for programming in `python`. What name would you use if you wanted to run this container?
+]
+]
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+    ![](assets/docker_hub_python.png)
 ]
 ]
 ---

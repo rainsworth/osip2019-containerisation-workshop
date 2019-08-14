@@ -29,8 +29,8 @@ Prior to this workshop, participants will need:
 2. Feedback practice: Software Carpentry style traffic lights
 3. Introduction to Reproducibility through Containerisation
 4. Exercise: Hello world!
-5. Comfort break
-6. Exercise: Run an application in an existing container
+5. Exercise: Run an application in an existing container
+6. Comfort break
 7. Exercise: Build your own container
 8. Exercise: Upload your container to DockerHub
 9. Summary and closing
