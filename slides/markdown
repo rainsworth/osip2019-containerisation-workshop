@@ -62,7 +62,8 @@ After the workshop, participants should know:
 * How to distribute their container online.
 ---
 class: center, middle
-# Feedback practice: Software Carpentry style traffic lights
+# Part 0
+## Feedback practice: Software Carpentry style traffic lights
 ---
 class: left, middle
 # Feedback practice: traffic lights
@@ -180,7 +181,8 @@ Indicate how much you agree with the follow statements using Software Carpentry 
 .center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
 ---
 class: center, middle
-# Introduction to Reproducibility through Containerisation
+# Part 1
+## Introduction to Reproducibility through Containerisation
 ---
 # Reproducibility
 
@@ -331,7 +333,32 @@ Distributing and using software as a container image gives you:
 ---
 class: center, middle
 # Part 2
-## Running Containers
+## Docker
+---
+# Test Docker Installation
+
+1. Run `docker --version` and ensure that you have a supported version of Docker:
+
+```
+docker --version
+
+Docker version 19.03.1, build 74b1e89
+```
+--
+2. Run `docker info` to view even more details about your Docker installation:
+
+```
+docker info
+
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 19.03.1
+Storage Driver: overlay2
+...
+```
 ---
 # Docker Run
 * To run a container, all you need to do is specify the image name, and docker will pull the image from Docker Hub, and begin running it
