@@ -337,14 +337,16 @@ class: center, middle
 ---
 # Docker: Test installation
 
-1. Run `docker --version` and ensure that you have a supported version of Docker:  
+1\. Run `docker --version` and ensure that you have a supported version of Docker:  
+
 ```
 docker --version
 
 Docker version 19.03.1, build 74b1e89
 ```
 --
-2. Run `docker info` to view even more details about your Docker installation:  
+2\. Run `docker info` to view even more details about your Docker installation:  
+
 ```
 docker info
 
