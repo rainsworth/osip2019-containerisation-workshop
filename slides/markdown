@@ -338,14 +338,14 @@ class: center, middle
 # Docker: Test installation
 
 1. Run `docker --version` and ensure that you have a supported version of Docker:  
-```bash
+```
 docker --version
 
 Docker version 19.03.1, build 74b1e89
 ```
 --
 2. Run `docker info` to view even more details about your Docker installation:  
-```bash
+```
 docker info
 
 Containers: 0
@@ -418,13 +418,13 @@ Answer
 Exercise
 ]
 .message-body[
-1. Create a folder locally on your computer. For example:  
+1\. Create a folder locally on your computer. For example:  
 ```
 cd Desktop
 mkdir container_workshop
 cd container_workshop
 ```
-2. Create a simple python script using the example from the Reproducible Environments: Importance slide. For example:  
+2\. Create a simple python script using the example from the Reproducible Environments: Importance slide. For example:  
 ```
 vim script.py
 ```
@@ -445,7 +445,7 @@ print(a/b)
 Exercise
 ]
 .message-body[
-3. Run the script using the `python` Docker container image for Python 2 (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage). The command syntax is of the form:  
+3\. Run the script using the `python` Docker container image for Python 2 (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage). The command syntax is of the form:  
 ```
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 ```
@@ -474,7 +474,7 @@ docker run -it --rm -v "$PWD":/python_test -w /python_test python:2 python scrip
 Exercise
 ]
 .message-body[
-3. Run the script using the `python` Docker container image for Python 3 (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage). The command syntax is of the form:
+4\. Run the script using the `python` Docker container image for Python 3 (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage). The command syntax is of the form:
 ```
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 ```
@@ -490,7 +490,7 @@ Answer
 ```
 docker run -it --rm -v "$PWD":/python_test -w /python_test python:3 python script.py
 
-0
+0.2
 ```
 ]
 ]
@@ -505,7 +505,7 @@ Exercise
 ]
 .message-body[
 Run the following command to view all images installed on your machine:
-```bash
+```
 docker images
 ```
 ]
