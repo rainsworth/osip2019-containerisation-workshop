@@ -338,7 +338,6 @@ class: center, middle
 # Docker: Test installation
 
 1. Run `docker --version` and ensure that you have a supported version of Docker:
-
 ```
 docker --version
 
@@ -346,7 +345,6 @@ Docker version 19.03.1, build 74b1e89
 ```
 --
 2. Run `docker info` to view even more details about your Docker installation:
-
 ```
 docker info
 
@@ -442,17 +440,60 @@ print(a/b)
 ---
 # Docker: Using existing container images 
 
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+3. Run the script using the `python` Docker container image for Python 2 (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage). The command syntax is of the form:
+```
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+```
+See the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options.
+]
+]
+--
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
 ```
 docker run -it --rm -v "$PWD":/python_test -w /python_test python:2 python script.py
 
 0
 ```
+]
+]
+
+---
+# Docker: Using existing container images 
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+3. Run the script using the `python` Docker container image for Python 3 (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage). The command syntax is of the form:
+```
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+```
+See the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options.
+]
+]
 --
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
 ```
 docker run -it --rm -v "$PWD":/python_test -w /python_test python:3 python script.py
 
-0.2
+0
 ```
+]
+]
 
 ---
 # Listing Images
