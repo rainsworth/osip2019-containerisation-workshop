@@ -335,7 +335,7 @@ class: center, middle
 # Part 2
 ## Docker
 ---
-# Test Docker Installation
+# Docker: Test installation
 
 1. Run `docker --version` and ensure that you have a supported version of Docker:
 
@@ -360,7 +360,8 @@ Storage Driver: overlay2
 ...
 ```
 ---
-# Docker Run
+# Docker: 'Hello world!'
+
 * To run a container, all you need to do is specify the image name, and docker will pull the image from Docker Hub, and begin running it
 * `docker run <IMAGE NAME>`
 
@@ -389,8 +390,9 @@ This message shows that your installation appears to be working correctly.
 ]
 ]
 ---
-# Docker Hub
-* When you ran this command, Docker first looked for the image on your local machine, and when it couldn't find it, pulled it down from a cloud registry of Docker images called Docker Hub
+# Docker: Using existing container images 
+
+* When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and when it couldn't find it, pulled it down from a cloud registry of Docker images called Docker Hub
 * You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: <https://hub.docker.com/>
 
 .message.is-info[
@@ -398,7 +400,7 @@ This message shows that your installation appears to be working correctly.
 Exercise
 ]
 .message-body[
-Search on Docker Hub for the best Docker image for programming in `python`. What name would you use if you wanted to run this container?
+Search on Docker Hub for the best Docker image for running `python` applications. What name would you use if you wanted to run this container?
 ]
 ]
 --
@@ -411,13 +413,47 @@ Answer
 ]
 ]
 ---
-```docker run -it --rm -v "$PWD":/python_test -w /python_test python:2 python script.py```
+# Docker: Using existing container images 
 
-`0`
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+1. Create a folder locally on your computer. For example:
+```
+cd Desktop
+mkdir container_workshop
+cd container_workshop
+```
+2. Create a simple python script using the example from the Reproducible Environments: Importance slide. For example:
+```
+vim script.py
+```
+and within the script, copy and paste:
+```
+a = 1
+b = 5
+print(a/b)
+```
+]
+]
 
-```docker run -it --rm -v "$PWD":/python_test -w /python_test python:3 python script.py```
+---
+# Docker: Using existing container images 
 
-`0.2`
+```
+docker run -it --rm -v "$PWD":/python_test -w /python_test python:2 python script.py
+
+0
+```
+--
+```
+docker run -it --rm -v "$PWD":/python_test -w /python_test python:3 python script.py
+
+0.2
+```
+
 ---
 # Listing Images
 * Images that you have installed locally can be viewed using `docker images`
