@@ -384,6 +384,14 @@ Answer
 ]
 ]
 ---
+```docker run -it --rm -v "$PWD":/python_test -w /python_test python:2 python script.py```
+
+`0`
+
+```docker run -it --rm -v "$PWD":/python_test -w /python_test python:3 python script.py```
+
+`0.2`
+---
 # Listing Images
 * Images that you have installed locally can be viewed using `docker images`
 
