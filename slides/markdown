@@ -392,15 +392,27 @@ This message shows that your installation appears to be working correctly.
 ---
 # Docker: Using existing container images 
 
-* When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and when it couldn't find it, pulled it down from a cloud registry of Docker images called Docker Hub
-* You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: <https://hub.docker.com/>
+* When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and if it couldn't find it, pulled it down from a cloud registry of Docker images called **Docker Hub**
+* You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: https://hub.docker.com/
+* It provides the following major features:
+  * Repositories: Push and pull container images.
+  * Teams & Organisations: Manage access to private repositories of container images.
+  * Official Images: Pull and use high-quality container images provided by Docker.
+  * Publisher Images: Pull and use high-quality container images provided by external vendors. Certified images also include support and guarantee compatibility with Docker Enterprise.
+  * Builds: Automatically build container images from GitHub and Bitbucket and push them to Docker Hub
+  * Webhooks: Trigger actions after a successful push to a repository to integrate Docker Hub with other services.
+
+  .center[Attribution Docker Hub Quickstart, https://docs.docker.com/docker-hub/]
+
+---
+# Docker: Using existing container images 
 
 .message.is-info[
 .message-header[
 Exercise
 ]
 .message-body[
-Search on Docker Hub for the best Docker image for running `python` applications. What name would you use if you wanted to run this container?
+Search on [Docker Hub](https://hub.docker.com/) for the best container image for running `python` applications. What image name would you call if you wanted to run this container?
 ]
 ]
 --
