@@ -427,7 +427,9 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 
 * When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and if it couldn't find it, pulled it down from a cloud registry of Docker images called **Docker Hub**
 * You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: https://hub.docker.com/  
+
 --
+
 * Docker Hub provides the following major features:
   * Repositories: Push and pull container images.
   * Teams & Organisations: Manage access to private repositories of container images.
@@ -456,11 +458,11 @@ Search on [Docker Hub](https://hub.docker.com/) for the best container image for
 Answer
 ]
 .message-body[
-    ![](assets/docker_hub_python.png)
+![](assets/docker_hub_python.png)
 
-    ```
-    docker run python 
-    ```
+```
+docker run python 
+```
 ]
 ]
 ---
