@@ -401,7 +401,7 @@ This message shows that your installation appears to be working correctly.
 
 ---
 # Docker: Basic commands
-* To see the list of images on your machine, run the command:
+* To see the list of images on your machine, run `docker image ls` or `docker images`:
 
 ```
 docker image ls
@@ -412,7 +412,7 @@ hello-world            latest              fce289e99eb9        7 months ago     
 
 --
 
-* To see the list of containers (spawned by the image), run the command:
+* To see the list of containers which have been spawned by the images, run `docker container ls --all` or `docker ps --all`:
 
 ```
 docker container ls --all
@@ -421,9 +421,11 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 836421e7e92e        hello-world         "/hello"            2 minutes ago       Exited (0) 2 minutes ago
 ```
 
+--
+
+* To see containers that are currently running, you do not need the `--all` tag. For example, just `docker container ls` or `docker ps` for short.
 ---
-# Docker: Using existing container images
-## Docker Hub
+# Docker: Docker Hub
 
 * When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and if it couldn't find it, pulled it down from a cloud registry of Docker images called **Docker Hub**
 * You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: https://hub.docker.com/  
@@ -441,8 +443,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 .center[Attribution Docker Hub Quickstart, https://docs.docker.com/docker-hub/]
 
 ---
-# Docker: Using existing container images
-## Docker Hub
+# Docker: Docker Hub
 
 .message.is-info[
 .message-header[
@@ -466,8 +467,11 @@ docker run python
 ]
 ]
 ---
-# Docker: Using existing container images 
-## Docker Image Tags 
+# Docker: Image Tags 
+
+
+---
+# Docker: Image Tags
 
 .message.is-info[
 .message-header[
