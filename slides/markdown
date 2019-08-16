@@ -363,7 +363,9 @@ Storage Driver: overlay2
 # Docker: 'Hello world!'
 
 * The most basic command for running a container is: `docker run <IMAGE NAME>`
+
 --
+
 .message.is-info[
 .message-header[
 Exercise
@@ -376,7 +378,9 @@ docker run hello-world
 ```
 ]
 ]
+
 --
+
 .message.is-success[
 .message-header[
 Answer
@@ -391,13 +395,14 @@ Status: Downloaded newer image for hello-world:latest
 
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
-...
 ```
 ]
 ]
+
 ---
 # Docker: Basic commands
 * To see the list of images on your machine, run the command:
+
 ```
 docker image ls
 
@@ -408,6 +413,7 @@ hello-world            latest              fce289e99eb9        7 months ago     
 --
 
 * To see the list of containers (spawned by the image), run the command:
+
 ```
 docker container ls --all
 
