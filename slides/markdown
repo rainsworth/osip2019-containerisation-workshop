@@ -360,11 +360,14 @@ Storage Driver: overlay2
 ...
 ```
 ---
-# Docker: 'Hello world!'
+# Docker: Using existing container images
+## 'Hello world!'
 
-* To run a container, all you need to do is specify the image name, and docker will pull the image from Docker Hub, and begin running it
-* `docker run <IMAGE NAME>`
-
+* The most basic command for running a container is: 
+```
+docker run <IMAGE NAME>
+```
+--
 .message.is-info[
 .message-header[
 Exercise
@@ -390,11 +393,13 @@ This message shows that your installation appears to be working correctly.
 ]
 ]
 ---
-# Docker: Using existing container images 
+# Docker: Using existing container images
+## Docker Hub
 
 * When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and if it couldn't find it, pulled it down from a cloud registry of Docker images called **Docker Hub**
 * You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: https://hub.docker.com/
-* It provides the following major features:
+--
+* Docker Hub provides the following major features:
   * Repositories: Push and pull container images.
   * Teams & Organisations: Manage access to private repositories of container images.
   * Official Images: Pull and use high-quality container images provided by Docker.
@@ -402,8 +407,29 @@ This message shows that your installation appears to be working correctly.
   * Builds: Automatically build container images from GitHub and Bitbucket and push them to Docker Hub
   * Webhooks: Trigger actions after a successful push to a repository to integrate Docker Hub with other services.
 
-  .center[Attribution Docker Hub Quickstart, https://docs.docker.com/docker-hub/]
+.center[Attribution Docker Hub Quickstart, https://docs.docker.com/docker-hub/]
 
+---
+# Docker: Using existing container images
+## Docker Hub
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Search on [Docker Hub](https://hub.docker.com/) for the best container image for running `python` applications. What image name would you call if you wanted to run this container?
+]
+]
+--
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+    ![](assets/docker_hub_python.png)
+]
+]
 ---
 # Docker: Using existing container images 
 
@@ -421,7 +447,11 @@ Search on [Docker Hub](https://hub.docker.com/) for the best container image for
 Answer
 ]
 .message-body[
-    ![](assets/docker_hub_python.png)
+![](assets/docker_hub_python.png)
+
+```
+docker run python 
+```
 ]
 ]
 ---
