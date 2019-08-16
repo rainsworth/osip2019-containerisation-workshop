@@ -360,13 +360,9 @@ Storage Driver: overlay2
 ...
 ```
 ---
-# Docker: Using existing container images
-## 'Hello world!'
+# Docker: 'Hello world!'
 
-* The most basic command for running a container is: 
-```
-docker run <IMAGE NAME>
-```
+* The most basic command for running a container is: `docker run <IMAGE NAME>`
 --
 .message.is-info[
 .message-header[
@@ -387,17 +383,44 @@ Answer
 ]
 .message-body[
 ```
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+ca4f61b1923c: Pull complete
+Digest: sha256:ca0eeb6fb05351dfc8759c20733c91def84cb8007aa89a5bf606bc8b315b9fc7
+Status: Downloaded newer image for hello-world:latest
+
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
+...
 ```
 ]
 ]
+---
+# Docker: Basic commands
+* To see the list of images on your machine, run the command:
+```
+docker image ls
+
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+hello-world            latest              fce289e99eb9        7 months ago        1.84kB
+```
+
+--
+
+* To see the list of containers (spawned by the image), run the command:
+```
+docker container ls --all
+
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS
+836421e7e92e        hello-world         "/hello"            2 minutes ago       Exited (0) 2 minutes ago
+```
+
 ---
 # Docker: Using existing container images
 ## Docker Hub
 
 * When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and if it couldn't find it, pulled it down from a cloud registry of Docker images called **Docker Hub**
-* You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: https://hub.docker.com/
+* You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: https://hub.docker.com/  
 --
 * Docker Hub provides the following major features:
   * Repositories: Push and pull container images.
@@ -428,10 +451,15 @@ Answer
 ]
 .message-body[
     ![](assets/docker_hub_python.png)
+
+    ```
+    docker run python 
+    ```
 ]
 ]
 ---
 # Docker: Using existing container images 
+## Docker Image Tags 
 
 .message.is-info[
 .message-header[
@@ -448,10 +476,6 @@ Answer
 ]
 .message-body[
 ![](assets/docker_hub_python.png)
-
-```
-docker run python 
-```
 ]
 ]
 ---
