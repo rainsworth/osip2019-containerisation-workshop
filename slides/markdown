@@ -335,14 +335,17 @@ class: center, middle
 # Part 2
 ## Docker
 ---
-# Docker: Test installation
+# Docker: Test installation 1
 
 .message.is-info[
 .message-header[
 Exercise
 ]
 .message-body[
-Run `docker --version` and ensure that you have a supported version of Docker. What does it output?
+Run the following command to ensure that you have a supported version of Docker. What does it output?
+```
+docker --version
+``` 
 ]
 ]
 
@@ -359,14 +362,17 @@ Docker version 19.03.1, build 74b1e89
 ]
 ]
 ---
-# Docker: Test installation
+# Docker: Test installation 2
 
 .message.is-info[
 .message-header[
 Exercise
 ]
 .message-body[
-Run `docker info` to view even more details about your Docker installation. What does it output?
+Run the following command to view even more details about your Docker installation. What does it output?
+```
+docker info
+```
 ]
 ]
 
@@ -390,14 +396,17 @@ Storage Driver: overlay2
 ]
 ]
 ---
-# Docker: Test installation
+# Docker: Test installation 3
 
 .message.is-info[
 .message-header[
 Exercise
 ]
 .message-body[
-Run `docker --help` for the list of available Docker commands. What does it output?
+Run the following command for the list of available Docker commands. What does it output?
+```
+docker --help
+```
 ]
 ]
 
@@ -419,24 +428,23 @@ Options:
   -D, --debug              Enable debug mode
   -H, --host list          Daemon socket(s) to connect to
   -l, --log-level string   Set the logging level ("debug"|"info"|"warn"|"error"|"fatal") (default "info")
-      --tls                Use TLS; implied by --tlsverify
-      --tlscacert string   Trust certs signed only by this CA (default "/Users/rachael/.docker/ca.pem")
-      --tlscert string     Path to TLS certificate file (default "/Users/rachael/.docker/cert.pem")
-      --tlskey string      Path to TLS key file (default "/Users/rachael/.docker/key.pem")
-      --tlsverify          Use TLS and verify the remote
-  -v, --version            Print version information and quit
-
-Management Commands:
 ...
 ```
 ]
 ]
 ---
-# Docker: 'Hello world!'
+# Docker: Running containers
 
-* The most basic command for running a container is: `docker run <IMAGE NAME>`
+* The basic `docker run` command takes this form:
+```
+docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+```
+* The `docker run` command must specify an IMAGE to derive the container from.
+* Run `docker run --help` to see the list of available options or visit the [docker run reference](https://docs.docker.com/engine/reference/run/) for more information.
 
 --
+---
+# Docker: 'Hello world!'
 
 .message.is-info[
 .message-header[
@@ -475,6 +483,7 @@ This message shows that your installation appears to be working correctly.
 
 * When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and if it couldn't find it, pulled it down from a cloud registry of Docker images called **Docker Hub**
 * You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: https://hub.docker.com/  
+--
 * To download a particular container image, use `docker pull`: 
 ```
 $ docker pull [OPTIONS] NAME[:TAG|@DIGEST]
