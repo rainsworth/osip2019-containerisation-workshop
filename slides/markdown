@@ -337,19 +337,47 @@ class: center, middle
 ---
 # Docker: Test installation
 
-1\. Run `docker --version` and ensure that you have a supported version of Docker:  
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Run `docker --version` and ensure that you have a supported version of Docker. What does it output?
+]
+]
 
+--
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
 ```
-docker --version
-
 Docker version 19.03.1, build 74b1e89
 ```
+]
+]
+---
+# Docker: Test installation
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Run `docker info` to view even more details about your Docker installation. What does it output?
+]
+]
+
 --
-2\. Run `docker info` to view even more details about your Docker installation:  
 
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
 ```
-docker info
-
 Containers: 0
  Running: 0
  Paused: 0
@@ -359,6 +387,50 @@ Server Version: 19.03.1
 Storage Driver: overlay2
 ...
 ```
+]
+]
+---
+# Docker: Test installation
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Run `docker --help` for the list of available Docker commands. What does it output?
+]
+]
+
+--
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+Usage:	docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Options:
+      --config string      Location of client config files (default "/Users/rachael/.docker")
+  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket(s) to connect to
+  -l, --log-level string   Set the logging level ("debug"|"info"|"warn"|"error"|"fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default "/Users/rachael/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default "/Users/rachael/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default "/Users/rachael/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Management Commands:
+...
+```
+]
+]
 ---
 # Docker: 'Hello world!'
 
@@ -374,7 +446,7 @@ Exercise
 Run the following command. What does it output?
 
 ```
-docker run hello-world
+$ docker run hello-world
 ```
 ]
 ]
@@ -403,19 +475,16 @@ This message shows that your installation appears to be working correctly.
 
 * When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and if it couldn't find it, pulled it down from a cloud registry of Docker images called **Docker Hub**
 * You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: https://hub.docker.com/  
-* To download a particular image, or set of images (a repository), use `docker pull`: 
+* To download a particular container image, use `docker pull`: 
 ```
-docker pull [OPTIONS] NAME[:TAG|@DIGEST]
+$ docker pull [OPTIONS] NAME[:TAG|@DIGEST]
 ```
-* If no tag is provided, Docker uses the `:latest` tag as a default. For example, this command pulls the debian:latest image:
+* If no tag is provided, Docker uses the `:latest` tag as a default. For example, this command pulls the `debian:latest` image:
 ```
-docker pull debian
+$ docker pull debian
 ```
 * See the [docker pull reference](https://docs.docker.com/engine/reference/commandline/pull/) for available options.
-
-.center[Attribution: Docker Hub Quickstart, https://docs.docker.com/docker-hub/]
----
-# Docker 
+ 
 ---
 # Docker: Docker Hub
 
@@ -436,7 +505,7 @@ Answer
 ![](assets/docker_hub_python.png)
 
 ```
-docker pull python 
+$ docker pull python 
 ```
 ]
 ]
