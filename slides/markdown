@@ -411,6 +411,7 @@ docker pull [OPTIONS] NAME[:TAG|@DIGEST]
 ```
 docker pull debian
 ```
+* See the [docker pull reference](https://docs.docker.com/engine/reference/commandline/pull/) for available options.
 
 .center[Attribution: Docker Hub Quickstart, https://docs.docker.com/docker-hub/]
 ---
