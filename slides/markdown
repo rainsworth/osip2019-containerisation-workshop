@@ -657,16 +657,31 @@ Python 3.7.4
 ]
 ]
 ---
-# Docker: Running containers 3 - Options
+# Docker: Running containers 3
 
-Some commonly used options that you can set with `docker run` include:
-* `--detach , -d` -Run container in background and print container ID
-* `--name` - Assign a name to the container
-* `--publish , -p` - Publish a container’s port(s) to the host
-* `--rm` - Automatically remove the container when it exits
-* `--volume , -v` -	Bind mount a volume
-* `--workdir , -w` -	Working directory inside the container
+Some commonly used `docker run` options that you can set include:
+* `--detach , -d` : Run container in background and print container ID
+* `--name` : Assign a name to the container
+* `--publish , -p` : Publish a container’s port(s) to the host
+* `--rm` : Automatically remove the container when it exits
+* `--volume , -v` : Bind mount a volume (such as the directory containing your data, scripts, application)
+* `--workdir , -w` : Working directory inside the container
 
+You can use specific images (such as for specific versions of packaged software) by including: 
+* `Image[:tag]` : While not strictly a means of identifying a container, you can specify a version of an image you’d like to run the container with by adding `image[:tag]` to the command. For example, `docker run ubuntu:14.04`
+* `Image[@digest]` : Images using the v2 or later image format have a content-addressable identifier called a digest. As long as the input used to generate the image is unchanged, the digest value is predictable and referenceable. The following example runs a container from the `alpine` image with the `sha256:9cacb71397b640eca97488cf08582ae4e4068513101088e9f96c9814bfda95e0` digest: `docker run alpine@sha256:9cacb71397b640eca97488cf08582ae4e4068513101088e9f96c9814bfda95e0 date`
+
+---
+# Volumes and Bind Mounts
+* By default, Docker containers cannot access data on the host system. This means
+	* You can't use host data in your containers
+	* All data stored in the container will be lost when the container exits
+* You can solve this in two ways:
+	* `-v /path/in/host:/path/in/container`: This **bind mounts** a host file or directory into the container. Writes to one will affect the other. Note that both paths have to be *absolute* paths, so you often want to use
+```
+`pwd`/some/path
+```
+	* `-v volume_name:/path/in/container`. This mounts a **named volume** into the container, which will live separately from the rest of your files. This is preferred, unless you need to access or edit the files from the host
 
 ---
 # Docker: Running containers 4 - Port Mapping
@@ -710,17 +725,6 @@ Exercise
 * Hint: use `docker ps` if you've forgotten the container's ID
 ]
 ]
----
-# Volumes and Bind Mounts
-* By default, Docker containers cannot access data on the host system. This means
-	* You can't use host data in your containers
-	* All data stored in the container will be lost when the container exits
-* You can solve this in two ways:
-	* `-v /path/in/host:/path/in/container`: This **bind mounts** a host file or directory into the container. Writes to one will affect the other. Note that both paths have to be *absolute* paths, so you often want to use
-```
-`pwd`/some/path
-```
-	* `-v volume_name:/path/in/container`. This mounts a **named volume** into the container, which will live separately from the rest of your files. This is preferred, unless you need to access or edit the files from the host
 
 ---
 # Docker: Running containers 3 
