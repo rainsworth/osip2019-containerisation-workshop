@@ -433,18 +433,9 @@ Options:
 ]
 ]
 ---
-# Docker: Running containers
-
-* The basic `docker run` command takes this form:
-```
-docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
-```
-* The `docker run` command must specify an IMAGE to derive the container from.
-* Run `docker run --help` to see the list of available options or visit the [docker run reference](https://docs.docker.com/engine/reference/run/) for more information.
-
---
----
 # Docker: 'Hello world!'
+
+* The most basic command to run a container image is: `docker run <IMAGE NAME>`
 
 .message.is-info[
 .message-header[
@@ -682,6 +673,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 docker run [docker options] <IMAGE NAME> [image arguments]
 ```
 * This means that arguments that affect the way Docker runs must always go before the image name, but arguments that are passed to the image itself must go after the image name
+* Run `docker run --help` to see the list of available options or visit the [docker run reference](https://docs.docker.com/engine/reference/run/) for more information.
 ---
 # Port Mapping
 * Docker containers are free to listen on whatever ports to want to, for example port 80/443 for web requests
@@ -726,35 +718,7 @@ docker run -d -p 80:80 nginx
 ```
 e0d19a8b903015d01a1456a8c9b2351f540b240c0f596030e1d4cd85f9d6956a
 ```
----
-# Exercise - Galaxy
-Galaxy is a web-based platform for running bioinformatics analysis
 
-.message.is-info[
-.message-header[
-Exercise
-]
-.message-body[
-* You want to run a Galaxy server on your NeCTAR instance
-* The image is called `bgruening/galaxy-stable`
-* The galaxy image listens on port 80 inside the container
-* You want to run the container in the background
-* What is the correct `docker run` command to use?
-* Once you have done this, check it was correct by visiting your instance IP address in a browser
-]
-]
-
---
-.message.is-success[
-.message-header[
-Answer
-]
-.message-body[
-```
-docker run -d -p 80:80 bgruening/galaxy-stable
-```
-]
-]
 ---
 # Listing running containers
 * `docker ps` lists all currently running containers
