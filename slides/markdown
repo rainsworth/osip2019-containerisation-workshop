@@ -478,13 +478,17 @@ This message shows that your installation appears to be working correctly.
 --
 
 * If you want to pre-download a particular container image, use `docker pull` to retrieve it from its registry: 
-```
-docker pull [OPTIONS] NAME[:TAG|@DIGEST]
-```
-* If no tag is provided, Docker uses the `:latest` tag as a default. For example, this command pulls the `debian:latest` image:
-```
-docker pull debian
-```
+ ```
+ docker pull [OPTIONS] NAME[:TAG|@DIGEST]
+ ```
+* If no tag is provided, Docker uses the `:latest` tag as a default. For example, this command pulls the [`ubuntu:latest`](https://hub.docker.com/_/ubuntu) image:
+ ```
+ docker pull ubuntu
+ ```
+
+--
+
+* Pay careful attention to the documentation on the image's Docker Hub page - it often contains critical information such as what version of the software is being contained and the relevant tags for each version.  
 * See the [docker pull reference](https://docs.docker.com/engine/reference/commandline/pull/) for available options.
  
 ---
@@ -506,7 +510,7 @@ Hint: The command to pull the image is located in the top right of its Docker Hu
 Answer
 ]
 .message-body[
-![](assets/docker_hub_python.png)
+![https://hub.docker.com/_/python](assets/docker_hub_python.png)
 
 ```
 docker pull python 
@@ -543,12 +547,78 @@ hello-world            latest              fce289e99eb9        7 months ago     
 ]
 ]
 ---
+# Docker: Listing containers 1
+* `docker ps` lists all currently running containers
+* You can also show all terminated containers using the `-a` flag
+* The IDs that are shown can be useful for other docker commands like `docker stop` and `docker exec`
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Try running the command:
+```
+docker ps
+```
+]
+]
+
+--
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+```
+
+Nothing is listed because we don't currently have any running containers!
+]
+]
+---
+# Docker: Listing containers 2
+* `docker ps` lists all currently running containers
+* You can also show all terminated containers using the `-a` flag
+* The IDs that are shown can be useful for other docker commands like `docker stop` and `docker exec`
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Try running the command:
+```
+docker ps -a
+```
+]
+]
+
+--
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS                         PORTS               NAMES
+05ca30abafbb        hello-world         "/hello"             2 hours ago         Exited (0) 2 hours ago                             cranky_hamilton
+```
+
+Using the `-a` flag lists our previously run containers.
+]
+]
+
+---
 # Docker: Running containers 1
 
 * The complete `docker run` usage is of the form:
-```
-docker run [DOCKER OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
-```
+  ```
+  docker run [DOCKER OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+  ```
 * This means that arguments that affect the way Docker runs must always go before the image name, but arguments that are passed to the image itself (such as the commands that will run within the container) must go after the image name.
 * You can run `docker run --help` to see the list of available options or visit the [docker run reference](https://docs.docker.com/engine/reference/run/) for more information.
 
@@ -556,9 +626,9 @@ docker run [DOCKER OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
 # Docker: Running containers 2
 
 * The complete `docker run` usage is of the form:
-```
-docker run [DOCKER OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
-```
+  ```
+  docker run [DOCKER OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+  ```
 
 .message.is-info[
 .message-header[
@@ -587,7 +657,73 @@ Python 3.7.4
 ]
 ]
 ---
-# Docker: Using existing container images 
+# Docker: Running containers 3 - Options
+
+Some commonly used options that you can set with `docker run` include:
+* `--detach , -d` -Run container in background and print container ID
+* `--name` - Assign a name to the container
+* `--publish , -p` - Publish a container’s port(s) to the host
+* `--rm` - Automatically remove the container when it exits
+* `--volume , -v` -	Bind mount a volume
+* `--workdir , -w` -	Working directory inside the container
+
+
+---
+# Docker: Running containers 4 - Port Mapping
+* Docker containers are free to listen on whatever ports to want to, for example port 80/443 for web requests
+* However, these ports are not available on the host machine unless you use
+  ```
+  docker run -p host:container <IMAGE NAME>
+  ```
+* This command means "map port 8080 inside this container to port 80 on the host machine"
+  ```
+  docker run -p 80:80 <IMAGE NAME>
+  ```
+* Note that the host port and container port *can be the same*, and this is quite common
+
+.center[![](assets/Ports.svg)]
+
+---
+# Docker: Running containers 5 - Detached Mode
+* If you ever need a container to run in the background, use the `-d` docker flag. For instance, we could have run: 
+  ```
+  docker run -d -p 80:80 <IMAGE NAME>
+  ```
+* Docker then prints out the ID of the container, allowing you to access it later:
+  ```
+  e0d19a8b903015d01a1456a8c9b2351f540b240c0f596030e1d4cd85f9d6956a
+  ```
+---
+# Docker Stop
+* Ordinarily, you can press `ctrl+c` to stop a container currently running in your terminal
+* However, if the container is running in the background (with `-d`), or refuses to close, you can use `docker stop`
+```bash
+docker stop <CONTAINER ID>
+```
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+* Use `docker stop` if you to close the currently running Galaxy Docker container
+* Hint: use `docker ps` if you've forgotten the container's ID
+]
+]
+---
+# Volumes and Bind Mounts
+* By default, Docker containers cannot access data on the host system. This means
+	* You can't use host data in your containers
+	* All data stored in the container will be lost when the container exits
+* You can solve this in two ways:
+	* `-v /path/in/host:/path/in/container`: This **bind mounts** a host file or directory into the container. Writes to one will affect the other. Note that both paths have to be *absolute* paths, so you often want to use
+```
+`pwd`/some/path
+```
+	* `-v volume_name:/path/in/container`. This mounts a **named volume** into the container, which will live separately from the rest of your files. This is preferred, unless you need to access or edit the files from the host
+
+---
+# Docker: Running containers 3 
 
 .message.is-info[
 .message-header[
@@ -672,135 +808,6 @@ docker run -it --rm -v "$PWD":/python_test -w /python_test python:3 python scrip
 ]
 
 
----
-# Docker: Basic commands
-* To see the list of images on your machine, run `docker image ls` or `docker images`:
-
-```
-docker image ls
-
-REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-hello-world            latest              fce289e99eb9        7 months ago        1.84kB
-```
-
---
-
-* To see the list of containers which have been spawned by the images, run `docker container ls --all` or `docker ps --all`:
-
-```
-docker container ls --all
-
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS
-836421e7e92e        hello-world         "/hello"            2 minutes ago       Exited (0) 2 minutes ago
-```
-
---
-
-* To see containers that are currently running, you do not need the `--all` tag. For example, just `docker container ls` or `docker ps` for short.
-
----
-# Port Mapping
-* Docker containers are free to listen on whatever ports to want to, for example port 80/443 for web requests
-* However, these ports are not available on the host machine unless you use
-    ```bash
-    docker run -p host:container <IMAGE NAME>
-    ```
-* This command means "map port 8080 inside this container to port 80 on the host machine"
-    ```
-    docker run -p 80:8080 <IMAGE NAME>
-    ```
-* Note that the host port and container port *can be the same*, and this is quite common
-
-![](assets/Ports.svg)
----
-# Port Mapping
-.message.is-info[
-.message-header[
-Exercise
-]
-.message-body[
-Run the following command to start an nginx server running on your cloud instance:
-```bash
-docker run -p 80:80 nginx
-```
-Now visit this server by typing in your cloud instance IP address into a web browser:
-```
-http://115.146.85.14
-```
-Stop the container using `Ctrl+C`, just like any process
-]
-]
----
-# Detached Mode
-* If you ever need a container to run in the background, use the `-d` docker flag. For instance, we
-could have run:
-```bash
-docker run -d -p 80:80 nginx
-```
-
-* Docker then prints out the ID of the container, allowing you to access it later:
-```
-e0d19a8b903015d01a1456a8c9b2351f540b240c0f596030e1d4cd85f9d6956a
-```
-
----
-# Listing running containers
-* `docker ps` lists all currently running containers
-* Can also show all terminated containers with the `-a` flag
-* The IDs that are shown can be useful for other docker commands like `docker stop` and `docker exec`
-
-.message.is-info[
-.message-header[
-Exercise
-]
-.message-body[
-Try running the command:
-```bash
-docker ps
-```
-]
-]
-
---
-
-.message.is-success[
-.message-header[
-Answer
-]
-.message-body[
-```
-CONTAINER ID        IMAGE                     COMMAND              CREATED             STATUS              PORTS                                                     NAMES
-e0d19a8b9030        bgruening/galaxy-stable   "/usr/bin/startup"   2 minutes ago       Up 2 minutes        21/tcp, 443/tcp, 8800/tcp, 9002/tcp, 0.0.0.0:80->80/tcp   zen_leakey```
-]
-]
----
-# Docker Stop
-* Ordinarily, you can press `ctrl+c` to stop a container currently running in your terminal
-* However, if the container is running in the background (with `-d`), or refuses to close, you can use `docker stop`
-```bash
-docker stop <CONTAINER ID>
-```
-
-.message.is-info[
-.message-header[
-Exercise
-]
-.message-body[
-* Use `docker stop` if you to close the currently running Galaxy Docker container
-* Hint: use `docker ps` if you've forgotten the container's ID
-]
-]
----
-# Volumes and Bind Mounts
-* By default, Docker containers cannot access data on the host system. This means
-	* You can't use host data in your containers
-	* All data stored in the container will be lost when the container exits
-* You can solve this in two ways:
-	* `-v /path/in/host:/path/in/container`: This **bind mounts** a host file or directory into the container. Writes to one will affect the other. Note that both paths have to be *absolute* paths, so you often want to use
-```
-`pwd`/some/path
-```
-	* `-v volume_name:/path/in/container`. This mounts a **named volume** into the container, which will live separately from the rest of your files. This is preferred, unless you need to access or edit the files from the host
 ---
 
 # Exercise - Galaxy Logs
