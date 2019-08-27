@@ -510,6 +510,35 @@ $ docker pull python
 ]
 ]
 ---
+# Docker: Listing Images
+
+* Images that you have installed locally can be viewed using `docker images`
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Run the following command to view all images installed on your machine:
+```
+docker images
+```
+]
+]
+--
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+python                 latest              60e318e4984a        15 hours ago        918MB
+hello-world            latest              fce289e99eb9        7 months ago        1.84kB
+```
+]
+]
+---
 # Docker: Image Tags
 
 .message.is-info[
@@ -614,33 +643,7 @@ docker run -it --rm -v "$PWD":/python_test -w /python_test python:3 python scrip
 ]
 ]
 
----
-# Listing Images
-* Images that you have installed locally can be viewed using `docker images`
 
-.message.is-info[
-.message-header[
-Exercise
-]
-.message-body[
-Run the following command to view all images installed on your machine:
-```
-docker images
-```
-]
-]
---
-.message.is-success[
-.message-header[
-Answer
-]
-.message-body[
-```
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-hello-world         latest              f2a91732366c        3 months ago        1.85kB
-```
-]
-]
 ---
 # Docker: Basic commands
 * To see the list of images on your machine, run `docker image ls` or `docker images`:
