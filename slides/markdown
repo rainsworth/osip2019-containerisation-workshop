@@ -398,50 +398,23 @@ This message shows that your installation appears to be working correctly.
 ```
 ]
 ]
-
----
-# Docker: Basic commands
-* To see the list of images on your machine, run `docker image ls` or `docker images`:
-
-```
-docker image ls
-
-REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-hello-world            latest              fce289e99eb9        7 months ago        1.84kB
-```
-
---
-
-* To see the list of containers which have been spawned by the images, run `docker container ls --all` or `docker ps --all`:
-
-```
-docker container ls --all
-
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS
-836421e7e92e        hello-world         "/hello"            2 minutes ago       Exited (0) 2 minutes ago
-```
-
---
-
-* To see containers that are currently running, you do not need the `--all` tag. For example, just `docker container ls` or `docker ps` for short.
 ---
 # Docker: Docker Hub
 
 * When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and if it couldn't find it, pulled it down from a cloud registry of Docker images called **Docker Hub**
 * You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: https://hub.docker.com/  
+* To download a particular image, or set of images (a repository), use `docker pull`: 
+```
+docker pull [OPTIONS] NAME[:TAG|@DIGEST]
+```
+* If no tag is provided, Docker uses the `:latest` tag as a default. For example, this command pulls the debian:latest image:
+```
+docker pull debian
+```
 
---
-
-* Docker Hub provides the following major features:
-  * Repositories: Push and pull container images.
-  * Teams & Organisations: Manage access to private repositories of container images.
-  * Official Images: Pull and use high-quality container images provided by Docker.
-  * Publisher Images: Pull and use high-quality container images provided by external vendors. Certified images also include support and guarantee compatibility with Docker Enterprise.
-  * Builds: Automatically build container images from GitHub and Bitbucket and push them to Docker Hub
-  * Webhooks: Trigger actions after a successful push to a repository to integrate Docker Hub with other services.
-
-.center[Attribution Docker Hub Quickstart, https://docs.docker.com/docker-hub/]
-
+.center[Attribution: Docker Hub Quickstart, https://docs.docker.com/docker-hub/]
+---
+# Docker 
 ---
 # Docker: Docker Hub
 
@@ -450,7 +423,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 Exercise
 ]
 .message-body[
-Search on [Docker Hub](https://hub.docker.com/) for the best container image for running `python` applications. What image name would you call if you wanted to run this container?
+Search on [Docker Hub](https://hub.docker.com/) for the best container image for running `python` applications. What image name would you call if you wanted to pull this container?
 ]
 ]
 --
@@ -462,14 +435,10 @@ Answer
 ![](assets/docker_hub_python.png)
 
 ```
-docker run python 
+docker pull python 
 ```
 ]
 ]
----
-# Docker: Image Tags 
-
-
 ---
 # Docker: Image Tags
 
@@ -602,6 +571,31 @@ hello-world         latest              f2a91732366c        3 months ago        
 ```
 ]
 ]
+---
+# Docker: Basic commands
+* To see the list of images on your machine, run `docker image ls` or `docker images`:
+
+```
+docker image ls
+
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+hello-world            latest              fce289e99eb9        7 months ago        1.84kB
+```
+
+--
+
+* To see the list of containers which have been spawned by the images, run `docker container ls --all` or `docker ps --all`:
+
+```
+docker container ls --all
+
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS
+836421e7e92e        hello-world         "/hello"            2 minutes ago       Exited (0) 2 minutes ago
+```
+
+--
+
+* To see containers that are currently running, you do not need the `--all` tag. For example, just `docker container ls` or `docker ps` for short.
 ---
 # Docker Run Flags
 * Docker Run is of the form:
@@ -1078,6 +1072,16 @@ singularity run [IMAGE FILE] view -H < data/alignment.sam
 ```
 ]
 ]
+---
+class: left, middle
+# Summary and Closing
+
+After the workshop, participants should know:
+* What containerisation is and why they might use it in their research.
+* Some common containerisation tools and when to use them.
+* How to find and run containers built by other people.
+* How to build their own container.
+* How to distribute their container online.
 ---
 class: center, middle
 # That's All
