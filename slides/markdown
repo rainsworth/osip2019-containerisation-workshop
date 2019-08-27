@@ -495,7 +495,9 @@ docker pull debian
 Exercise
 ]
 .message-body[
-Search on [Docker Hub](https://hub.docker.com/) for the best container image for running `python` applications. What image name would you call if you wanted to pull this container?
+Search on [Docker Hub](https://hub.docker.com/) for the best container image for running `python` applications. What command would you run if you wanted to pull this container image?
+
+Hint: The command to pull the image is located in the top right of its Docker Hub page. [And it will take a minute or two to download.]
 ]
 ]
 --
@@ -541,24 +543,36 @@ hello-world            latest              fce289e99eb9        7 months ago     
 ]
 ]
 ---
-# Docker: Run Flags
+# Docker: Running containers 1
+
 * The complete `docker run` usage is of the form:
 ```
 docker run [DOCKER OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
 ```
 * This means that arguments that affect the way Docker runs must always go before the image name, but arguments that are passed to the image itself (such as the commands that will run within the container) must go after the image name.
-* Run `docker run --help` to see the list of available options or visit the [docker run reference](https://docs.docker.com/engine/reference/run/) for more information.
-
+* You can run `docker run --help` to see the list of available options or visit the [docker run reference](https://docs.docker.com/engine/reference/run/) for more information.
 
 ---
-# Docker: Image Tags
+# Docker: Running containers 2
+
+* The complete `docker run` usage is of the form:
+```
+docker run [DOCKER OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+```
 
 .message.is-info[
 .message-header[
 Exercise
 ]
 .message-body[
-Search on [Docker Hub](https://hub.docker.com/) for the best container image for running `python` applications. What image name would you call if you wanted to run this container?
+Run the following command to find out which version of Python is used in the `python` image we pulled:
+```
+docker run python python --version
+```
+In this example,
+* The first instance of `python` references the image name (with default tag `:latest`).
+* `python --version` is the command being run inside the container.
+* What is the output?
 ]
 ]
 --
@@ -567,7 +581,9 @@ Search on [Docker Hub](https://hub.docker.com/) for the best container image for
 Answer
 ]
 .message-body[
-![](assets/docker_hub_python.png)
+```
+Python 3.7.4
+```
 ]
 ]
 ---
