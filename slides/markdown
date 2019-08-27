@@ -445,7 +445,7 @@ Exercise
 Run the following command. What does it output?
 
 ```
-$ docker run hello-world
+docker run hello-world
 ```
 ]
 ]
@@ -470,23 +470,25 @@ This message shows that your installation appears to be working correctly.
 ]
 ]
 ---
-# Docker: Docker Hub
+# Docker: Docker Hub 1
 
 * When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and if it couldn't find it, pulled it down from a cloud registry of Docker images called **Docker Hub**
 * You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: https://hub.docker.com/  
+
 --
-* To download a particular container image, use `docker pull`: 
+
+* If you want to pre-download a particular container image, use `docker pull` to retrieve it from its registry: 
 ```
-$ docker pull [OPTIONS] NAME[:TAG|@DIGEST]
+docker pull [OPTIONS] NAME[:TAG|@DIGEST]
 ```
 * If no tag is provided, Docker uses the `:latest` tag as a default. For example, this command pulls the `debian:latest` image:
 ```
-$ docker pull debian
+docker pull debian
 ```
 * See the [docker pull reference](https://docs.docker.com/engine/reference/commandline/pull/) for available options.
  
 ---
-# Docker: Docker Hub
+# Docker: Docker Hub 2
 
 .message.is-info[
 .message-header[
@@ -505,7 +507,7 @@ Answer
 ![](assets/docker_hub_python.png)
 
 ```
-$ docker pull python 
+docker pull python 
 ```
 ]
 ]
@@ -538,6 +540,16 @@ hello-world            latest              fce289e99eb9        7 months ago     
 ```
 ]
 ]
+---
+# Docker: Run Flags
+* The complete `docker run` usage is of the form:
+```
+docker run [DOCKER OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+```
+* This means that arguments that affect the way Docker runs must always go before the image name, but arguments that are passed to the image itself (such as the commands that will run within the container) must go after the image name.
+* Run `docker run --help` to see the list of available options or visit the [docker run reference](https://docs.docker.com/engine/reference/run/) for more information.
+
+
 ---
 # Docker: Image Tags
 
@@ -669,14 +681,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 --
 
 * To see containers that are currently running, you do not need the `--all` tag. For example, just `docker container ls` or `docker ps` for short.
----
-# Docker Run Flags
-* Docker Run is of the form:
-```bash
-docker run [docker options] <IMAGE NAME> [image arguments]
-```
-* This means that arguments that affect the way Docker runs must always go before the image name, but arguments that are passed to the image itself must go after the image name
-* Run `docker run --help` to see the list of available options or visit the [docker run reference](https://docs.docker.com/engine/reference/run/) for more information.
+
 ---
 # Port Mapping
 * Docker containers are free to listen on whatever ports to want to, for example port 80/443 for web requests
