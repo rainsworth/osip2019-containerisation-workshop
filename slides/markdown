@@ -147,7 +147,7 @@ Indicate how much you agree with the follow statements using Software Carpentry 
 Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
 
 .center[
-#### I have experience using Docker.
+#### I have installed Docker.
 ]
 
 .columns[
@@ -166,7 +166,7 @@ Indicate how much you agree with the follow statements using Software Carpentry 
 Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
 
 .center[
-#### I have experience using Singularity.
+#### I have some previous experience using containers.
 ]
 
 .columns[
@@ -187,7 +187,7 @@ class: center, middle
 # Reproducibility
 
 .img-med[
-![](assets/TuringWayReproducible.jpg)
+![](assets/1728_TURI_Book sprint_39 reproducible replicable robust generalisable_040619.jpg)
 ]
 
 .center[Attribution: The Turing Way Community & Scriberia, http://doi.org/10.5281/zenodo.3332808]
