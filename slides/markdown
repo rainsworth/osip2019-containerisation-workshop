@@ -688,7 +688,7 @@ Python 3.7.4
 ```
 ]
 ]
-
+---
 
 # Docker: Running containers 4
 
@@ -700,7 +700,7 @@ You can be even more specific by including:
 Exercise
 ]
 .message-body[
-Run the following command to specify that we want to use Python version 3.7.4:
+Run the following command to specify that we want to use a container image with Python version 3.7.4 installed:
 ```
 docker run python@sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da40701e5d473e python --version
 ```
@@ -722,7 +722,7 @@ Python 3.7.4
 * The goal is to be as specific as possible when using and referencing container images, so that if the image is updated in the future, others can still identify and use the same containerised software to reproduce your work.
 
 ---
-# Docker: Running containers 3
+# Docker: Running containers 5
 
 Some commonly used `docker run` options that you can set include:
 * `--detach , -d` : Run container in background and print container ID
@@ -733,7 +733,7 @@ Some commonly used `docker run` options that you can set include:
 * `--workdir , -w` : Working directory inside the container
 
 ---
-# Volumes and Bind Mounts
+# Docker: Running containers 6 - Volumes and Bind Mounts
 * By default, Docker containers cannot access data on the host system. This means
 	* You can't use host data in your containers
 	* All data stored in the container will be lost when the container exits
@@ -745,50 +745,7 @@ Some commonly used `docker run` options that you can set include:
 	* `-v volume_name:/path/in/container`. This mounts a **named volume** into the container, which will live separately from the rest of your files. This is preferred, unless you need to access or edit the files from the host
 
 ---
-# Docker: Running containers 4 - Port Mapping
-* Docker containers are free to listen on whatever ports to want to, for example port 80/443 for web requests
-* However, these ports are not available on the host machine unless you use
-  ```
-  docker run -p host:container <IMAGE NAME>
-  ```
-* This command means "map port 8080 inside this container to port 80 on the host machine"
-  ```
-  docker run -p 80:80 <IMAGE NAME>
-  ```
-* Note that the host port and container port *can be the same*, and this is quite common
-
-.center[![](assets/Ports.svg)]
-
----
-# Docker: Running containers 5 - Detached Mode
-* If you ever need a container to run in the background, use the `-d` docker flag. For instance, we could have run: 
-  ```
-  docker run -d -p 80:80 <IMAGE NAME>
-  ```
-* Docker then prints out the ID of the container, allowing you to access it later:
-  ```
-  e0d19a8b903015d01a1456a8c9b2351f540b240c0f596030e1d4cd85f9d6956a
-  ```
----
-# Docker Stop
-* Ordinarily, you can press `ctrl+c` to stop a container currently running in your terminal
-* However, if the container is running in the background (with `-d`), or refuses to close, you can use `docker stop`
-```bash
-docker stop <CONTAINER ID>
-```
-
-.message.is-info[
-.message-header[
-Exercise
-]
-.message-body[
-* Use `docker stop` if you to close the currently running Galaxy Docker container
-* Hint: use `docker ps` if you've forgotten the container's ID
-]
-]
-
----
-# Docker: Running containers 3 
+# Docker: Running containers 7 
 
 .message.is-info[
 .message-header[
@@ -815,7 +772,7 @@ print(a/b)
 ]
 
 ---
-# Docker: Using existing container images 
+# Docker: Running containers 7 
 
 .message.is-info[
 .message-header[
@@ -844,7 +801,7 @@ docker run -it --rm -v "$PWD":/python_test -w /python_test python:2 python scrip
 ]
 
 ---
-# Docker: Using existing container images 
+# Docker: Running containers 7 
 
 .message.is-info[
 .message-header[
@@ -872,44 +829,49 @@ docker run -it --rm -v "$PWD":/python_test -w /python_test python:3 python scrip
 ]
 ]
 
+---
+# Docker: Running containers 8 - Port Mapping
+* Docker containers are free to listen on whatever ports to want to, for example port 80/443 for web requests
+* However, these ports are not available on the host machine unless you use
+  ```
+  docker run -p host:container <IMAGE NAME>
+  ```
+* This command means "map port 8080 inside this container to port 80 on the host machine"
+  ```
+  docker run -p 80:80 <IMAGE NAME>
+  ```
+* Note that the host port and container port *can be the same*, and this is quite common
+
+.center[![](assets/Ports.svg)]
 
 ---
-
-# Exercise - Galaxy Logs
-.message.is-info[
-.message-header[
-Exercise
-]
-.message-body[
-* You need to store the logs for your Galaxy image on your host system using a bind mount
-* The Galaxy container stores its logs in `/home/galaxy/logs`
-* What command do you run?
-* *Hint: You will want to run the container in detached mode*
-* Once you have done this, `ls` the directory you mounted into the container to verify that you have the logs
-]
-]
---
-
-.message.is-success[
-.message-header[
-Answer
-]
-.message-body[
+# Docker: Running containers 9 - Detached Mode
+* If you ever need a container to run in the background, use the `-d` docker flag. For instance, we could have run: 
+  ```
+  docker run -d -p 80:80 <IMAGE NAME>
+  ```
+* Docker then prints out the ID of the container, allowing you to access it later:
+  ```
+  e0d19a8b903015d01a1456a8c9b2351f540b240c0f596030e1d4cd85f9d6956a
+  ```
+---
+# Docker Stop
+* Ordinarily, you can press `ctrl+c` to stop a container currently running in your terminal
+* However, if the container is running in the background (with `-d`), or refuses to close, you can use `docker stop`
 ```bash
-docker run -d -v `pwd`/galaxy_logs:/home/galaxy/logs bgruening/galaxy-stable
+docker stop <CONTAINER ID>
 ```
-]
-]
----
-# Exercise - Galaxy Logs
+
 .message.is-info[
 .message-header[
 Exercise
 ]
 .message-body[
-Now, try to stop this container the same way we did last time
+* Use `docker stop` if you to close the currently running Galaxy Docker container
+* Hint: use `docker ps` if you've forgotten the container's ID
 ]
 ]
+
 ---
 # Running commands inside a container
 * You can run a command inside a running container using:
