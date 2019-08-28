@@ -717,15 +717,15 @@ Python 3.7.4
 ]
 ]
 ---
-# Docker: Running containers 5
+# Docker: Running containers 5 - Options
 
 Some commonly used `docker run` options that you can set include:
-* `--detach , -d` : Run container in background and print container ID
-* `--name` : Assign a name to the container
+* `--detach , -d` : Run container in background (detached mode) and print container ID
+* `--name` : Assign a (meaningful) name to the container for easy reference later
 * `--publish , -p` : Publish a container’s port(s) to the host
-* `--rm` : Automatically remove the container when it exits
-* `--volume , -v` : Bind mount a volume (such as the directory containing your data, scripts, application)
-* `--workdir , -w` : Working directory inside the container
+* `--rm` : Automatically remove the container when it exits (to cleanup and save space on your machine)
+* `--volume , -v` : Bind mount a volume into the container (such as the directory containing your data, scripts, application)
+* `--workdir , -w` : Set the working directory inside the container
 
 ---
 # Docker: Running containers 6 - Volumes and Bind Mounts
@@ -740,7 +740,7 @@ Some commonly used `docker run` options that you can set include:
 	* `-v volume_name:/path/in/container`. This mounts a **named volume** into the container, which will live separately from the rest of your files. This is preferred, unless you need to access or edit the files from the host
 
 ---
-# Docker: Running containers 7 
+# Docker: Running containers 7 - Exercise
 
 .message.is-info[
 .message-header[
@@ -774,11 +774,17 @@ print(a/b)
 Exercise
 ]
 .message-body[
-3\. Run the script using the `python` Docker container image for Python 2 (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage). The command syntax is of the form:  
+3\. Run the script using the `python` Docker container image for Python 2.7.16 (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options):  
 ```
-docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+docker run --rm -v "$PWD":/python_test -w /python_test python:2.7.16 python script.py
 ```
-See the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options.
+In this example,
+* `--rm` deletes the container after it finishes running to clean up and save space.
+* `-v "$PWD":/python_test` binds our current working directory (`container_workshop`) and its contents into a `python_test` directory in the container.
+* `-w /python_test` sets the working directory in the container to `python_test`.
+* `python:2.7.16` is our `image:tag` for Python version 2.7.16.
+* `python script.py` is the command executed within the container to run our Python script.
+* What is the output?
 ]
 ]
 --
@@ -788,8 +794,6 @@ Answer
 ]
 .message-body[
 ```
-docker run -it --rm -v "$PWD":/python_test -w /python_test python:2 python script.py
-
 0
 ```
 ]
@@ -817,7 +821,7 @@ Answer
 ]
 .message-body[
 ```
-docker run -it --rm -v "$PWD":/python_test -w /python_test python:3 python script.py
+docker run --rm -v "$PWD":/python_test -w /python_test python:3 python script.py
 
 0.2
 ```
