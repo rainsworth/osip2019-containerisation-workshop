@@ -659,7 +659,8 @@ Python 3.7.4
 ---
 # Docker: Running containers 3
 
-You can use specific images (such as for specific versions of packaged software) by including: 
+Because container images on Docker Hub and other registries are often updated, the container version labelled with the default `:latest` tag will change. It is therefore best practice to reference the container image you use with more specific identifiers such as `Image[:tag]` or `Image[@digest]`.
+
 * `Image[:tag]` : While not strictly a means of identifying a container, you can specify a version of an image you’d like to run the container with by adding `image[:tag]` to the command. For example: 
 
 .message.is-info[
@@ -667,7 +668,9 @@ You can use specific images (such as for specific versions of packaged software)
 Exercise
 ]
 .message-body[
-Run the following command to specify that we want to use Python version 3.7.4:
+Check out the list of available tags for the `python` container image on its Docker Hub page: https://hub.docker.com/_/python
+
+Although in the previous exercise, we saw that the version of Python used in the image with the `:latest` tag, we want to make sure that we consistently use the same version of the software throughout our research workflow. We can therefore run `docker run python:3.7.4` to specify that we want to use Python version 3.7.4. For example, run the following command - what is the output?
 ```
 docker run python:3.7.4 python --version
 ```
@@ -692,15 +695,16 @@ Python 3.7.4
 
 # Docker: Running containers 4
 
-You can be even more specific by including:
-* `Image[@digest]` : Images using the v2 or later image format have a content-addressable identifier called a **digest**. As long as the input used to generate the image is unchanged, the digest value is predictable and referenceable. The following example runs the container from the `python` image with the `sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da40701e5d473e` digest (from the previous slide):  
+The goal is to be as specific as possible when using and referencing container images, so that if the image is updated in the future, others can still identify and use the same containerised software to reproduce your work. The most specific way to reference the container image you're using is by its unique **digest**.
+* `Image[@digest]` : Images using the v2 or later image format have a content-addressable identifier called a **digest**. As long as the input used to generate the image is unchanged, the digest value is predictable and referenceable.   
 
 .message.is-info[
 .message-header[
 Exercise
 ]
 .message-body[
-Run the following command to specify that we want to use a container image with Python version 3.7.4 installed:
+The following example runs the container from the `python` version 3.7.4 image with the `sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da40701e5d473e` digest (from the previous slide):
+
 ```
 docker run python@sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da40701e5d473e python --version
 ```
@@ -717,9 +721,7 @@ Python 3.7.4
 ```
 ]
 ]
---
 
-* The goal is to be as specific as possible when using and referencing container images, so that if the image is updated in the future, others can still identify and use the same containerised software to reproduce your work.
 
 ---
 # Docker: Running containers 5
