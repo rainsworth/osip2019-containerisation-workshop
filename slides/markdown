@@ -657,18 +657,16 @@ Python 3.7.4
 ]
 ]
 ---
-# Docker: Running containers 3
+# Docker: Running containers 3 - Image tags
 
-Because container images on Docker Hub and other registries are often updated, the container version labelled with the default `:latest` tag will change. It is therefore best practice to reference the container image you use with more specific identifiers such as `Image[:tag]` or `Image[@digest]`. While not strictly a means of identifying a container, you can specify a version of an image you’d like to run the container with by adding `image[:tag]` to the command.  
+Because container images on Docker Hub and other registries are often updated, the container version labelled with the default `:latest` tag will change. It is therefore best practice to reference the container image you use with more specific identifiers such as `Image[:tag]` or `Image[@digest]`. While not strictly a means of identifying a container, you can specify a version of an image you’d like to run the container with using: `image[:tag]`  
 
 .message.is-info[
 .message-header[
 Exercise
 ]
 .message-body[
-Check out the list of available tags for the `python` container image on its Docker Hub page: https://hub.docker.com/_/python
-
-In the previous exercise, we saw that the version of Python used in the image with the `:latest` tag was 3.7.4. However, if we knew in advance which version of Python we wanted, we could run `docker run python:3.7.4` for example to specify that we want to use Python version 3.7.4. Run the following command - what is the output?
+Check out the list of available tags for the `python` container image on its Docker Hub page: https://hub.docker.com/_/python. In the previous exercise, we saw that the version of Python used in the image with the `:latest` tag was 3.7.4. However, if we knew in advance which version of Python we wanted, we could run `docker run python:3.7.4` for example to specify that we want to use Python version 3.7.4. Run the following command - what is the output?
 ```
 docker run python:3.7.4 python --version
 ```
@@ -691,7 +689,7 @@ Python 3.7.4
 ]
 ---
 
-# Docker: Running containers 4
+# Docker: Running containers 4 - Image digests
 
 The goal is to be as specific as possible when using and referencing container images, so that if the image is updated in the future, others can still identify and use the same containerised software to reproduce your work. The most specific way to reference the container image you're using is by its unique identifier called its **digest** in the following way: `Image[@digest]` 
 
