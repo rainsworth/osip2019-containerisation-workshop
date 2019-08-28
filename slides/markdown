@@ -659,9 +659,7 @@ Python 3.7.4
 ---
 # Docker: Running containers 3
 
-Because container images on Docker Hub and other registries are often updated, the container version labelled with the default `:latest` tag will change. It is therefore best practice to reference the container image you use with more specific identifiers such as `Image[:tag]` or `Image[@digest]`.
-
-* `Image[:tag]` : While not strictly a means of identifying a container, you can specify a version of an image you’d like to run the container with by adding `image[:tag]` to the command. For example: 
+Because container images on Docker Hub and other registries are often updated, the container version labelled with the default `:latest` tag will change. It is therefore best practice to reference the container image you use with more specific identifiers such as `Image[:tag]` or `Image[@digest]`. While not strictly a means of identifying a container, you can specify a version of an image you’d like to run the container with by adding `image[:tag]` to the command.  
 
 .message.is-info[
 .message-header[
@@ -695,8 +693,7 @@ Python 3.7.4
 
 # Docker: Running containers 4
 
-The goal is to be as specific as possible when using and referencing container images, so that if the image is updated in the future, others can still identify and use the same containerised software to reproduce your work. The most specific way to reference the container image you're using is by its unique **digest**.
-* `Image[@digest]` : Images using the v2 or later image format have a content-addressable identifier called a **digest**. As long as the input used to generate the image is unchanged, the digest value is predictable and referenceable.   
+The goal is to be as specific as possible when using and referencing container images, so that if the image is updated in the future, others can still identify and use the same containerised software to reproduce your work. The most specific way to reference the container image you're using is by its unique identifier called its **digest** in the following way: `Image[@digest]` 
 
 .message.is-info[
 .message-header[
