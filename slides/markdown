@@ -739,6 +739,8 @@ Some commonly used `docker run` options that you can set include:
 ```
 	* `-v volume_name:/path/in/container`. This mounts a **named volume** into the container, which will live separately from the rest of your files. This is preferred, unless you need to access or edit the files from the host
 
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
+
 ---
 # Docker: Running containers 7 - Exercise
 
@@ -780,7 +782,7 @@ docker run --rm -v "$PWD":/python_test -w /python_test python:2.7.16 python scri
 ```
 In this example,
 * `--rm` deletes the container after it finishes running to clean up and save space.
-* `-v "$PWD":/python_test` binds our current working directory (`container_workshop`) and its contents into a `python_test` directory in the container.
+* `-v "$PWD":/python_test` binds our current working directory (`container_workshop`) and its contents into `python_test` within the container.
 * `-w /python_test` sets the working directory in the container to `python_test`.
 * `python:2.7.16` is our `image:tag` for Python version 2.7.16.
 * `python script.py` is the command executed within the container to run our Python script.
@@ -830,103 +832,42 @@ This exercise demonstrated how:
 ]
 
 ---
-# Docker: Running containers 8 - Port Mapping
-* Docker containers are free to listen on whatever ports to want to, for example port 80/443 for web requests
-* However, these ports are not available on the host machine unless you use
+# Docker: Running commands inside a container
+* You can run a command inside a running container using:
   ```
-  docker run -p host:container <IMAGE NAME>
+  docker exec <CONTAINER ID> <COMMAND>
   ```
-* This command means "map port 8080 inside this container to port 80 on the host machine"
+* For example:
   ```
-  docker run -p 80:80 <IMAGE NAME>
+  docker exec bd2ac6cce96f ls
   ```
-* Note that the host port and container port *can be the same*, and this is quite common
-
-.center[![](assets/Ports.svg)]
+* You can also run an interactive bash session inside the container with:
+  ```
+  docker exec -it bd2ac6cce96f bash
+  ```
 
 ---
-# Docker: Running containers 9 - Detached Mode
-* If you ever need a container to run in the background, use the `-d` docker flag. For instance, we could have run: 
-  ```
-  docker run -d -p 80:80 <IMAGE NAME>
-  ```
-* Docker then prints out the ID of the container, allowing you to access it later:
-  ```
-  e0d19a8b903015d01a1456a8c9b2351f540b240c0f596030e1d4cd85f9d6956a
-  ```
----
-# Docker Stop
+# Docker: Terminating a running container
 * Ordinarily, you can press `ctrl+c` to stop a container currently running in your terminal
 * However, if the container is running in the background (with `-d`), or refuses to close, you can use `docker stop`
-```bash
+```
 docker stop <CONTAINER ID>
 ```
+---
+# Docker: Summary
 
-.message.is-info[
-.message-header[
-Exercise
-]
-.message-body[
-* Use `docker stop` if you to close the currently running Galaxy Docker container
-* Hint: use `docker ps` if you've forgotten the container's ID
-]
-]
-
----
-# Running commands inside a container
-* You can run a command inside a running container using:
-```bash
-docker exec <CONTAINER ID> <COMMAND>
-```
-* For example:
-```bash
-docker exec bd2ac6cce96f ls
-```
-* You can also run an interactive bash session inside the container with:
-```bash
-docker exec -it bd2ac6cce96f bash
-```
----
-# Running a Container Interactively
-.message.is-info[
-.message-header[
-Exercise
-]
-.message-body[
-* Start another Galaxy container using:
-```bash
-docker run -d -p 80:80 bgruening/galaxy-stable
-```
-* Now, you want to make a quick edit to the Galaxy homepage, which is located at `/etc/galaxy/web/welcome.html`
-* Edit the welcome message in some way, save the file, and then check to see if your changes worked on the website
-* You'll probably have to re-open the webpage in an incognito window to get it to refresh
-]
-]
-
----
-# Running a Container Interactively
-.message.is-success[
-.message-header[
-Exercise
-]
-.message-body[
-* First, `docker ps` to find the container ID
-* Next, `docker exec -it <CONTAINER_ID> bash`
-* Now, run `nano /etc/galaxy/web/welcome.html` (or vim!) and save the file
-]
-]
----
-# Summary
 The Docker commands we've covered so far are:
-* `docker [-d] [-p host:container] [-v /host/path:/container/path] run <IMAGE NAME>`, which runs a Docker image
+* `docker --help`, which displays Docker usage options
+* `docker pull <IMAGE NAME[:TAG|@DIGEST]>`, which installs an image from Docker Hub
 * `docker images`, which displays all installed images
 * `docker ps [-a]`, which displays all containers on the system
+* `docker run [--rm] [-v /host/path:/container/path] [-w /container/path] <IMAGE NAME[:TAG|@DIGEST]> <COMMAND>`, which runs a Docker image
 * `docker exec <CONTAINER ID> <COMMAND>`, which lets you run a command inside a running container
 * `docker stop <CONTAINER ID>`, which stops a running container
 ---
 class: center, middle
 # Part 3
-## Making your Own Image
+## Making your Own Docker Image
 ---
 # Dockerfiles
 * The core of making a Docker image is a Dockerfile
@@ -937,6 +878,8 @@ class: center, middle
     * `COPY` copies some data from the host to the image
     * `ENTRYPOINT` sets the command that will be run when a container is created
     * `WORKDIR`, like `cd`, sets the current working directory for the build script
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
 # Dockerfiles - Example
 ```
@@ -958,8 +901,11 @@ RUN ./install.sh --noninteractive
 # Run the main script
 ENTRYPOINT ["./cpipe"]
 ```
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
 # Dockerfile Tips
+
 * You should try to separate the Dockerfile into as many stages as possible, because this will allow for better caching
 * `apt-get`:
 	* You must run `apt-get update` and `apt-get install` in the same command, otherwise you will encounter caching issues
@@ -967,6 +913,8 @@ ENTRYPOINT ["./cpipe"]
 * Useful resources:
 	* [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
 	* [Best practices](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
 # Docker Build
 * To build a Docker image from a Dockerfile, use the `docker build` command
@@ -974,6 +922,9 @@ ENTRYPOINT ["./cpipe"]
 ```bash
 docker build -t my_image .
 ```
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
+
 ---
 # Exercise - Dockerizing Samtools
 * Samtools is a common utility for working with SAM and BAM alignment files
