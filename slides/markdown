@@ -659,7 +659,7 @@ Python 3.7.4
 ---
 # Docker: Running containers 3 - Image tags
 
-Because container images on Docker Hub and other registries are often updated, the container version labelled with the default `:latest` tag will change. It is therefore best practice to reference the container image you use with more specific identifiers such as `Image[:tag]` or `Image[@digest]`. While not strictly a means of identifying a container, you can specify a version of an image you’d like to run the container with using: `image[:tag]`  
+Because container images on Docker Hub and other registries are often updated, the container version labelled with the default `:latest` tag will change. It is therefore best practice to reference the container image you use with more specific identifiers such as `Image[:tag]` or `Image[@digest]`.  
 
 .message.is-info[
 .message-header[
