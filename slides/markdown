@@ -776,7 +776,7 @@ print(a/b)
 Exercise
 ]
 .message-body[
-3\. Run the script using the `python` Docker container image for Python version 2.7.16 (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options):  
+3\. Run the script using the `python` Docker container image for **Python version 2.7.16** (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options):  
 ```
 docker run --rm -v "$PWD":/python_test -w /python_test python:2.7.16 python script.py
 ```
@@ -809,7 +809,7 @@ Answer
 Exercise
 ]
 .message-body[
-4\. How would you run the previous command for the same script using the `python` Docker container image for Python version 3.7.4 (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options). And what is the output?
+4\. How would you run the previous command for the same script using the `python` Docker container image for **Python version 3.7.4** (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options). And what is the output?
 ]
 ]
 --
