@@ -331,6 +331,11 @@ Distributing and using software as a container image gives you:
 
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
+# Use case
+
+* How I use containers in my work
+
+---
 class: center, middle
 # Part 2
 ## Docker
@@ -721,14 +726,43 @@ Python 3.7.4
 
 Some commonly used `docker run` options that you can set include:
 * `--detach , -d` : Run container in background (detached mode) and print container ID
+* `--interactive , -i` : Run Docker in interactive mode (keep STDIN open even if not attached)
+  * For interactive processes (like a shell), you must use `-i -t` together in order to allocate a tty for the container process. `-i -t` is often written `-it` for short.
 * `--name` : Assign a (meaningful) name to the container for easy reference later
 * `--publish , -p` : Publish a container’s port(s) to the host
 * `--rm` : Automatically remove the container when it exits (to cleanup and save space on your machine)
+* `--tty , -t` : Allocate a pseudo-TTY (necessary for interactive mode)
 * `--volume , -v` : Bind mount a volume into the container (such as the directory containing your data, scripts, application)
 * `--workdir , -w` : Set the working directory inside the container
 
 ---
-# Docker: Running containers 6 - Volumes and Bind Mounts
+# Docker: Running containers 6 - Interactive mode
+
+For interactive processes (like a shell), you must use `-i -t` together in order to allocate a tty for the container process. `-i -t` is often written `-it` for short, where the flags are defined as followed:
+* `--interactive , -i` : Run Docker in interactive mode (keep STDIN open even if not attached)
+* `--tty , -t` : Allocate a pseudo-TTY 
+
+--
+
+For example, if we wanted to play around in an interactive Python shell, we could run:
+```
+docker run -it python:3.7.4
+
+Python 3.7.4 (default, Aug 14 2019, 12:09:51) 
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+```
+
+--
+
+Or if we simply wanted a bash shell in the `python` container, we could run:
+```
+docker run -it python:3.7.4 /bin/bash
+```
+
+---
+# Docker: Running containers 7 - Volumes and Bind Mounts
 * By default, Docker containers cannot access data on the host system. This means
 	* You can't use host data in your containers
 	* All data stored in the container will be lost when the container exits
@@ -742,7 +776,7 @@ Some commonly used `docker run` options that you can set include:
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 
 ---
-# Docker: Running containers 7 - Exercise
+# Docker: Running containers 8 - Exercise
 
 .message.is-info[
 .message-header[
@@ -769,7 +803,7 @@ print(a/b)
 ]
 
 ---
-# Docker: Running containers 7 - Exercise
+# Docker: Running containers 8 - Exercise
 
 .message.is-info[
 .message-header[
@@ -802,7 +836,7 @@ Answer
 ]
 
 ---
-# Docker: Running containers 7 - Exercise 
+# Docker: Running containers 8 - Exercise 
 
 .message.is-info[
 .message-header[
@@ -861,7 +895,7 @@ The Docker commands we've covered so far are:
 * `docker pull <IMAGE NAME[:TAG|@DIGEST]>`, which installs an image from Docker Hub
 * `docker images`, which displays all installed images
 * `docker ps [-a]`, which displays all containers on the system
-* `docker run [--rm] [-v /host/path:/container/path] [-w /container/path] <IMAGE NAME[:TAG|@DIGEST]> <COMMAND>`, which runs a Docker image
+* `docker run [--rm] [-it] [-v /host/path:/container/path] [-w /container/path] <IMAGE NAME[:TAG|@DIGEST]> <COMMAND>`, which runs a Docker image [with selected options]
 * `docker exec <CONTAINER ID> <COMMAND>`, which lets you run a command inside a running container
 * `docker stop <CONTAINER ID>`, which stops a running container
 ---
