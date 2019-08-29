@@ -754,6 +754,8 @@ Some commonly used `docker run` options that you can set include:
 * `--volume , -v` : Bind mount a volume into the container (such as the directory containing your data, scripts, application)
 * `--workdir , -w` : Set the working directory inside the container
 
+Run `docker run --help` or see the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for more options and further usage information.
+
 ---
 # Docker: Running containers 6 - Interactive mode
 
