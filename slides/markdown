@@ -41,8 +41,8 @@ class: left, middle
 2. Feedback practice: Software Carpentry style traffic lights
 3. Introduction to Reproducibility through Containerisation
 4. Exercise: Hello world!
-5. Comfort break
-6. Exercise: Run an application in an existing container
+5. Exercise: Running containers
+6. Comfort break
 7. Exercise: Build your own container
 8. Exercise: Upload your container to DockerHub
 9. Summary and closing
@@ -328,6 +328,25 @@ Distributing and using software as a container image gives you:
 * **Safety** – files in a container can’t access files on the host machine, so users can trust containerised applications
 * **Ease-of-Use** – they can always be run using a single run command
 * **Easy Upgrades** – they can be easily swapped out for newer versions, while all persistent data can be retained in a data volume
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
+---
+# Docker on HPC
+* Security on HPC:
+	* If you have Docker access, you effectively have `root` permissions over the entire operating system
+	* This works fine on the cloud, where instances are rarely shared between multiple users
+	* However on HPC (computing clusters etc), this would allow Docker users to access each other's files
+	* For this reason, it is unlikely you will find Docker installed on an HPC system
+* A few alternatives exist for running containers on HPC, but there's only one that really matters
+	* [Singularity](http://singularity.lbl.gov/) - A ground-up reimplementation of Docker, with a fairly different CLI. Actively developed.
+
+.columns.is-centered[
+.column.is-narrow[
+.image.is-128x128[
+![](assets/singularity.png)
+]
+]
+]
 
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
@@ -1110,24 +1129,8 @@ And while that's running, we'll move onto the next topic...
 ---
 class: center, middle
 # Part 4
-## Docker on HPC
----
-# Docker on HPC
-* Security on HPC:
-	* If you have Docker access, you effectively have `root` permissions over the entire operating system
-	* This works fine on the cloud, where instances are rarely shared between multiple users
-	* However on HPC (computing clusters etc), this would allow Docker users to access each other's files
-	* For this reason, it is unlikely you will find Docker installed on an HPC system
-* A few alternatives exist for running containers on HPC, but there's only one that really matters
-	* [Singularity](http://singularity.lbl.gov/) - A ground-up reimplementation of Docker, with a fairly different CLI. Actively developed.
+## Singularity
 
-.columns.is-centered[
-.column.is-narrow[
-.image.is-128x128[
-![](assets/singularity.png)
-]
-]
-]
 ---
 # Converting a Docker Image
 * Unlike Docker, Singularity stores its images as individual files
