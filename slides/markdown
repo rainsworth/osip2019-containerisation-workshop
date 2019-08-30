@@ -1017,7 +1017,7 @@ where `.` indicates that the contents within the current working directory are t
 
 
 ---
-# Making your Own Docker Image: Exercise - Dockerizing our Python app 
+# Making your Own Docker Image: Exercise  
 
 .message.is-info[
 .message-header[
@@ -1043,7 +1043,7 @@ Exercise
 ]
 ]
 ---
-# Making your Own Docker Image: Exercise - Dockerizing our Python app 
+# Making your Own Docker Image: Exercise  
 
 .message.is-info[
 .message-header[
@@ -1065,7 +1065,7 @@ Exercise
 ]
 
 ---
-# Making your Own Docker Image: Exercise - Dockerizing our Python app 
+# Making your Own Docker Image: Exercise 
 
 .message.is-info[
 .message-header[
@@ -1090,7 +1090,7 @@ CMD [ "python", "./script.py" ]
 ]
 
 ---
-# Making your Own Docker Image: Exercise - Dockerizing our Python app 
+# Making your Own Docker Image: Exercise 
 
 .message.is-info[
 .message-header[
@@ -1120,7 +1120,7 @@ Successfully tagged my-python-app:latest
 ]
 ]
 ---
-# Making your Own Docker Image: Exercise - Dockerizing our Python app 
+# Making your Own Docker Image: Exercise  
 
 .message.is-info[
 .message-header[
