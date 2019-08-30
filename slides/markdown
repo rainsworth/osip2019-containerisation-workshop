@@ -16,15 +16,15 @@ class: left, middle
 # Acknowledgements
 
 Resources used to develop this workshop:
-* _The Turing Way_: [GitHub](https://github.com/alan-turing-institute/the-turing-way), [Book](https://the-turing-way.netlify.com), [Zenodo](http://doi.org/10.5281/zenodo.3233986)
 * [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)
+* _The Turing Way_: [GitHub](https://github.com/alan-turing-institute/the-turing-way), [Book](https://the-turing-way.netlify.com), [Zenodo](http://doi.org/10.5281/zenodo.3233986)
 * [Getting started with Docker](https://docs.docker.com/get-started/)
 ---
 class: left, middle
 # Dr. Rachael Ainsworth
 
-* Research Associate & Open Science Champion, University of Manchester
-* Software Sustainability Institute Fellow
+* Research Software Community Manager, Software Sustainability Institute, University of Manchester
+* Software Sustainability Institute Fellow 2019
 * FOSTER Open Science Trainer
 * Mozilla Open Leader (Round 4 Project Lead, Round 5 Mentor & Cohort Host)
 * _The Turing Way_ Core Contributor
@@ -690,9 +690,9 @@ Because container images on Docker Hub and other registries are often updated, t
 Exercise
 ]
 .message-body[
-Check out the list of available tags for the `python` container image on its Docker Hub page: https://hub.docker.com/_/python. In the previous exercise, we saw that the version of Python used in the image with the `:latest` tag was 3.7.4. However, if we knew in advance which version of Python we wanted, we could run `docker run python:3.7.4` for example to specify that we want to use Python version 3.7.4. Run the following command - what is the output?
+Check out the list of available tags for the `python` container image on its Docker Hub page: https://hub.docker.com/_/python. In the previous exercise, we saw that the version of Python used in the image with the `:latest` tag was 3.7.4. However, if we knew in advance which version of Python we wanted, we could run `docker run python:3` for example to specify that we want to use Python version 3. Run the following command - what is the output?
 ```
-docker run python:3.7.4 python --version
+docker run python:3 python --version
 ```
 ]
 ]
@@ -703,10 +703,10 @@ Answer
 ]
 .message-body[
 ```
-Unable to find image 'python:3.7.4' locally
-3.7.4: Pulling from library/python
+Unable to find image 'python:3' locally
+3: Pulling from library/python
 Digest: sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da40701e5d473e
-Status: Downloaded newer image for python:3.7.4
+Status: Downloaded newer image for python:3
 Python 3.7.4
 ```
 ]
@@ -722,7 +722,7 @@ The goal is to be as specific as possible when using and referencing container i
 Exercise
 ]
 .message-body[
-The following example runs the container from the `python` version 3.7.4 image with the `sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da40701e5d473e` digest (from the previous slide):
+The following example runs the container from the `python` version 3 image with the `sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da40701e5d473e` digest (from the previous slide):
 
 ```
 docker run python@sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da40701e5d473e python --version
@@ -767,19 +767,19 @@ For interactive processes (like a shell), you must use `-i -t` together in order
 
 For example, if we wanted to play around in an interactive Python shell, we could run:
 ```
-docker run -it python:3.7.4
+docker run -it python:3
 
 Python 3.7.4 (default, Aug 14 2019, 12:09:51) 
 [GCC 8.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
->>> 
+>>>  
 ```
 
 --
 
 Or if we simply wanted a bash shell in the `python` container, we could run:
 ```
-docker run -it python:3.7.4 /bin/bash
+docker run -it python:3 /bin/bash
 ```
 
 ---
@@ -834,15 +834,15 @@ print(a/b)
 Exercise
 ]
 .message-body[
-3\. Run the script using the `python` Docker container image for **Python version 2.7.16** (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options):  
+3\. Run the script using the `python` Docker container image for **Python version 2** (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options):  
 ```
-docker run --rm -v "$PWD":/python_test -w /python_test python:2.7.16 python script.py
+docker run --rm -v "$PWD":/python_test -w /python_test python:2 python script.py
 ```
 In this example,
 * `--rm` deletes the container after it finishes running to clean up and save space.
 * `-v "$PWD":/python_test` binds our current working directory (`container_workshop`) and its contents into `python_test` within the container.
 * `-w /python_test` sets the working directory in the container to `python_test`.
-* `python:2.7.16` is our `image:tag` for Python version 2.7.16.
+* `python:2` is our `image:tag` for Python version 2.
 * `python script.py` is the command executed within the container to run our Python script.
 * What is the output?
 ]
@@ -867,7 +867,7 @@ Answer
 Exercise
 ]
 .message-body[
-4\. How would you run the previous command for the same script using the `python` Docker container image for **Python version 3.7.4** (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options). And what is the output?
+4\. How would you run the previous command for the same script using the `python` Docker container image for **Python version 3** (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options). And what is the output?
 ]
 ]
 --
@@ -877,7 +877,7 @@ Answer
 ]
 .message-body[
 ```
-docker run --rm -v "$PWD":/python_test -w /python_test python:3.7.4 python script.py
+docker run --rm -v "$PWD":/python_test -w /python_test python:3 python script.py
 
 0.2
 ```
@@ -955,12 +955,12 @@ class: center, middle
     * `FROM` lists the image to "inherit" from
     * `RUN` executes a shell command
     * `COPY` copies some data from the host to the image
-    * `ENTRYPOINT` sets the command that will be run when a container is created
+    * `CMD` sets the command that will be run when a container is created and has the form `CMD ["executable", "param1", "param2", ...]`
     * `WORKDIR`, like `cd`, sets the current working directory for the build script
 
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
-# Making your Own Docker Image: Dockerfiles - Example
+# Making your Own Docker Image: Dockerfiles - Ubuntu example
 ```
 # Start with an empty Ubuntu image
 FROM ubuntu
@@ -983,6 +983,32 @@ ENTRYPOINT ["./cpipe"]
 
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
+# Making your Own Docker Image: Dockerfiles - Python example
+
+```
+# Start with a Python version 3 image
+FROM python:3
+
+# Set the working directory within the container image
+WORKDIR /usr/src/app
+
+# Copy requirements.txt (list of the Python dependencies for your scripts)
+# into the container image working directory
+COPY requirements.txt ./
+
+# Install the list of dependencies in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the contents of your current working directory into the container
+# working directory 
+COPY . .
+
+# Execute the script
+CMD [ "python", "./your-daemon-or-script.py" ]
+```
+
+.center[Attribution: example adopted from the [python Docker Hub image page](https://hub.docker.com/_/python)]
+---
 # Making your Own Docker Image: Dockerfile Tips
 
 * You should try to separate the Dockerfile into as many stages as possible, because this will allow for better caching
@@ -996,54 +1022,55 @@ ENTRYPOINT ["./cpipe"]
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
 # Making your Own Docker Image: Docker Build
+
 * To build a Docker image from a Dockerfile, use the `docker build` command
-* You should specify an image tag/name using `-t`, and a directory containing the Dockerfile. For example:
-```bash
-docker build -t my_image .
+* You should specify an image tag/name using `-t`, and a directory containing the Dockerfile with the usage:
 ```
+docker build -t <IMAGE NAME> <PATH>
+```
+* For example,
+```
+docker build -t my-python-app .
+```
+where `.` indicates that the contents within the current working directory are to be used in the build.
 
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 
 ---
-# Making your Own Docker Image: Exercise - Dockerizing Samtools
-* Samtools is a common utility for working with SAM and BAM alignment files
-* Samtools can be installed using `apt-get install samtools`
+# Making your Own Docker Image: Exercise - Dockerizing the Python app
 
 .message.is-info[
 .message-header[
 Exercise
 ]
 .message-body[
-* Create a Dockerfile for samtools inside its own directory, and build it using `docker build`
-* Make sure you tag it as `my_samtools`, we'll need it later on
-* You'll also need to set the entrypoint to the `samtools` command
-* Once it's finished, try testing it using the SAM file provided:
+1\. `cd` into our `container_workshop` directory where `script.py` is located, and create a `Dockerfile` (a text file with the name "Dockerfile" and no extension). For example:
+  ```
+  vim Dockerfile
+  ```
 
-```bash
-docker run -i my_samtools view -H - < data/alignment.sam
-```
+2\. We want to use the Python version 3 image as our starting point, so we can add the following line to our Dockerfile (Hint: it is best practice to comment your Dockerfile so that others know what you're doing!):
+  ```
+  # Start with a Python version 3 image
+  FROM python:3
+  ```
+
+3\. We can create a `python_test` directory within our container image and set it as our working directory by adding the following line to our Dockerfile:
+  ```
+  # Set the working directory within the container image
+  WORKDIR /usr/src/app
+  ```
+
+4\. We want to run our basic python script `script.py`, so first we must copy it into the container by adding the following lines to our Dockerfile:
+  ```
+  # Copy requirements.txt (list of the Python dependencies for your scripts)
+  # into the container image working directory
+  COPY script.py /python_test
+  ``` 
 ]
 ]
 
----
-# Making your Own Docker Image: Exercise - Dockerizing Samtools
-.message.is-success[
-.message-header[
-Solution
-]
-.message-body[
-`my_samtools/Dockerfile`:
-```
-FROM ubuntu
-RUN apt-get update && apt-get install -y samtools
-ENTRYPOINT ["samtools"]
-```
-Building:
-```bash
-docker build -t my_samtools my_samtools/
-```
-]
-]
+
 
 ---
 # Making your Own Docker Image: Exercise - Dockerizing BWA
@@ -1080,78 +1107,7 @@ docker build -t my_bwa my_bwa/
 ```
 ]
 ]
----
-# Making your Own Docker Image: Exercise - Dockerizing Freebayes
-* Freebayes is an open-source variant caller (calculates how a given individual's DNA differs from a reference genome)
-* Freebayes is a little harder to install - you'll need to build it from source
-* Installation instructions for Freebayes can be found here: https://github.com/ekg/freebayes#obtaining
 
-.message.is-info[
-.message-header[
-Exercise
-]
-.message-body[
-* Try making a Dockerfile for `freebayes`
-* As a tip, the apt-get repositories you need for this will be: `git build-essential zlib1g-dev libbz2-dev liblzma-dev`
-* Make sure you tag this as `my_freebayes`
-]
-]
-
----
-# Making your Own Docker Image: Exercise - Dockerizing Freebayes
-.message.is-success[
-.message-header[
-Solution
-]
-.message-body[
-`my_bwa/freebayes`:
-```
-FROM ubuntu
-RUN apt-get update && apt-get install -y git build-essential zlib1g-dev libbz2-dev liblzma-dev
-WORKDIR /tmp
-RUN git clone --recursive git://github.com/ekg/freebayes.git
-WORKDIR freebayes
-RUN make
-RUN make install
-ENTRYPOINT ["freebayes"]
-```
-
-Building:
-```bash
-docker build -t my_freebayes my_freebayes/
-```
-]
-]
-
----
-# Making your Own Docker Image: Dockerized Pipelines
-* Docker containers are often used to provide the tools and runtime environment for each stage in a bioinformatics pipeline
-* A number of workflow frameworks support Docker:
-	* Broad's WDL
-	* CWL (Common Workflow Language)
-	* Galaxy
-
-![](assets/Docker Workflows.svg)
-
----
-# Making your Own Docker Image: Dockerized Pipelines
-Conveniently, the images you just make are just the right ones for running a variant calling pipeline
-.message.is-info[
-.message-header[
-Exercise
-]
-.message-body[
-Try running
-```bash
-cwltool cwl_workflow/workflow.cwl \
-	--read_1 data/NA12878_CARDIACM_MUTATED_L001_R1.fastq.gz \
-	--read_2 data/NA12878_CARDIACM_MUTATED_L001_R2.fastq.gz \
-	--reference data/ucsc.hg19.fasta
-```
-]
-]
-
-And while that's running, we'll move onto the next topic...
 ---
 class: center, middle
 # Part 4
