@@ -1097,7 +1097,7 @@ CMD [ "python", "./script.py" ]
 Exercise
 ]
 .message-body[
-6\. Now you are ready to build an image from this Dockerfile. Within the `container_workshop` directory where the `Dockerfile` and `script.py` exist, run:
+7\. Now you are ready to build an image from this Dockerfile. Run:
 ```
 docker build -t my-python-app .
 
@@ -1127,7 +1127,7 @@ Successfully tagged my-python-app:latest
 Exercise
 ]
 .message-body[
-7\. After your image has been built successfully, you can run it as a container. In your terminal, run the command `docker images` to view your images. You should see an entry for `my-python-app`. Run the new image by entering:
+8\. After your image has been built successfully, you can run it as a container. In your terminal, run the command `docker images` to view your images. You should see an entry for `my-python-app`. Run the new image by entering:
 ```
 docker run my-python-app
 ```
