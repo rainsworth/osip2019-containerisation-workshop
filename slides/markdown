@@ -690,7 +690,7 @@ Because container images on Docker Hub and other registries are often updated, t
 Exercise
 ]
 .message-body[
-Check out the list of available tags for the `python` container image on its Docker Hub page: https://hub.docker.com/_/python. In the previous exercise, we saw that the version of Python used in the image with the `:latest` tag was 3.7.4. However, if we knew in advance which version of Python we wanted, we could run `docker run python:3` for example to specify that we want to use Python version 3. Run the following command - what is the output?
+Check out the list of available tags for the `python` container image on its [Docker Hub page](https://hub.docker.com/_/python). In the previous exercise, we saw that the version of Python used in the image with the `:latest` tag was 3.7.4. However, if we knew in advance which version of Python we wanted, we could run `docker run python:3` for example to specify that we want to use Python version 3. Run the following command - what is the output?
 ```
 docker run python:3 python --version
 ```
@@ -746,7 +746,7 @@ Python 3.7.4
 Some commonly used `docker run` options that you can set include:
 * `--detach , -d` : Run container in background (detached mode) and print container ID
 * `--interactive , -i` : Run Docker in interactive mode (keep STDIN open even if not attached)
-  * For interactive processes (like a shell), you must use `-i -t` together in order to allocate a tty for the container process. `-i -t` is often written `-it` for short.
+  * For interactive processes (like a shell), you must use `-i -t` together in order to allocate a tty (terminal) for the container process. `-i -t` is often written `-it` for short.
 * `--name` : Assign a (meaningful) name to the container for easy reference later
 * `--publish , -p` : Publish a container’s port(s) to the host
 * `--rm` : Automatically remove the container when it exits (to cleanup and save space on your machine)
@@ -759,7 +759,7 @@ Run `docker run --help` or see the [docker run reference](https://docs.docker.co
 ---
 # Docker: Running containers 6 - Interactive mode
 
-For interactive processes (like a shell), you must use `-i -t` together in order to allocate a tty for the container process. `-i -t` is often written `-it` for short, where the flags are defined as followed:
+For interactive processes (like a shell), you must use `-i -t` together in order to allocate a tty (terminal) for the container process. `-i -t` is often written `-it` for short, where the flags are defined as followed:
 * `--interactive , -i` : Run Docker in interactive mode (keep STDIN open even if not attached)
 * `--tty , -t` : Allocate a pseudo-TTY 
 
@@ -780,6 +780,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 Or if we simply wanted a bash shell in the `python` container, we could run:
 ```
 docker run -it python:3 /bin/bash
+
+root@9637e4deb342:/# 
 ```
 
 ---
