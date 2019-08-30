@@ -1089,39 +1089,43 @@ CMD [ "python", "./script.py" ]
 ]
 ]
 
-
 ---
-# Making your Own Docker Image: Exercise - Dockerizing BWA
-* bwa can be installed in much the same way as samtools
+# Making your Own Docker Image: Exercise - Dockerizing our Python app 
 
 .message.is-info[
 .message-header[
 Exercise
 ]
 .message-body[
-* Try making a Dockerfile for `bwa`
-* Make sure you tag this as `my_bwa`
-* The image is probably working if it prints out the `bwa` help when you run the image
+6\. Now you are ready to build an image from this Dockerfile. Within the `container_workshop` directory where the `Dockerfile` and `script.py` exist, run:
+```
+docker build -t my-python-app .
+```
+What output do you see?
 ]
 ]
-
 --
-
 .message.is-success[
 .message-header[
 Exercise
 ]
 .message-body[
-`my_bwa/Dockerfile`:
 ```
-FROM ubuntu
-RUN apt-get update && apt-get install -y bwa
-ENTRYPOINT ["bwa"]
-```
-
-Building:
-```bash
-docker build -t my_bwa my_bwa/
+Sending build context to Docker daemon  3.072kB
+Step 1/4 : FROM python:3
+ ---> 60e318e4984a
+Step 2/4 : WORKDIR /python_test
+ ---> Running in 239b0d14526a
+Removing intermediate container 239b0d14526a
+ ---> 011bed4affae
+Step 3/4 : ADD script.py /python_test
+ ---> 6d76288128e0
+Step 4/4 : CMD [ "python", "./script.py" ]
+ ---> Running in 00bf4e289307
+Removing intermediate container 00bf4e289307
+ ---> 977082d57f22
+Successfully built 977082d57f22
+Successfully tagged my-python-app:latest
 ```
 ]
 ]
