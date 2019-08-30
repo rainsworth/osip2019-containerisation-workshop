@@ -1058,7 +1058,7 @@ Exercise
 
 5\. Add this line to your Dockerfile to execute the script when the container image is run:
   ```
-  # Execute the script
+  # Execute script.py
   CMD [ "python", "./script.py" ]
   ```
 ]
@@ -1146,6 +1146,8 @@ Exercise
 ```
 ]
 ]
+---
+# Making your Own Docker Image: Share your image on Docker Hub
 
 ---
 class: center, middle
