@@ -950,7 +950,7 @@ class: center, middle
 # Part 3
 ## Making your Own Docker Image
 ---
-# Making your Own Docker Image: Dockerfiles
+# Making your Own Docker Image: Dockerfile
 * The core of making a Docker image is a Dockerfile
 * These files should have the exact name `Dockerfile`, and should be located in their own directory
 * A Dockerfile is a list of commands, a lot like a shell script, that progressively builds the image:
@@ -964,7 +964,7 @@ class: center, middle
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 
 ---
-# Making your Own Docker Image: Dockerfiles example
+# Making your Own Docker Image: Dockerfile example
 
 ```
 # Start with a Python version 3 image
@@ -1052,7 +1052,7 @@ Exercise
 .message-body[
 4\. We want to run our basic python script `script.py`, so first we must copy it into the container by adding the following lines to our Dockerfile:
   ```
-  # Copy our script.py into the container image working directory
+  # Copy script.py into the container image working directory
   COPY script.py /python_test
   ``` 
 
@@ -1080,10 +1080,10 @@ FROM python:3
 # Set the working directory within the container image
 WORKDIR /python_test
 
-# Add our script.py to the container image
-ADD script.py /python_test
+# Copy script.py into the container image working directory
+COPY script.py /python_test
 
-# Execute the script
+# Execute script.py
 CMD [ "python", "./script.py" ]
 ```
 ]
@@ -1100,10 +1100,41 @@ Exercise
 6\. Now you are ready to build an image from this Dockerfile. Within the `container_workshop` directory where the `Dockerfile` and `script.py` exist, run:
 ```
 docker build -t my-python-app .
+
+Sending build context to Docker daemon  3.072kB
+Step 1/4 : FROM python:3
+ ---> 60e318e4984a
+Step 2/4 : WORKDIR /python_test
+ ---> Running in 48b5133d1f48
+Removing intermediate container 48b5133d1f48
+ ---> 0be5e084f567
+Step 3/4 : COPY script.py /python_test
+ ---> 1f5b2671a88a
+Step 4/4 : CMD [ "python", "./script.py" ]
+ ---> Running in 73071653be70
+Removing intermediate container 73071653be70
+ ---> 8a416b9492a9
+Successfully built 8a416b9492a9
+Successfully tagged my-python-app:latest
 ```
-What output do you see?
 ]
 ]
+---
+# Making your Own Docker Image: Exercise - Dockerizing our Python app 
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+7\. After your image has been built successfully, you can run it as a container. In your terminal, run the command `docker images` to view your images. You should see an entry for `my-python-app`. Run the new image by entering:
+```
+docker run my-python-app
+```
+What is the output?
+]
+]
+
 --
 .message.is-success[
 .message-header[
@@ -1111,21 +1142,7 @@ Exercise
 ]
 .message-body[
 ```
-Sending build context to Docker daemon  3.072kB
-Step 1/4 : FROM python:3
- ---> 60e318e4984a
-Step 2/4 : WORKDIR /python_test
- ---> Running in 239b0d14526a
-Removing intermediate container 239b0d14526a
- ---> 011bed4affae
-Step 3/4 : ADD script.py /python_test
- ---> 6d76288128e0
-Step 4/4 : CMD [ "python", "./script.py" ]
- ---> Running in 00bf4e289307
-Removing intermediate container 00bf4e289307
- ---> 977082d57f22
-Successfully built 977082d57f22
-Successfully tagged my-python-app:latest
+0.2
 ```
 ]
 ]
