@@ -1162,10 +1162,7 @@ class: center, middle
   ```
   $ singularity pull library://sylabsed/examples/lolcow
   ```
-* You can also download pre-built images from [Docker Hub](https://hub.docker.com/) and [Singularity Hub](https://singularity-hub.org/):  
-  ```
-  $ singularity pull docker://godlovedc/lolcow
-  ```
+  * You can also download pre-built images from other registries such as [Docker Hub](https://hub.docker.com/) and [Singularity Hub](https://singularity-hub.org/):  
 * The `singularity shell` command allows you to spawn a new shell within your container and interact with it as though it were a small virtual machine:  
   ```
   $ singularity shell lolcow_latest.sif
