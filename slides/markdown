@@ -1195,22 +1195,7 @@ $ singularity run library://sylabsed/examples/lolcow
 Answer
 ]
 .message-body[
-```
-INFO:    Downloading library image
- 79.91 MiB / 79.91 MiB [==================================================================] 100.00% 3.54 MiB/s 22s
- ____________________________________
-/ FORTUNE PROVIDES QUESTIONS FOR THE \
-| GREAT ANSWERS: #13 A: Doc, Happy,  |
-| Bashful, Dopey, Sneezy, Sleepy, &  |
-| Grumpy Q: Who were the Democratic  |
-\ presidential candidates?           /
- ------------------------------------
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
-```
+![](assets/lolcow.png)
 ]
 ]
 ---
