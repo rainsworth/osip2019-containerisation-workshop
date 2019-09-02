@@ -1188,12 +1188,37 @@ singularity run [IMAGE FILE] view -H < data/alignment.sam
 class: left, middle
 # Summary and Closing
 
-After the workshop, participants should know:
-* What containerisation is and why they might use it in their research.
+During this workshop, we have covered:
+* What containerisation is and why you might use it in your research.
+  * Solves the "but it worked on my computer" problem!
+
+--
+
 * Some common containerisation tools and when to use them.
+  * Focused on Docker but Singularity is needed when deploying on HPC.
+
+--
+
 * How to find and run containers built by other people.
-* How to build their own container.
-* How to distribute their container online.
+  * Docker Hub
+  * Singularity Hub.
+
+--
+
+* How to build your own container.
+
+--
+
+* How to distribute your container online.
+---
+# Additional resources
+
+* [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction) - [Chapter on Reproducible Environments](https://the-turing-way.netlify.com/reproducible_environments/reproducible_environments.html)
+* [Get Started with Docker](https://docs.docker.com/get-started/)
+* [Docker Glossary](https://docs.docker.com/glossary/)
+* [Docker Reference](https://docs.docker.com/reference/)
+* [Docker for Beginners Tutorial](https://github.com/docker/labs/tree/master/beginner/)
+* [Docker Tutorial Series](https://rominirani.com/docker-tutorial-series-a7e6ff90a023)
 ---
 class: center, middle
 # That's All
