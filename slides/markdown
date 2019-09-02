@@ -367,8 +367,8 @@ Exercise
 ]
 .message-body[
 Run the following command to ensure that you have a supported version of Docker. What does it output?
-```
-docker --version
+```bash 
+$ docker --version
 ``` 
 ]
 ]
@@ -394,8 +394,8 @@ Exercise
 ]
 .message-body[
 Run the following command to view even more details about your Docker installation. What does it output?
-```
-docker info
+```bash 
+$ docker info
 ```
 ]
 ]
@@ -428,8 +428,8 @@ Exercise
 ]
 .message-body[
 Run the following command for the list of available Docker commands. What does it output?
-```
-docker --help
+```bash 
+$ docker --help
 ```
 ]
 ]
@@ -468,8 +468,8 @@ Exercise
 .message-body[
 Run the following command. What does it output?
 
-```
-docker run hello-world
+```bash 
+$ docker run hello-world
 ```
 ]
 ]
@@ -506,8 +506,8 @@ This message shows that your installation appears to be working correctly.
  docker pull [OPTIONS] NAME[:TAG|@DIGEST]
  ```
 * If no tag is provided, Docker uses the `:latest` tag as a default. For example, this command pulls the [`ubuntu:latest`](https://hub.docker.com/_/ubuntu) image:
- ```
- docker pull ubuntu
+ ```bash 
+ $ docker pull ubuntu
  ```
 
 --
@@ -958,7 +958,7 @@ class: center, middle
     * `FROM` lists the image to "inherit" from
     * `RUN` executes a shell command
     * `COPY` copies some data from the host to the image
-    * `CMD` sets the command that will be run when a container is created and has the form  
+    * `CMD` sets the command that will be run when a container is created (the image is run) and has the form  
       `CMD ["executable", "param1", "param2", ...]`
     * `WORKDIR`, like `cd`, sets the current working directory for the build script
 
@@ -1073,7 +1073,7 @@ Exercise
 Exercise
 ]
 .message-body[
-6\. Your Dockerfile should now look like this:
+6\. Your Dockerfile should now look something like this:
 ```
 # Start with the Python 3 base image
 FROM python:3
@@ -1098,7 +1098,7 @@ CMD [ "python", "./script.py" ]
 Exercise
 ]
 .message-body[
-7\. Now you are ready to build an image from this Dockerfile. Run:
+7\. Now you are ready to build an image from this Dockerfile. Run the `docker build` command:
 ```
 docker build -t my-python-app .
 
@@ -1156,24 +1156,11 @@ class: center, middle
 ## Singularity
 
 ---
-# Converting a Docker Image
-* Unlike Docker, Singularity stores its images as individual files
-* You can convert a docker image to a singularity image using Singularity:
-```bash
-singularity build [IMAGE NAME].sif docker-daemon://[IMAGE NAME]:latest
-```
+# Singularity: Commands
 
-.message.is-info[
-.message-header[
-Exercise
-]
-.message-body[
-Using the command above, try creating a singularity image from your `my_samtools` image
-]
-]
 
 ---
-# Running a Singularity Image
+# Singularity: "Hello world!"
 .message.is-info[
 .message-header[
 Exercise
@@ -1186,7 +1173,6 @@ singularity run [IMAGE FILE] view -H < data/alignment.sam
 ]
 ]
 ---
-class: left, middle
 # Summary and Closing
 
 During this workshop, we have covered:
@@ -1220,6 +1206,7 @@ During this workshop, we have covered:
 * [Docker Reference](https://docs.docker.com/reference/)
 * [Docker for Beginners Tutorial](https://github.com/docker/labs/tree/master/beginner/)
 * [Docker Tutorial Series](https://rominirani.com/docker-tutorial-series-a7e6ff90a023)
+* [Singularity User Guide](https://sylabs.io/guides/3.3/user-guide/)
 ---
 class: center, middle
 # That's All
