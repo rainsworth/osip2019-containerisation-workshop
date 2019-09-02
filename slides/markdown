@@ -1139,7 +1139,7 @@ What is the output?
 --
 .message.is-success[
 .message-header[
-Exercise
+Answer
 ]
 .message-body[
 ```
@@ -1158,18 +1158,56 @@ class: center, middle
 ---
 # Singularity: Commands
 
+* Download pre-built images (.sif files, where sif stands for Singularity Image File) from the [Sylabs Container Library](https://cloud.sylabs.io/library) with the `singularity pull` command:  
+  `$ singularity pull library://sylabsed/examples/lolcow`
+* You can also download pre-built images from [Docker Hub](https://hub.docker.com/) and [Singularity Hub](https://singularity-hub.org/):  
+  `$ singularity pull docker://godlovedc/lolcow`
+* The `singularity shell` command allows you to spawn a new shell within your container and interact with it as though it were a small virtual machine:  
+  `$ singularity shell lolcow_latest.sif`
+* The `singularity exec` command allows you to execute a custom command within a container by specifying the image file. For instance, to execute the `cowsay` program within the `lolcow_latest.sif` container:  
+  `$ singularity exec lolcow_latest.sif cowsay moo`
+* Singularity containers contain runscripts. These are user defined scripts that define the actions a container should perform when someone runs it. The runscript can be triggered with the `singularity run` command:  
+  `$ singularity run lolcow_latest.sif`
 
 ---
-# Singularity: "Hello world!"
+# Singularity: "Hello world!" (or rather, lolcow)
 .message.is-info[
 .message-header[
 Exercise
 ]
 .message-body[
-Test out that your singularity image works properly using:
-```bash
-singularity run [IMAGE FILE] view -H < data/alignment.sam
+To test out your Singularity installation, run the following command which will download and run the `lolcow` container image:
 ```
+$ singularity run library://sylabsed/examples/lolcow
+```
+What is the output?
+]
+]
+--
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+WARNING: No default remote in use, falling back to https://library.sylabs.io
+INFO:    Downloading library image
+ 79.91 MiB / 79.91 MiB [==================================================================] 100.00% 3.54 MiB/s 22s
+ ____________________________________
+/ FORTUNE PROVIDES QUESTIONS FOR THE \
+| GREAT ANSWERS: #13 A: Doc, Happy,  |
+| Bashful, Dopey, Sneezy, Sleepy, &  |
+| Grumpy Q: Who were the Democratic  |
+\ presidential candidates?           /
+ ------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+[    1.657876] reboot: Power down
+```
+Note: the cow will say something different each time this command is run!
 ]
 ]
 ---
@@ -1197,6 +1235,8 @@ During this workshop, we have covered:
 --
 
 * How to distribute your container online.
+  * Push to Docker Hub 
+  * Share your build files on GitHub/GitLab/Bitbucket!
 ---
 # Additional resources
 
