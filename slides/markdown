@@ -190,7 +190,7 @@ class: center, middle
 ![](assets/1728_TURI_Book sprint_39 reproducible replicable robust generalisable_040619.jpg)
 ]
 
-.center[Attribution: The Turing Way Community & Scriberia, http://doi.org/10.5281/zenodo.3332808]
+.center[Attribution: [The Turing Way Community & Scriberia](http://doi.org/10.5281/zenodo.3332808)]
 ---
 # Reproducibility Spectrum
 
@@ -204,7 +204,7 @@ class: center, middle
 
 ---
 class: center, middle
-# "But it worked on my laptop..."
+# "But it worked on my computer..."
 ---
 # Reproducible Environments: Importance
 
@@ -278,7 +278,7 @@ It is vital for researchers to understand and capture the computational environm
 ]
 ]
 
-.center[Attribution: Docker Documentation, https://docs.docker.com/; [The Turing Way](https://the-turing-way.netlify.com/reproducible_environments/01/options.html)]
+.center[Attribution: [Docker Documentation](https://docs.docker.com/); [The Turing Way](https://the-turing-way.netlify.com/reproducible_environments/01/options.html)]
 
 ---
 # Containerisation
@@ -307,7 +307,7 @@ A container is launched by running an image.
 
 .center[![](assets/Image_Container.svg)]
 
-.center[Attribution: Get started with Docker, https://docs.docker.com/get-started/]
+.center[Attribution: [Get started with Docker](https://docs.docker.com/get-started/)]
 ---
 # Terminology: Host
 
@@ -683,7 +683,7 @@ Python 3.7.4
 ---
 # Docker: Running containers 3 - Image tags
 
-Because container images on Docker Hub and other registries are often updated, the container version labelled with the default `:latest` tag will change. It is therefore best practice to reference the container image you use with more specific identifiers such as `Image[:tag]` or `Image[@digest]`.  
+Because container images on Docker Hub and other registries are often updated as the software contained within them are updated, the environment within the image labelled with the default `:latest` tag will change. It is therefore best practice to reference the container image you use with more specific identifiers such as `Image[:tag]` or `Image[@digest]`.  
 
 .message.is-info[
 .message-header[
