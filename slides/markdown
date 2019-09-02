@@ -911,7 +911,7 @@ docker stop <CONTAINER ID>
 ---
 # Docker: Cleaning up
 
-* Remember, to list your previously run Docker containers, use `docker ps -a`.
+* Remember, to list your previously run Docker containers to see their Container IDs, use `docker ps -a`.
 * When you no longer need a container stored on your machine, you can run `docker rm` to delete it:
   ```
   docker rm <CONTAINER ID>
@@ -919,7 +919,7 @@ docker stop <CONTAINER ID>
 
 --
 
-* Remember, to list all of your installed Docker images, use `docker images`.
+* Remember, to list all of your installed Docker images to see their Image IDs, use `docker images`.
 * To delete images you no longer need, run `docker rmi`:
   ```
   docker rmi <IMAGE ID>
@@ -942,7 +942,6 @@ The Docker commands we've covered so far are:
 * `docker images`, which displays all installed images
 * `docker ps [-a]`, which displays all containers on the system
 * `docker run [--rm] [-it] [-v /host/path:/container/path] [-w /container/path] <IMAGE NAME[:TAG|@DIGEST]> <COMMAND>`, which runs a Docker image [with selected options]
-* `docker exec <CONTAINER ID> <COMMAND>`, which lets you run a command inside a running container
 * `docker stop <CONTAINER ID>`, which stops a running container
 * `docker rm <CONTAINER ID>`, which deletes a container
 * `docker rmi [-f] <IMAGE ID>`, which deletes an image
