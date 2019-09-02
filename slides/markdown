@@ -894,7 +894,7 @@ docker run --rm -v "$PWD":/python_test -w /python_test python:3 python script.py
 
 This exercise demonstrated how:
 * To use different `docker run` options such as binding files and directories into a container and setting the working directory within the container.
-* To use image tags to specify different versions of the container image.
+* To use image tags to specify different versions of the container image (and in this case, to use different versions of a software package).
 * Different versions of the same software can give different analysis results and the importance of capturing the environment.
 ]
 ]
