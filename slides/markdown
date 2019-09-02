@@ -1148,7 +1148,62 @@ Answer
 ]
 ]
 ---
-# Making your Own Docker Image: Share your image on Docker Hub
+# Making your Own Docker Image: Share your image on Docker Hub 1
+
+
+---
+# Making your Own Docker Image: Exercise 
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+1\. Make sure you have created and are logged in to your Docker account with `docker login` 
+```
+$ docker login
+
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: rainswor
+Password: 
+Login Succeeded
+```
+
+2\. Tag the image (it is like naming the version of the image). It is optional but it is best practice as it helps in referencing and maintaining the version (for example, like ubuntu:16.04 or python:3.7.4). The command usage is: `docker tag <LOCAL IMAGE ID[:TAG]> <DOCKER USERNAME/IMAGE NAME[:TAG]`, for example:
+```
+$ docker tag my-python-app rainswor/my-python-app:python3
+```
+]
+]
+
+---
+# Making your Own Docker Image: Exercise 
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+3\. Push your container image to Docker Hub! The command usage is: `docker push <your_username>/my-first-repo`, for example: 
+```
+$ docker push rainswor/my-python-app:python3
+
+The push refers to repository [docker.io/rainswor/my-python-app]
+7842f0e00952: Pushed 
+57c40d23c8cd: Pushed 
+69d95271719a: Mounted from library/python 
+f88be44e4bd8: Mounted from library/python 
+e505c7600391: Mounted from library/python 
+4d2fd1bf072c: Mounted from library/python 
+6e302bbcacce: Mounted from library/python 
+97e8dd85db4e: Mounted from library/python 
+74e2ede3b29c: Mounted from library/python 
+6d5a64ea8f37: Mounted from library/python 
+660314270d76: Mounted from library/python 
+python3: digest: sha256:a908a7fceff56f61be2a634fea6868ac04fa05dac66796b4d192d17e60e39344 size: 2631
+```
+Then log in and check out your container image repository on [DockerHub](https://hub.docker.com/)! (Mine is at https://hub.docker.com/r/rainswor/my-python-app.)
+]
+]
+---
 
 ---
 class: center, middle
@@ -1162,7 +1217,7 @@ class: center, middle
   ```
   $ singularity pull library://sylabsed/examples/lolcow
   ```
-  * You can also download pre-built images from other registries such as [Docker Hub](https://hub.docker.com/) and [Singularity Hub](https://singularity-hub.org/):  
+  * You can also download pre-built images from other registries such as [Docker Hub](https://hub.docker.com/) and [Singularity Hub](https://singularity-hub.org/).
 * The `singularity shell` command allows you to spawn a new shell within your container and interact with it as though it were a small virtual machine:  
   ```
   $ singularity shell lolcow_latest.sif
@@ -1195,7 +1250,24 @@ $ singularity run library://sylabsed/examples/lolcow
 Answer
 ]
 .message-body[
-![](assets/lolcow.png)
+```
+WARNING: No default remote in use, falling back to https://library.sylabs.io
+INFO:    Downloading library image
+ 79.91 MiB / 79.91 MiB [===========================================] 100.00% 3.54 MiB/s 22s
+ _________________________________________
+/ In the Spring, I have counted 136       \
+| different kinds of weather inside of 24 |
+| hours.                                  |
+|                                         |
+\ -- Mark Twain, on New England weather   /
+ -----------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+[    1.653117] reboot: Power down
+```
 ]
 ]
 ---
@@ -1214,17 +1286,14 @@ During this workshop, we have covered:
 
 * How to find and run containers built by other people.
   * Docker Hub
-  * Singularity Hub.
+  * Singularity Hub
 
 --
 
 * How to build your own container.
-
---
-
-* How to distribute your container online.
-  * Push to Docker Hub 
-  * Share your build files on GitHub/GitLab/Bitbucket!
+  * Push your container image to Docker Hub for easy dissemination.
+  * Open Science tip: Share your build files on GitHub/GitLab/Bitbucket!
+  
 ---
 # Additional resources
 
