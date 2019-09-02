@@ -606,7 +606,7 @@ Nothing is listed because we don't currently have any running containers!
 # Docker: Listing containers 2
 * `docker ps` lists all currently running containers
 * You can also show all terminated containers using the `-a` flag
-* The IDs that are shown can be useful for other docker commands like `docker stop` and `docker exec`
+* The IDs that are shown can be useful for other docker commands like `docker stop` and `docker rm`
 
 .message.is-info[
 .message-header[
@@ -900,23 +900,6 @@ This exercise demonstrated how:
 ]
 
 ---
-# Docker: Running commands inside a running container
-* You can run a command inside a running container using:
-  ```
-  docker exec <CONTAINER ID> <COMMAND>
-  ```
-* For example:
-  ```
-  docker exec bd2ac6cce96f ls
-  ```
-* You can also run an interactive bash session inside the container with:
-  ```
-  docker exec -it bd2ac6cce96f bash
-  ```
-
-.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
-
----
 # Docker: Terminating a running container
 * Ordinarily, you can press `ctrl+c` to stop a container currently running in your terminal
 * However, if the container is running in the background (with `-d`), or refuses to close, you can use `docker stop`
@@ -929,14 +912,25 @@ docker stop <CONTAINER ID>
 # Docker: Cleaning up
 
 * Remember, to list your previously run Docker containers, use `docker ps -a`.
-* When you no longer need a container stored on your machine, you can use `docker rm <CONTAINER ID>` to delete it.
+* When you no longer need a container stored on your machine, you can run `docker rm` to delete it:
+  ```
+  docker rm <CONTAINER ID>
+  ```
 
 --
 
 * Remember, to list all of your installed Docker images, use `docker images`.
-* To delete images you no longer need, use `docker rmi <IMAGE ID>`
-  * You may have to run `docker rmi -f <IMAGE ID>` to force delete if the image has been used to build other images 
-
+* To delete images you no longer need, run `docker rmi`:
+  ```
+  docker rmi <IMAGE ID>
+  ```
+  
+--
+  
+  * You may have to run `docker rmi -f` to force delete if the image has been used to build other images 
+  ```
+  docker rmi -f <IMAGE ID>
+  ```
 
 
 ---
