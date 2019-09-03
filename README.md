@@ -20,6 +20,7 @@ After the workshop, participants should know:
 
 Prior to this workshop, participants will need:
 * Their own laptop computers
+* Some familiarity with the command line
 * To install Docker: https://docs.docker.com/install/
 * To install Singularity [optional]: https://sylabs.io/guides/3.0/user-guide/installation.html
 
@@ -28,11 +29,10 @@ Prior to this workshop, participants will need:
 1. Learning objectives
 2. Feedback practice: Software Carpentry style traffic lights
 3. Introduction to Reproducibility through Containerisation
-4. Exercise: Hello world!
-5. Exercise: Run an application in an existing container
+4. Docker
 6. Comfort break
-7. Exercise: Build your own container
-8. Exercise: Upload your container to DockerHub
+7. Build your own Docker container
+8. Singularity
 9. Summary and closing
 
 ## Slides
@@ -43,4 +43,4 @@ Attribution: The tutorial and slides have been adopted from the [Melbourne Bioin
 
 ## Speaker
 
-Dr. Rachael Ainsworth is a Research Associate in Radio Astronomy and Open Science Champion at the Jodrell Bank Centre for Astrophysics, University of Manchester. She is passionate about openness, transparency, reproducibility and inclusion in research. She is also a Software Sustainability Institute Fellow, FOSTER certified Open Science Trainer, Mozilla Open Leader, member of The Turing Way community, organiser for the women in data meetup group HER+Data MCR and member of the first cohort of Tech Future Female Leaders.
+Dr. Rachael Ainsworth is the Research Software Community Manager at the Software Sustainability Institute based at the University of Manchester. She is passionate about openness, transparency, reproducibility and inclusion in research. She is also a Software Sustainability Institute Fellow, FOSTER certified Open Science Trainer, Mozilla Open Leader, member of The Turing Way community, organiser for the women in data meetup group HER+Data MCR and member of the first cohort of Tech Future Female Leaders.
