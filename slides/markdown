@@ -1203,7 +1203,16 @@ Then log in and check out your container image repository on [DockerHub](https:/
 ]
 ]
 ---
+# Making your Own Docker Image: Exercise 
 
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+![](assets/dockerhub.png)
+]
+]
 ---
 class: center, middle
 # Part 4
