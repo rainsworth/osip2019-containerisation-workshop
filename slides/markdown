@@ -262,8 +262,8 @@ It is vital for researchers to understand and capture the computational environm
 ---
 # Virtual Machines (VMs) vs Containers
 
-* A **virtual machine (VM)** is a program that emulates a complete computer and imitates dedicated hardware. It shares physical hardware resources with other users but isolates the operating system. The end user has the same experience on a VM as they would have on dedicated hardware. 
-* In contrast, a **container** is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another (far more lightweight than VMs).
+* A **virtual machine (VM)** is a program that emulates a complete computer and imitates dedicated hardware. It shares physical hardware resources with other users but isolates the operating system - taking up 10s of GBs. The end user has the same experience on a VM as they would have on dedicated hardware. 
+* In contrast, a **container** virtualises the operating system instead of the hardware, packaging up only the necessary software and its dependencies so the application runs quickly and reliably from one computing environment to another. Container images are typically 10s of MBs in size - far more lightweight than VMs.
 
 .columns[
 .column[
@@ -278,7 +278,7 @@ It is vital for researchers to understand and capture the computational environm
 ]
 ]
 
-.center[Attribution: [Docker Documentation](https://docs.docker.com/); [The Turing Way](https://the-turing-way.netlify.com/reproducible_environments/01/options.html)]
+.center[Attribution: [Docker Documentation](https://docs.docker.com/)]
 
 ---
 # Containerisation
