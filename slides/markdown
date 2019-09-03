@@ -227,6 +227,7 @@ print(a/b)
 --
 
 * This is because integer division is applied to integers in Python 2, but (normal) division is applied to all types, including integers, in Python 3.  
+  * In order for the output to equal `0.2` in Python 2, `a` and/or `b` would need to be a float (`a=1.0` and/or `b=5.0`).
 
 --
 
@@ -524,7 +525,7 @@ For more examples and ideas, visit:
 ]
 ]
 ---
-# Docker: Docker Hub 1
+# Docker: Pulling Images
 
 * When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and if it couldn't find it, pulled it down from a cloud registry of Docker images called **Docker Hub**
 * You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: https://hub.docker.com/  
@@ -546,7 +547,7 @@ For more examples and ideas, visit:
 * See the [docker pull reference](https://docs.docker.com/engine/reference/commandline/pull/) for available options.
  
 ---
-# Docker: Docker Hub 2
+# Docker: Pulling Images
 
 .message.is-info[
 .message-header[
