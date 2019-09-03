@@ -1,0 +1,1380 @@
+class: left, middle
+# Reproducible Research through Containerisation:
+##  Docker and Singularity
+<br><br>
+[Open Science In Practice](http://osip2019.epfl.ch/)  
+EPFL, Lausanne, Switzerland  
+11:00-13:00, 5 September 2019  
+<br><br>
+Speaker: Dr. Rachael Ainsworth, University of Manchester  
+Twitter: [@rachaelevelyn](https://twitter.com/rachaelevelyn), GitHub: [@rainsworth](https://github.com/rainsworth/)
+---
+layout: true
+class: content
+---
+class: left, middle
+# Acknowledgements
+
+Resources used to develop this workshop:
+* [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)
+* _The Turing Way_: [GitHub](https://github.com/alan-turing-institute/the-turing-way), [Book](https://the-turing-way.netlify.com), [Zenodo](http://doi.org/10.5281/zenodo.3233986)
+* [Getting started with Docker](https://docs.docker.com/get-started/)
+---
+class: left, middle
+# Dr. Rachael Ainsworth
+
+* Research Software Community Manager, [Software Sustainability Institute](https://software.ac.uk), University of Manchester
+* PhD in Astrophysics, studied star formation with radio telescopes
+* [Software Sustainability Institute Fellow 2019](https://software.ac.uk/about/fellows/rachael-ainsworth)
+* [FOSTER Open Science Trainer](https://www.fosteropenscience.eu/trainers-directory)
+* [Mozilla Open Leader](https://foundation.mozilla.org/en/opportunity/mozilla-open-leaders/) (Round 4 Project Lead, Round 5 Mentor & Cohort Host)
+* [_The Turing Way_](https://github.com/alan-turing-institute/the-turing-way/) Core Team member
+* [HER+Data MCR](https://github.com/alan-turing-institute/the-turing-way/) Organiser
+* Contact:
+  * Twitter: [@rachaelevelyn](https://twitter.com/rachaelevelyn)  
+  * GitHub: [@rainsworth](https://github.com/rainsworth/)
+
+---
+class: left, middle
+# Agenda
+
+1. Learning objectives
+2. Feedback practice: Software Carpentry style traffic lights
+3. Introduction to Reproducibility through Containerisation
+4. Docker
+6. Comfort break
+7. Build your own Docker container
+8. Singularity
+9. Summary and closing
+
+---
+class: center, middle
+# Learning Objectives
+---
+class: left, middle
+# Learning Objectives
+
+After the workshop, participants should know:
+* What containerisation is and why they might use it in their research.
+* Some common containerisation tools and when to use them.
+* How to find and run containers built by other people.
+* How to build their own container.
+* How to distribute their container online.
+---
+class: center, middle
+# Part 0
+## Feedback practice: Software Carpentry style traffic lights
+---
+class: left, middle
+# Feedback practice: traffic lights
+
+Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
+
+.center[
+#### I feel fully caffeinated this morning.
+]
+
+.columns[
+  .column[.center[Agree]
+    ![](assets/postit-green.png)
+  ]
+  .column[.center[Disagree]
+    ![](assets/postit-red.png)
+  ]
+]
+
+.center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
+---
+# Feedback practice: traffic lights
+
+Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
+
+.center[
+#### Today I am using: Linux (any flavour).
+]
+
+.columns[
+  .column[.center[Agree]
+    ![](assets/postit-green.png)
+  ]
+  .column[.center[Disagree]
+    ![](assets/postit-red.png)
+  ]
+]
+
+.center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
+---
+# Feedback practice: traffic lights
+
+Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
+
+.center[
+#### Today I am using: Mac (OSX).
+]
+
+.columns[
+  .column[.center[Agree]
+    ![](assets/postit-green.png)
+  ]
+  .column[.center[Disagree]
+    ![](assets/postit-red.png)
+  ]
+]
+
+.center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
+---
+# Feedback practice: traffic lights
+
+Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
+
+.center[
+#### Today I am using: Windows.
+]
+
+.columns[
+  .column[.center[Agree]
+    ![](assets/postit-green.png)
+  ]
+  .column[.center[Disagree]
+    ![](assets/postit-red.png)
+  ]
+]
+
+.center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
+---
+# Feedback practice: traffic lights
+
+Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
+
+.center[
+#### I have installed Docker.
+]
+
+.columns[
+  .column[.center[Agree]
+    ![](assets/postit-green.png)
+  ]
+  .column[.center[Disagree]
+    ![](assets/postit-red.png)
+  ]
+]
+
+.center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
+---
+# Feedback practice: traffic lights
+
+Indicate how much you agree with the follow statements using Software Carpentry style traffic lights.
+
+.center[
+#### I have some previous experience using containers.
+]
+
+.columns[
+  .column[.center[Agree]
+    ![](assets/postit-green.png)
+  ]
+  .column[.center[Disagree]
+    ![](assets/postit-red.png)
+  ]
+]
+
+.center[Attribution: Alex Morley http://doi.org/10.5281/zenodo.2598522]
+---
+class: center, middle
+# Part 1
+## Introduction to Reproducibility through Containerisation
+---
+# Reproducibility
+
+.img-med[
+![](assets/1728_TURI_Book sprint_39 reproducible replicable robust generalisable_040619.jpg)
+]
+
+.center[Attribution: [The Turing Way Community & Scriberia](http://doi.org/10.5281/zenodo.3332808)]
+---
+# Reproducibility Spectrum
+
+.img-med[
+![](assets/ReproducibilitySpectrum.jpg)
+]
+
+> Computational science has led to exciting new developments, but the nature of the work has exposed limitations in our ability to evaluate published findings. Reproducibility has the potential to serve as a minimum standard for judging scientific claims when full independent replication of a study is not possible.”  
+
+>(Peng 2011; https://doi.org/10.1126/science.1213847)
+
+---
+class: center, middle
+# "But it worked on my computer..."
+---
+# Reproducible Environments: Importance
+
+Simple Python script example:
+
+```
+a = 1
+b = 5
+print(a/b)
+```
+
+--
+
+* Output of 1 divided by 5 in Python 3: `0.2`
+
+--
+
+* Output of 1 divided by 5 in Python 2: `0`
+
+--
+
+* This is because integer division is applied to integers in Python 2, but (normal) division is applied to all types, including integers, in Python 3.  
+  * In order for the output to equal `0.2` in Python 2, `a` and/or `b` would need to be a float (`a=1.0` and/or `b=5.0`).
+
+--
+
+* This very simple script returns _different_ answers depending on the computational environment in which it is run. 
+* Using the wrong version of Python is easy to do, and demonstrates how a perfectly valid piece of code can give different results depending on its environment. 
+* If such issues can impact a simple script like this, imagine how many could appear in a complex analysis procedure which may involve thousands of lines of code and dozens of dependent packages!
+
+.center[Attribution: [The Turing Way](https://the-turing-way.netlify.com/reproducible_environments/01/options.html)]
+---
+# Reproducible Environments: Impact
+
+It is vital for researchers to understand and capture the computational environments in which they are conducting their work, as it has the potential to impact:
+
+* **You**: Your working environment evolves over time as you update software, install new software and move to different computers. If the project environment is not captured and you need to return to that project after months or years (as is common in research), you may have no way of knowing what changes to the environment have occurred. This will impact your ability to run the code and on the results.
+
+--
+
+* **Your collaborators**: Research is collaborative, and conducting research in multiple different computational environments opens up a minefield of potential bugs. Trying to fix these kinds of issues is often time consuming and frustrating as researchers have to figure out what the differences between computational environments are and their effects. Worse, some bugs may remain undetected, potentially impacting the results.
+
+--
+
+* **Science**: How research is conducted has evolved significantly over the past decade, but the same cannot be said for the methods by which research processes are captured and disseminated. Research articles alone are no longer sufficient to verify, reproduce and extend scientific results. For research to be reproducible, researchers must publish and distribute the entire contained analysis, not just its results. Any research that is limited to where it can be deployed is instantly limited in the extent that it can be reproduced.
+
+.center[Attribution: [The Turing Way](https://the-turing-way.netlify.com/reproducible_environments/01/options.html)]
+---
+# Reproducible Environments: Options
+
+.img-med[
+![](assets/ReproducibleEnvironments.png)
+]
+
+.center[Attribution: [The Turing Way](https://the-turing-way.netlify.com/reproducible_environments/01/options.html)]
+---
+# Virtual Machines (VMs) vs Containers
+
+* A **virtual machine (VM)** is a program that emulates a complete computer and imitates dedicated hardware. It shares physical hardware resources with other users but isolates the operating system - taking up 10s of GBs. The end user has the same experience on a VM as they would have on dedicated hardware. 
+* In contrast, a **container** virtualises the operating system instead of the hardware, packaging up only the necessary software and its dependencies so the application runs quickly and reliably from one computing environment to another. Container images are typically 10s of MBs in size - far more lightweight than VMs.
+
+.columns[
+.column[
+.img-med[
+![](assets/vm_stack.png)
+]
+]
+.column[
+.img-med[
+![](assets/container_stack.png)
+]
+]
+]
+
+.center[Attribution: [Docker Documentation](https://docs.docker.com/)]
+
+---
+# Containerisation
+* The use of Linux containers to deploy applications is called **containerisation**.
+* The most popular and well supported platforms to develop, deploy and run applications with containers are [Docker](https://www.docker.com/) and [Singularity](https://sylabs.io/singularity/), which will be the focus of this workshop.
+
+.columns[
+.column[
+.img-med[
+![](assets/docker_logo.png)
+]
+]
+.column[
+.img-med[
+![](assets/singularity.png)
+]
+]
+]
+---
+# Terminology: Images and Containers
+
+A container is launched by running an image.
+
+* An **image** is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
+* A **container** is a runtime instance of an image - what the image becomes in memory when executed.
+
+.center[![](assets/Image_Container.svg)]
+
+.center[Attribution: [Get started with Docker](https://docs.docker.com/get-started/)]
+---
+# Terminology: Host
+
+* The **host** machine is the machine running the container engine (such as Docker or Singularity), on which images and containers are stored
+
+.img-half[
+![](assets/Host.png)
+]
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
+---
+# Advantages
+
+Distributing and using software as a container image gives you:
+* **Bundled Dependencies** – they contain all their own dependencies, which means you don’t have to do any installation on the host machine
+* **Cross-platform Installation** – they virtualise their own operating system, so they will run on any platform (even Windows!)
+* **Easy Distribution** - they can be distributed as a single image file, or put on an online registry (such as [Docker Hub](https://hub.docker.com/) so it can be `docker pull`'d or on [Singularity Hub](https://singularity-hub.org/) and `singularity pull`'d)
+* **Safety** – files in a container can’t access files on the host machine, so users can trust containerised applications
+* **Ease-of-Use** – they can be run using a single run command
+* **Easy Upgrades** – they can be easily swapped out for newer versions, while all persistent data can be retained in a data volume
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
+---
+# Containers on HPC
+* Security on HPC:
+	* If you have Docker access, you effectively have `root` permissions over the entire operating system
+	* This works fine for your own machine or on the cloud, where instances are rarely shared between multiple users
+	* However on HPC (computing clusters), this would allow Docker users to access each other's files
+	* For this reason, it is unlikely you will find Docker installed on an HPC system
+* A few alternatives exist for running containers on HPC, but there's only one that really matters
+	* [Singularity](http://singularity.lbl.gov/) - A ground-up reimplementation of Docker, with a fairly different CLI. Actively developed.
+
+.columns.is-centered[
+.column.is-narrow[
+.image.is-128x128[
+![](assets/singularity.png)
+]
+]
+]
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
+---
+# Use case
+.img-half[
+![](assets/use_case.png)
+]
+
+---
+class: center, middle
+# Part 2
+## Docker
+---
+# Docker: Test installation 1
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Run the following command to ensure that you have a supported version of Docker. What does it output?
+```
+$ docker --version
+``` 
+]
+]
+
+--
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+Docker version 19.03.1, build 74b1e89
+```
+]
+]
+---
+# Docker: Test installation 2
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Run the following command to view even more details about your Docker installation. What does it output?
+```
+$ docker info
+```
+]
+]
+
+--
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+Containers: 0
+ Running: 0
+ Paused: 0
+ Stopped: 0
+Images: 0
+Server Version: 19.03.1
+Storage Driver: overlay2
+...
+```
+]
+]
+---
+# Docker: Test installation 3
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Run the following command for the list of available Docker commands. What does it output?
+```
+$ docker --help
+```
+]
+]
+
+--
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+Usage:	docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Options:
+      --config string      Location of client config files (default "/Users/rachael/.docker")
+  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket(s) to connect to
+  -l, --log-level string   Set the logging level ("debug"|"info"|"warn"|"error"|"fatal") (default "info")
+...
+```
+]
+]
+---
+# Docker: 'Hello world!'
+
+* The most basic command to run a container image is: `docker run <IMAGE NAME>`
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Run the following command. What does it output?
+
+```
+$ docker run hello-world
+```
+]
+]
+
+--
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+ca4f61b1923c: Pull complete
+Digest: sha256:ca0eeb6fb05351dfc8759c20733c91def84cb8007aa89a5bf606bc8b315b9fc7
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+```
+]
+]
+
+---
+# Docker: 'Hello world!'
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+```
+]
+]
+---
+# Docker: Pulling Images
+
+* When you ran `docker run hello-world`, Docker first looked for the image on your local machine, and if it couldn't find it, pulled it down from a cloud registry of Docker images called **Docker Hub**
+* You can find an image for most applications and runtimes on Docker Hub, which has a web interface located at: https://hub.docker.com/  
+
+--
+
+* If you want to pre-download a particular container image, use `docker pull` to retrieve it from its registry: 
+ ```
+ docker pull [OPTIONS] NAME[:TAG|@DIGEST]
+ ```
+* If no tag is provided, Docker uses the `:latest` tag as a default. For example, this command pulls the [`ubuntu:latest`](https://hub.docker.com/_/ubuntu) image:
+ ```
+ $ docker pull ubuntu
+ ```
+
+--
+
+* Pay careful attention to the documentation on the image's Docker Hub page - it often contains critical information such as what version of the software is being contained and the relevant tags for each version.  
+* See the [docker pull reference](https://docs.docker.com/engine/reference/commandline/pull/) for available options.
+ 
+---
+# Docker: Pulling Images
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Search on [Docker Hub](https://hub.docker.com/) for the best container image for running `python` applications. What command would you run if you wanted to pull this container image?
+
+Hint: The command to pull the image is located in the top right of its Docker Hub page. [And it will take a minute or two to download.]
+]
+]
+--
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+![https://hub.docker.com/_/python](assets/docker_hub_python.png)
+
+```
+$ docker pull python 
+```
+]
+]
+---
+# Docker: Listing Images
+
+* Images that you have installed locally can be viewed using `docker images`
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Run the following command to view all images installed on your machine:
+```
+$ docker images
+```
+]
+]
+--
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+python                 latest              60e318e4984a        15 hours ago        918MB
+hello-world            latest              fce289e99eb9        7 months ago        1.84kB
+```
+]
+]
+---
+# Docker: Listing containers 1
+* `docker ps` lists all currently running containers
+* You can also show all terminated containers using the `-a` flag
+* The IDs that are shown can be useful for other docker commands like `docker stop` and `docker exec`
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Try running the command:
+```
+$ docker ps
+```
+]
+]
+
+--
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+```
+
+Nothing is listed because we don't currently have any running containers!
+]
+]
+---
+# Docker: Listing containers 2
+* `docker ps` lists all currently running containers
+* You can also show all terminated containers using the `-a` flag
+* The IDs that are shown can be useful for other docker commands like `docker stop` and `docker rm`
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Try running the command:
+```
+$ docker ps -a
+```
+]
+]
+
+--
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS                         PORTS               NAMES
+05ca30abafbb        hello-world         "/hello"             2 hours ago         Exited (0) 2 hours ago                             cranky_hamilton
+```
+
+Using the `-a` flag lists our previously run containers.
+]
+]
+
+---
+# Docker: Running containers 1
+
+* The complete `docker run` usage is of the form:
+  ```
+  docker run [DOCKER OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+  ```
+* This means that arguments that affect the way Docker runs must always go before the image name, but arguments that are passed to the image itself (such as the commands that will run within the container) must go after the image name.
+* You can run `docker run --help` to see the list of available options or visit the [docker run reference](https://docs.docker.com/engine/reference/run/) for more information.
+
+---
+# Docker: Running containers 2
+
+* The complete `docker run` usage is of the form:
+  ```
+  docker run [DOCKER OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+  ```
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Run the following command to find out which version of Python is used in the `python` image we pulled:
+```
+$ docker run python python --version
+```
+In this example,
+* The first instance of `python` references the image name (with default tag `:latest`).
+* `python --version` is the command being run inside the container.
+* What is the output?
+]
+]
+--
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+Python 3.7.4
+```
+]
+]
+---
+# Docker: Running containers 3 - Image tags
+
+Because container images on Docker Hub and other registries are often updated as the software contained within them are updated, the environment within the image labelled with the default `:latest` tag will change. It is therefore best practice to reference the container image you use with more specific identifiers such as `Image[:tag]` or `Image[@digest]`.  
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Check out the list of available tags for the `python` container image on [Docker Hub](https://hub.docker.com/_/python). In the previous exercise, we saw that the version of Python used in the image with the `:latest` tag was 3.7.4. However, if we knew in advance which version of Python we wanted, we could run `docker run python:3` for example to specify that we want to use Python version 3. Run the following command, what is the output?
+```
+$ docker run python:3 python --version
+```
+]
+]
+--
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+Unable to find image 'python:3' locally
+3: Pulling from library/python
+Digest: sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da40701e5d473e
+Status: Downloaded newer image for python:3
+Python 3.7.4
+```
+]
+]
+---
+
+# Docker: Running containers 4 - Image digests
+
+The goal is to be as specific as possible when using and referencing container images, so that if the image is updated in the future, others can still identify and use the same containerised software to reproduce your work. The most specific way to reference the container image you're using is by its unique identifier called its **digest** in the following way: `Image[@digest]` 
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+The following example runs the container from the `python` version 3 image with the `sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da40701e5d473e` digest (from the previous slide):
+
+```
+$ docker run python@sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da40701e5d473e python --version
+```
+]
+]
+--
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+Python 3.7.4
+```
+]
+]
+---
+# Docker: Running containers 5 - Options
+
+* The complete `docker run` usage is of the form:
+  ```
+  docker run [DOCKER OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
+  ```
+--
+
+* Some commonly used `docker run` options that you can set include:
+  * `--detach , -d` : Run container in background (detached mode) and print container ID
+  * `--interactive , -i` : Run Docker in interactive mode (keep STDIN open even if not attached)
+  * `--name` : Assign a (meaningful) name to the container for easy reference later
+  * `--publish , -p` : Publish a container’s port(s) to the host
+  * `--rm` : Automatically remove the container when it exits (to cleanup and save space on your machine)
+  * `--tty , -t` : Allocate a pseudo-TTY (necessary for interactive mode)
+  * `--volume , -v` : Bind mount a volume into the container (such as the directory containing your data, scripts, application)
+  * `--workdir , -w` : Set the working directory inside the container
+
+--
+
+* Run `docker run --help` or see the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for more options and further usage information.
+
+---
+# Docker: Running containers 6 - Interactive mode
+
+For interactive processes (like a shell), you must use `-i -t` together in order to allocate a tty (terminal) for the container process. `-i -t` is often written `-it` for short, where the flags are defined as followed:
+* `--interactive , -i` : Run Docker in interactive mode (keep STDIN open even if not attached)
+* `--tty , -t` : Allocate a pseudo-TTY 
+
+--
+
+For example, if we wanted to play around in an interactive Python shell, we could run:
+```
+$ docker run -it python:3
+
+Python 3.7.4 (default, Aug 14 2019, 12:09:51) 
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>  
+```
+
+--
+
+Or if we simply wanted a bash shell in the `python` container, we could run:
+```
+$ docker run -it python:3 /bin/bash
+
+root@9637e4deb342:/# 
+```
+
+---
+# Docker: Running containers 7 - Volumes and Bind Mounts
+* By default, Docker containers cannot access data on the host system. This means
+	* You can't use host data in your containers
+	* All data stored in the container will be lost when the container exits
+
+--
+
+* You can solve this in two ways:
+	* `-v /path/in/host:/path/in/container`: This **bind mounts** a host file or directory into the container. Writes to one will affect the other. Note that both paths have to be *absolute* paths, so you often want to use
+```
+`pwd`/some/path
+```
+	* `-v volume_name:/path/in/container`. This mounts a **named volume** into the container, which will live separately from the rest of your files. This is preferred, unless you need to access or edit the files from the host
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
+
+---
+# Docker: Running containers 8 - Exercise
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+1\. Create a folder locally on your computer. For example:  
+```
+$ cd Desktop
+$ mkdir container_workshop
+$ cd container_workshop
+```
+2\. Create a simple python script using the example from the Reproducible Environments: Importance slide. For example:  
+```
+$ vim script.py
+```
+and within the script, copy and paste:  
+```
+a = 1
+b = 5
+print(a/b)
+```
+Save the script.
+]
+]
+
+---
+# Docker: Running containers 8 - Exercise
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+3\. Run the script using the `python` Docker container image for **Python version 2** (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options):  
+```
+$ docker run --rm -v "$PWD":/python_test -w /python_test python:2 python script.py
+```
+In this example,
+* `--rm` deletes the container after it finishes running to clean up and save space.
+* `-v "$PWD":/python_test` binds our current working directory (`container_workshop`) and its contents into `python_test` within the container.
+* `-w /python_test` sets the working directory in the container to `python_test`.
+* `python:2` is our `image:tag` for Python version 2.
+* `python script.py` is the command executed within the container to run our Python script.
+* What is the output?
+]
+]
+---
+# Docker: Running containers 8 - Exercise
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+Unable to find image 'python:2' locally
+2: Pulling from library/python
+4ae16bd47783: Already exists 
+bbab4ec87ac4: Already exists 
+2ea1f7804402: Already exists 
+96465440c208: Already exists 
+6ac892e64b94: Already exists 
+6f7ce750b843: Pull complete 
+886c714e5c8c: Pull complete 
+9ef5af0ee617: Pull complete 
+95b0a7d3ce20: Pull complete 
+Digest: sha256:e2770e7e5984998b0902537ea041343a35e816b6e96038be928855ddff4b4446
+Status: Downloaded newer image for python:2
+0
+```
+]
+]
+
+---
+# Docker: Running containers 8 - Exercise 
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+4\. How would you run the previous command for the same script using the `python` Docker container image for **Python version 3** (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options). And what is the output?
+]
+]
+--
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+$ docker run --rm -v "$PWD":/python_test -w /python_test python:3 python script.py
+
+0.2
+```
+
+This exercise demonstrated how:
+* To use different `docker run` options such as binding files and directories into a container and setting the working directory within the container.
+* To use image tags to specify different versions of the container image (and in this case, to use different versions of a software package).
+* Different versions of the same software can give different analysis results and the importance of capturing the environment.
+]
+]
+
+---
+# Docker: Terminating a running container
+* Ordinarily, you can press `ctrl+c` to stop a container currently running in your terminal
+* However, if the container is running in the background (with `-d`), or refuses to close, you can use `docker stop`
+```
+docker stop <CONTAINER ID>
+```
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
+---
+# Docker: Cleaning up
+
+* Remember, to list your previously run Docker containers to see their Container IDs, use `docker ps -a`.
+* When you no longer need a container stored on your machine, you can run `docker rm` to delete it:
+  ```
+  docker rm <CONTAINER ID>
+  ```
+
+--
+
+* Remember, to list all of your installed Docker images to see their Image IDs, use `docker images`.
+* To delete images you no longer need, run `docker rmi`:
+  ```
+  docker rmi <IMAGE ID>
+  ```
+  
+--
+  
+  * You may have to run `docker rmi -f` to force delete if the image has been used to build other images 
+  ```
+  docker rmi -f <IMAGE ID>
+  ```
+
+
+---
+# Docker: Summary
+
+The Docker commands we've covered so far are:
+* `docker --help`, which displays Docker usage options
+* `docker pull <IMAGE NAME[:TAG|@DIGEST]>`, which installs an image from Docker Hub
+* `docker images`, which displays all installed images
+* `docker ps [-a]`, which displays all containers on the system
+* `docker run [--rm] [-it] [-v /host/path:/container/path] [-w /container/path] <IMAGE NAME[:TAG|@DIGEST]> <COMMAND>`, which runs a Docker image [with selected options]
+* `docker stop <CONTAINER ID>`, which stops a running container
+* `docker rm <CONTAINER ID>`, which deletes a container
+* `docker rmi [-f] <IMAGE ID>`, which deletes an image
+
+---
+class: center, middle
+# Part 3
+## Making your Own Docker Image
+---
+# Making your Own Docker Image: Dockerfile
+* The core of making a Docker image is a Dockerfile
+* These files should have the exact name `Dockerfile`, and should be located in their own directory
+* A Dockerfile is a list of commands, a lot like a shell script, that progressively builds the image:
+    * `FROM` lists the image to "inherit" from
+    * `RUN` executes a shell command
+    * `COPY` copies some data from the host to the image
+    * `CMD` sets the command that will be run when a container is created (the image is run) and has the form  
+      `CMD ["executable", "param1", "param2", ...]`
+    * `WORKDIR`, like `cd`, sets the current working directory for the build script
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
+
+---
+# Making your Own Docker Image: Dockerfile example
+
+```
+# Start with a Python version 3 image
+FROM python:3
+
+# Set the working directory within the container image
+WORKDIR /usr/src/app
+
+# Copy requirements.txt (list of the Python dependencies for your scripts)
+# into the container image working directory
+COPY requirements.txt ./
+
+# Install the list of dependencies in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the contents of your current working directory into the container
+# working directory 
+COPY . .
+
+# Execute the script
+CMD [ "python", "./your-daemon-or-script.py" ]
+```
+
+.center[Attribution: example adopted from the [python Docker Hub image page](https://hub.docker.com/_/python)]
+---
+# Making your Own Docker Image: Dockerfile Tips
+
+* You should try to separate the Dockerfile into as many stages as possible, because this will allow for better caching
+* When installing apt dependencies in an Ubuntu image:
+	* You must run `apt-get update` and `apt-get install` in the same command, otherwise you will encounter caching issues
+	* Remember to use `apt-get install -y`, because you will have no control over the process while it's building
+* Useful resources:
+	* [Dockerfile reference](https://docs.docker.com/engine/reference/builder/)
+	* [Best practices](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)
+
+.center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
+---
+# Making your Own Docker Image: Docker Build
+
+* To build a Docker image from a Dockerfile, use the `docker build` command
+* You should specify an image tag/name using `-t`, and a directory containing the Dockerfile with the usage:
+```
+docker build -t <IMAGE NAME> <PATH>
+```
+* For example,
+```
+$ docker build -t my-python-app .
+```
+where `.` indicates that the contents within the current working directory are to be used in the build.
+
+
+---
+# Making your Own Docker Image: Exercise  
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+1\. `cd` into our `container_workshop` directory where `script.py` is located, and create a `Dockerfile` (a text file with the name "Dockerfile" and no extension). For example:
+  ```
+  $ vim Dockerfile
+  ```
+
+2\. We want to use the Python version 3 image as our starting point, so we can add the following line to our Dockerfile (Hint: it is best practice to comment your Dockerfile so that others know what you're doing!):
+  ```
+  # Start with a Python version 3 image
+  FROM python:3
+  ```
+
+3\. We can create a `python_test` directory within our container image and set it as our working directory by adding the following line to our Dockerfile:
+  ```
+  # Set the working directory within the container image
+  WORKDIR /python_test
+  ```
+]
+]
+---
+# Making your Own Docker Image: Exercise  
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+4\. We want to run our basic python script `script.py`, so first we must copy it into the container by adding the following lines to our Dockerfile:
+  ```
+  # Copy script.py into the container image working directory
+  COPY script.py /python_test
+  ``` 
+
+5\. Add this line to your Dockerfile to execute the script when the container image is run:
+  ```
+  # Execute script.py
+  CMD [ "python", "./script.py" ]
+  ```
+]
+]
+
+---
+# Making your Own Docker Image: Exercise 
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+6\. Your Dockerfile should now look something like this:
+```
+# Start with the Python 3 base image
+FROM python:3
+
+# Set the working directory within the container image
+WORKDIR /python_test
+
+# Copy script.py into the container image working directory
+COPY script.py /python_test
+
+# Execute script.py
+CMD [ "python", "./script.py" ]
+```
+
+Save the Dockerfile and exit the text editor. You should now have 2 files in your current working directory: `Dockerfile` and `script.py`.
+]
+]
+
+---
+# Making your Own Docker Image: Exercise 
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+7\. Now you are ready to build an image from this Dockerfile. Run the `docker build` command:
+```
+$ docker build -t my-python-app .
+
+Sending build context to Docker daemon  3.072kB
+Step 1/4 : FROM python:3
+ ---> 60e318e4984a
+Step 2/4 : WORKDIR /python_test
+ ---> Running in 48b5133d1f48
+Removing intermediate container 48b5133d1f48
+ ---> 0be5e084f567
+Step 3/4 : COPY script.py /python_test
+ ---> 1f5b2671a88a
+Step 4/4 : CMD [ "python", "./script.py" ]
+ ---> Running in 73071653be70
+Removing intermediate container 73071653be70
+ ---> 8a416b9492a9
+Successfully built 8a416b9492a9
+Successfully tagged my-python-app:latest
+```
+]
+]
+---
+# Making your Own Docker Image: Exercise  
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+8\. After your image has been built successfully, you can run it as a container. In your terminal, run the command `docker images` to view your images. You should see an entry for `my-python-app`. Run the new image by entering:
+```
+$ docker run my-python-app
+```
+What is the output?
+]
+]
+
+--
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+0.2
+```
+]
+]
+---
+# Making your Own Docker Image: Share your image on Docker Hub 1
+
+
+---
+# Making your Own Docker Image: Exercise 
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+1\. Make sure you have created and are logged in to your Docker account with `docker login` 
+```
+$ docker login
+
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: rainswor
+Password: 
+Login Succeeded
+```
+
+2\. Tag the image (it is like naming the version of the image). It is optional but it is best practice as it helps in referencing and maintaining the version (for example, like ubuntu:16.04 or python:3.7.4). The command usage is: `docker tag <LOCAL IMAGE ID[:TAG]> <DOCKER USERNAME/IMAGE NAME[:TAG]`, for example:
+```
+$ docker tag my-python-app rainswor/my-python-app:python3
+```
+]
+]
+
+---
+# Making your Own Docker Image: Exercise 
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+3\. Push your container image to Docker Hub! The command usage is: `docker push <your_username>/my-first-repo`, for example: 
+```
+$ docker push rainswor/my-python-app:python3
+
+The push refers to repository [docker.io/rainswor/my-python-app]
+7842f0e00952: Pushed 
+57c40d23c8cd: Pushed 
+69d95271719a: Mounted from library/python 
+f88be44e4bd8: Mounted from library/python 
+e505c7600391: Mounted from library/python 
+4d2fd1bf072c: Mounted from library/python 
+6e302bbcacce: Mounted from library/python 
+97e8dd85db4e: Mounted from library/python 
+74e2ede3b29c: Mounted from library/python 
+6d5a64ea8f37: Mounted from library/python 
+660314270d76: Mounted from library/python 
+python3: digest: sha256:a908a7fceff56f61be2a634fea6868ac04fa05dac66796b4d192d17e60e39344 size: 2631
+```
+Then log in and check out your container image repository on [DockerHub](https://hub.docker.com/)! (Mine is at https://hub.docker.com/r/rainswor/my-python-app.)
+]
+]
+---
+# Making your Own Docker Image: Exercise 
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+![](assets/dockerhub.png)
+]
+]
+---
+class: center, middle
+# Part 4
+## Singularity
+
+---
+# Singularity: Commands
+
+* Download pre-built images (.sif files, where sif stands for Singularity Image File) from the [Sylabs Container Library](https://cloud.sylabs.io/library) with the `singularity pull` command:  
+  ```
+  $ singularity pull library://sylabsed/examples/lolcow
+  ```
+  * You can also download pre-built images from other registries such as [Docker Hub](https://hub.docker.com/) and [Singularity Hub](https://singularity-hub.org/).
+* The `singularity shell` command allows you to spawn a new shell within your container and interact with it as though it were a small virtual machine:  
+  ```
+  $ singularity shell lolcow_latest.sif
+  ```
+* The `singularity exec` command allows you to execute a custom command within a container by specifying the image file. For instance, to execute the `cowsay` program within the `lolcow_latest.sif` container:  
+  ```
+  $ singularity exec lolcow_latest.sif cowsay moo
+  ```
+* Singularity containers contain runscripts. These are user defined scripts that define the actions a container should perform when someone runs it. The runscript can be triggered with the `singularity run` command:  
+  ```
+  $ singularity run lolcow_latest.sif
+  ```
+
+---
+# Singularity: "Hello world!" (or rather, lolcow)
+
+.message.is-info[
+.message-header[
+Exercise
+]
+.message-body[
+Run the following command which will download and run the `lolcow` container image. What is the output?
+```
+$ singularity run library://sylabsed/examples/lolcow
+```
+]
+]
+---
+# Singularity: "Hello world!" (or rather, lolcow)
+
+.message.is-success[
+.message-header[
+Answer
+]
+.message-body[
+```
+WARNING: No default remote in use, falling back to https://library.sylabs.io
+INFO:    Downloading library image
+ 79.91 MiB / 79.91 MiB [===========================================] 100.00% 3.54 MiB/s 22s
+ _________________________________________
+/ In the Spring, I have counted 136       \
+| different kinds of weather inside of 24 |
+| hours.                                  |
+|                                         |
+\ -- Mark Twain, on New England weather   /
+ -----------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+[    1.653117] reboot: Power down
+```
+]
+]
+---
+# Summary and Closing
+
+During this workshop, we have covered:
+* What containerisation is and why you might use it in your research.
+  * Solves the "but it worked on my computer" problem!
+
+--
+
+* Some common containerisation tools and when to use them.
+  * Focused on Docker but Singularity is needed when deploying on HPC.
+
+--
+
+* How to find and run containers built by other people.
+  * Docker Hub
+  * Singularity Hub
+
+--
+
+* How to build your own container.
+  * Push your container image to Docker Hub for easy dissemination.
+  * Open Science tip: Share your build files on GitHub/GitLab/Bitbucket!
+  
+---
+# Additional resources
+
+* [The Turing Way](https://the-turing-way.netlify.com/introduction/introduction) - [Chapter on Reproducible Environments](https://the-turing-way.netlify.com/reproducible_environments/reproducible_environments.html)
+* [Get Started with Docker](https://docs.docker.com/get-started/)
+* [Docker Glossary](https://docs.docker.com/glossary/)
+* [Docker Reference](https://docs.docker.com/reference/)
+* [Docker for Beginners Tutorial](https://github.com/docker/labs/tree/master/beginner/)
+* [Docker Tutorial Series](https://rominirani.com/docker-tutorial-series-a7e6ff90a023)
+* [Singularity User Guide](https://sylabs.io/guides/3.3/user-guide/)
+---
+# Feedback: Pluses and Deltas
+
+On your green post-it, please write something that you liked about the workshop and on the red post-it, please write something that could be improved. Thank you for your participation and feedback!
+
+.columns[
+  .column[.center[Pluses]
+    ![](assets/postit-green.png)
+  ]
+  .column[.center[Deltas]
+    ![](assets/postit-red.png)
+  ]
+]
