@@ -886,13 +886,28 @@ In this example,
 * What is the output?
 ]
 ]
---
+---
+# Docker: Running containers 8 - Exercise
+
 .message.is-success[
 .message-header[
 Answer
 ]
 .message-body[
 ```
+Unable to find image 'python:2' locally
+2: Pulling from library/python
+4ae16bd47783: Already exists 
+bbab4ec87ac4: Already exists 
+2ea1f7804402: Already exists 
+96465440c208: Already exists 
+6ac892e64b94: Already exists 
+6f7ce750b843: Pull complete 
+886c714e5c8c: Pull complete 
+9ef5af0ee617: Pull complete 
+95b0a7d3ce20: Pull complete 
+Digest: sha256:e2770e7e5984998b0902537ea041343a35e816b6e96038be928855ddff4b4446
+Status: Downloaded newer image for python:2
 0
 ```
 ]
