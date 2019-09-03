@@ -1241,6 +1241,7 @@ class: center, middle
 
 ---
 # Singularity: "Hello world!" (or rather, lolcow)
+
 .message.is-info[
 .message-header[
 Exercise
@@ -1252,7 +1253,9 @@ $ singularity run library://sylabsed/examples/lolcow
 ```
 ]
 ]
---
+---
+# Singularity: "Hello world!" (or rather, lolcow)
+
 .message.is-success[
 .message-header[
 Answer
