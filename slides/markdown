@@ -23,15 +23,16 @@ Resources used to develop this workshop:
 class: left, middle
 # Dr. Rachael Ainsworth
 
-* Research Software Community Manager, Software Sustainability Institute, University of Manchester
-* Software Sustainability Institute Fellow 2019
-* FOSTER Open Science Trainer
-* Mozilla Open Leader (Round 4 Project Lead, Round 5 Mentor & Cohort Host)
-* _The Turing Way_ Core Contributor
-* HER+Data MCR Organiser
-* Likes meeting new people, learning new things, coffee & travelling.
-* Twitter: [@rachaelevelyn](https://twitter.com/rachaelevelyn)  
-* GitHub: [@rainsworth](https://github.com/rainsworth/)
+* Research Software Community Manager, [Software Sustainability Institute](https://software.ac.uk), University of Manchester
+* PhD in Astrophysics, studied star formation with radio telescopes
+* [Software Sustainability Institute Fellow 2019](https://software.ac.uk/about/fellows/rachael-ainsworth)
+* [FOSTER Open Science Trainer](https://www.fosteropenscience.eu/trainers-directory)
+* [Mozilla Open Leader](https://foundation.mozilla.org/en/opportunity/mozilla-open-leaders/) (Round 4 Project Lead, Round 5 Mentor & Cohort Host)
+* [_The Turing Way_](https://github.com/alan-turing-institute/the-turing-way/) Core Contributor
+* [HER+Data MCR](https://github.com/alan-turing-institute/the-turing-way/) Organiser
+* Contact:
+  * Twitter: [@rachaelevelyn](https://twitter.com/rachaelevelyn)  
+  * GitHub: [@rainsworth](https://github.com/rainsworth/)
 
 ---
 class: left, middle
@@ -40,11 +41,10 @@ class: left, middle
 1. Learning objectives
 2. Feedback practice: Software Carpentry style traffic lights
 3. Introduction to Reproducibility through Containerisation
-4. Exercise: Hello world!
-5. Exercise: Running containers
+4. Docker
 6. Comfort break
-7. Exercise: Build your own container
-8. Exercise: Upload your container to DockerHub
+7. Build your own Docker container
+8. Singularity
 9. Summary and closing
 
 ---
