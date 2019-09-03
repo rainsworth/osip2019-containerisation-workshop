@@ -862,6 +862,7 @@ a = 1
 b = 5
 print(a/b)
 ```
+Save the script.
 ]
 ]
 
@@ -1131,6 +1132,8 @@ COPY script.py /python_test
 # Execute script.py
 CMD [ "python", "./script.py" ]
 ```
+
+Save the Dockerfile and exit the text editor. You should now have 2 files in your current working directory: `Dockerfile` and `script.py`.
 ]
 ]
 
