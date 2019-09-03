@@ -353,7 +353,7 @@ Distributing and using software as a container image gives you:
 ---
 # Use case
 
-* How I use containers in my work
+![](assets/use_case.png)
 
 ---
 class: center, middle
@@ -1365,5 +1365,19 @@ During this workshop, we have covered:
 * [Docker Tutorial Series](https://rominirani.com/docker-tutorial-series-a7e6ff90a023)
 * [Singularity User Guide](https://sylabs.io/guides/3.3/user-guide/)
 ---
-class: center, middle
-# That's All
+# Feedback: Pluses and Deltas
+
+On your green post-it, please write something that you liked about the workshop and on the red post-it, please write something that could be improved. Thank you for your participation and feedback!
+
+.center[
+#### I have installed Docker.
+]
+
+.columns[
+  .column[.center[Pluses]
+    ![](assets/postit-green.png)
+  ]
+  .column[.center[Deltas]
+    ![](assets/postit-red.png)
+  ]
+]
