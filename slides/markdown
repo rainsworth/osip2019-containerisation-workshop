@@ -352,7 +352,7 @@ Distributing and using software as a container image gives you:
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
 # Use case
-.img-med[
+.img-half[
 ![](assets/use_case.png)
 ]
 
