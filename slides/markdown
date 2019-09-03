@@ -752,7 +752,6 @@ Python 3.7.4
 * Some commonly used `docker run` options that you can set include:
   * `--detach , -d` : Run container in background (detached mode) and print container ID
   * `--interactive , -i` : Run Docker in interactive mode (keep STDIN open even if not attached)
-      * For interactive processes (like a shell), you must use `-i -t` together in order to allocate a tty (terminal) for the container process. `-i -t` is often written `-it` for short.
   * `--name` : Assign a (meaningful) name to the container for easy reference later
   * `--publish , -p` : Publish a container’s port(s) to the host
   * `--rm` : Automatically remove the container when it exits (to cleanup and save space on your machine)
