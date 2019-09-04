@@ -3,6 +3,14 @@
 A workshop for the Eurotech Summer School: [Open Science In Practice](http://osip2019.epfl.ch/)  
 11:00-13:00, 5 September 2019 | EPFL, Lausanne, Switzerland
 
+Table of Contents
+* [Abstract](#abstract)
+* [Learning Objectives](#learning-objectives)
+* [Prerequisites](#prerequisites)
+* [Agenda](#agenda)
+* [Slides](#slides)
+* [Speaker](#speaker)
+
 ## Abstract
 
 A container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings. Containers can be used to package entire scientific workflows, software and libraries, and even data. This means that you don’t have to ask your cluster admin to install anything for you - you can put it in a container and run or easily share your analysis with collaborators. Containers are particularly useful way for reproducing research which relies on software to be configured in a certain way, and/or which makes use of libraries that vary between (or don’t exist on) different systems. There are a number of different tools available for creating and working with containers, and this workshop will focus on [Docker](https://www.docker.com/) and [Singularity](https://sylabs.io/singularity/).
@@ -16,7 +24,7 @@ After the workshop, participants should know:
 * How to build their own container.
 * How to distribute their container online.
 
-## Requirements
+## Prerequisites
 
 Prior to this workshop, participants will need:
 * Their own laptop computers
@@ -42,6 +50,7 @@ You can find the slides to this workshop [here](https://rainsworth.github.io/osi
 * [Part 2: Docker](https://rainsworth.github.io/osip2019-containerisation-workshop/slides/#34)
 * [Part 3: Making your own Docker Image](https://rainsworth.github.io/osip2019-containerisation-workshop/slides/#80)
 * [Part 4: Singularity](https://rainsworth.github.io/osip2019-containerisation-workshop/slides/#96)
+* [Part 5: Summary and Closing](https://rainsworth.github.io/osip2019-containerisation-workshop/slides/#100)
 
 Attribution: The tutorial and slides have been adopted from the [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/).
 
