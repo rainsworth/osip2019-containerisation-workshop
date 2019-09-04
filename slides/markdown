@@ -329,7 +329,7 @@ Distributing and using software as a container image gives you:
 * **Safety** – files in a container can’t access files on the host machine, so users can trust containerised applications
 * **Ease-of-Use** – they can be run using a single run command
 * **Easy Upgrades** – they can be easily swapped out for newer versions, while all persistent data can be retained in a data volume
-* **Stackable** 
+* **Stackable** - you can easily build upon previously made images and images made by other people
 
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
