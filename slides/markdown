@@ -502,7 +502,7 @@ This message shows that your installation appears to be working correctly.
 
 .message.is-success[
 .message-header[
-Answer
+Answer 4
 ]
 .message-body[
 ```
@@ -553,7 +553,7 @@ For more examples and ideas, visit:
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 5
 ]
 .message-body[
 Search on [Docker Hub](https://hub.docker.com/) for the best container image for running `python` applications. What command would you run if you wanted to pull this container image?
@@ -564,7 +564,7 @@ Hint: The command to pull the image is located in the top right of its Docker Hu
 --
 .message.is-success[
 .message-header[
-Answer
+Answer 5
 ]
 .message-body[
 ![https://hub.docker.com/_/python](assets/docker_hub_python.png)
@@ -581,7 +581,7 @@ $ docker pull python
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 6
 ]
 .message-body[
 Run the following command to view all images installed on your machine:
@@ -593,7 +593,7 @@ $ docker images
 --
 .message.is-success[
 .message-header[
-Answer
+Answer 6
 ]
 .message-body[
 ```
@@ -611,7 +611,7 @@ hello-world            latest              fce289e99eb9        7 months ago     
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 7
 ]
 .message-body[
 Try running the command:
@@ -625,7 +625,7 @@ $ docker ps
 
 .message.is-success[
 .message-header[
-Answer
+Answer 7
 ]
 .message-body[
 ```
@@ -643,7 +643,7 @@ Nothing is listed because we don't currently have any running containers!
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 8
 ]
 .message-body[
 Try running the command:
@@ -657,7 +657,7 @@ $ docker ps -a
 
 .message.is-success[
 .message-header[
-Answer
+Answer 8
 ]
 .message-body[
 ```
@@ -689,7 +689,7 @@ Using the `-a` flag lists our previously run containers.
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 9
 ]
 .message-body[
 Run the following command to find out which version of Python is used in the `python` image we pulled:
@@ -705,7 +705,7 @@ In this example,
 --
 .message.is-success[
 .message-header[
-Answer
+Answer 9
 ]
 .message-body[
 ```
@@ -720,7 +720,7 @@ Because container images on Docker Hub and other registries are often updated as
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 10
 ]
 .message-body[
 Check out the list of available tags for the `python` container image on [Docker Hub](https://hub.docker.com/_/python). In the previous exercise, we saw that the version of Python used in the image with the `:latest` tag was 3.7.4. However, if we knew in advance which version of Python we wanted, we could run `docker run python:3` for example to specify that we want to use Python version 3. Run the following command, what is the output?
@@ -732,7 +732,7 @@ $ docker run python:3 python --version
 --
 .message.is-success[
 .message-header[
-Answer
+Answer 10
 ]
 .message-body[
 ```
@@ -752,7 +752,7 @@ The goal is to be as specific as possible when using and referencing container i
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 11
 ]
 .message-body[
 The following example runs the container from the `python` version 3 image with the `sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da40701e5d473e` digest (from the previous slide):
@@ -765,7 +765,7 @@ $ docker run python@sha256:5f980d2673056ca33580979bcfb70c82f70ceccf857b77b740da4
 --
 .message.is-success[
 .message-header[
-Answer
+Answer 11
 ]
 .message-body[
 ```
@@ -846,7 +846,7 @@ root@9637e4deb342:/#
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 12
 ]
 .message-body[
 1\. Create a folder locally on your computer. For example:  
@@ -874,7 +874,7 @@ Save the script.
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 12
 ]
 .message-body[
 3\. Run the script using the `python` Docker container image for **Python version 2** (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options):  
@@ -895,7 +895,7 @@ In this example,
 
 .message.is-success[
 .message-header[
-Answer
+Answer 12
 ]
 .message-body[
 ```
@@ -922,7 +922,7 @@ Status: Downloaded newer image for python:2
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 12
 ]
 .message-body[
 4\. How would you run the previous command for the same script using the `python` Docker container image for **Python version 3** (see the [python Docker Hub image page](https://hub.docker.com/_/python) for usage and the [docker run reference](https://docs.docker.com/engine/reference/commandline/run/) for available options). And what is the output?
@@ -931,7 +931,7 @@ Exercise
 --
 .message.is-success[
 .message-header[
-Answer
+Answer 12
 ]
 .message-body[
 ```
@@ -1070,7 +1070,7 @@ where `.` indicates that the contents within the current working directory are t
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 13
 ]
 .message-body[
 1\. `cd` into our `container_workshop` directory where `script.py` is located, and create a `Dockerfile` (a text file with the name "Dockerfile" and no extension). For example:
@@ -1096,7 +1096,7 @@ Exercise
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 13
 ]
 .message-body[
 4\. We want to run our basic python script `script.py`, so first we must copy it into the container by adding the following lines to our Dockerfile:
@@ -1118,7 +1118,7 @@ Exercise
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 13
 ]
 .message-body[
 6\. Your Dockerfile should now look something like this:
@@ -1145,7 +1145,7 @@ Save the Dockerfile and exit the text editor. You should now have 2 files in you
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 13
 ]
 .message-body[
 7\. Now you are ready to build an image from this Dockerfile. Run the `docker build` command:
@@ -1175,7 +1175,7 @@ Successfully tagged my-python-app:latest
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 13
 ]
 .message-body[
 8\. After your image has been built successfully, you can run it as a container. In your terminal, run the command `docker images` to view your images. You should see an entry for `my-python-app`. Run the new image by entering:
@@ -1189,7 +1189,7 @@ What is the output?
 --
 .message.is-success[
 .message-header[
-Answer
+Answer 13
 ]
 .message-body[
 ```
@@ -1198,7 +1198,24 @@ Answer
 ]
 ]
 ---
-# Making your Own Docker Image: Share your image on Docker Hub 1
+# Making your Own Docker Image: Share your image on Docker Hub 
+
+The following commands will help you share your image on [DockerHub](https://hub.docker.com/).
+* Tag your image and link it to your Docker account with `docker tag`. 
+  * If you don't tag your image, it will be only be assigned the default tag `:latest`, which may become less useful if you update your image in the future.
+  * Give your image a meaningful tag (for example, with a version number) to make it easier for others (and your future self!) to identify and reference the image in the future.
+  * The command usage is: 
+  ```
+  docker tag <LOCAL IMAGE ID[:TAG]> <DOCKER USERNAME/IMAGE NAME[:TAG]
+  ```
+
+--
+
+* Push your container image to Docker Hub with `docker push`. 
+  * The command usage is: 
+  ```
+  docker push <your_username>/<image name[:TAG]>
+  ```
 
 
 ---
