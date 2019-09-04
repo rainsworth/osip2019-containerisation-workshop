@@ -38,6 +38,10 @@ Prior to this workshop, participants will need:
 ## Slides
 
 You can find the slides to this workshop [here](https://rainsworth.github.io/osip2019-containerisation-workshop/slides/).
+* [Part 1: Introduction to Reproducibility through Containerisation](https://rainsworth.github.io/osip2019-containerisation-workshop/slides/#14)
+* [Part 2: Docker](https://rainsworth.github.io/osip2019-containerisation-workshop/slides/#34)
+* [Part 3: Making your own Docker Image](https://rainsworth.github.io/osip2019-containerisation-workshop/slides/#80)
+* [Part 4: Singularity](https://rainsworth.github.io/osip2019-containerisation-workshop/slides/#96)
 
 Attribution: The tutorial and slides have been adopted from the [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/).
 

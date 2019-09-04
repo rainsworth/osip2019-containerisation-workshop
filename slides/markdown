@@ -1222,7 +1222,7 @@ The following commands will help you share your image on [DockerHub](https://hub
 # Making your Own Docker Image: Exercise 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 14
 ]
 .message-body[
 1\. Make sure you have created and are logged in to your Docker account with `docker login` 
@@ -1246,7 +1246,7 @@ $ docker tag my-python-app rainswor/my-python-app:python3
 # Making your Own Docker Image: Exercise 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 14
 ]
 .message-body[
 3\. Push your container image to Docker Hub! The command usage is: `docker push <your_username>/my-first-repo`, for example: 
@@ -1275,7 +1275,7 @@ Then log in and check out your container image repository on [DockerHub](https:/
 
 .message.is-success[
 .message-header[
-Answer
+Answer 14
 ]
 .message-body[
 ![](assets/dockerhub.png)
@@ -1312,7 +1312,7 @@ class: center, middle
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 15
 ]
 .message-body[
 Run the following command which will download and run the `lolcow` container image. What is the output?
@@ -1326,7 +1326,7 @@ $ singularity run library://sylabsed/examples/lolcow
 
 .message.is-success[
 .message-header[
-Answer
+Answer 15
 ]
 .message-body[
 ```
@@ -1350,7 +1350,11 @@ INFO:    Downloading library image
 ]
 ]
 ---
-# Summary and Closing
+class: center, middle
+# Part 4
+## Summary and Closing
+---
+# Learning Objectives
 
 During this workshop, we have covered:
 * What containerisation is and why you might use it in your research.
@@ -1370,8 +1374,16 @@ During this workshop, we have covered:
 --
 
 * How to build your own container.
-  * Push your container image to Docker Hub for easy dissemination.
-  * Open Science tip: Share your build files on GitHub/GitLab/Bitbucket!
+
+--
+
+* How to distribute your container online.
+
+--
+
+* Open Science tips: 
+  * Share your build files on GitHub/GitLab/Bitbucket!
+  * Edit your image repository on Docker Hub with important information and usage to help others use it!
   
 ---
 # Additional resources
