@@ -3,7 +3,7 @@
 A workshop for the Eurotech Summer School: [Open Science In Practice](http://osip2019.epfl.ch/)  
 11:00-13:00, 5 September 2019 | EPFL, Lausanne, Switzerland
 
-Table of Contents
+## Table of Contents
 * [Abstract](#abstract)
 * [Learning Objectives](#learning-objectives)
 * [Prerequisites](#prerequisites)
