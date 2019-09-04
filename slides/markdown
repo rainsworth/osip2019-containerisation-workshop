@@ -263,7 +263,7 @@ It is vital for researchers to understand and capture the computational environm
 ---
 # Virtual Machines (VMs) vs Containers
 
-* A **virtual machine (VM)** is a program that emulates a complete computer and imitates dedicated hardware. It shares physical hardware resources with other users but isolates the operating system - taking up 10s of GBs. The end user has the same experience on a VM as they would have on dedicated hardware. 
+* A **virtual machine (VM)** is a program that emulates a complete computer and imitates dedicated hardware. It shares physical hardware resources with other users but isolates the operating system - taking up GBs of space. The end user has the same experience on a VM as they would have on dedicated hardware. 
 * In contrast, a **container** virtualises the operating system instead of the hardware, packaging up only the necessary software and its dependencies so the application runs quickly and reliably from one computing environment to another. Container images are typically 10s of MBs in size - far more lightweight than VMs.
 
 .columns[
@@ -323,12 +323,13 @@ A container is launched by running an image.
 # Advantages
 
 Distributing and using software as a container image gives you:
-* **Bundled Dependencies** – they contain all their own dependencies, which means you don’t have to do any installation on the host machine
+* **Bundled Dependencies** – they contain all their own dependencies, which means you (or your collaborators, a reviewer or anyone wanting to reproduce your analysis) don’t have to do any installation on the host machine
 * **Cross-platform Installation** – they virtualise their own operating system, so they will run on any platform (even Windows!)
-* **Easy Distribution** - they can be distributed as a single image file, or put on an online registry (such as [Docker Hub](https://hub.docker.com/) so it can be `docker pull`'d or on [Singularity Hub](https://singularity-hub.org/) and `singularity pull`'d)
+* **Easy Distribution** - they can be distributed as a single image file (like a .tar file), or put on an online registry (such as [Docker Hub](https://hub.docker.com/) or [Singularity Hub](https://singularity-hub.org/)) and easily downloaded
 * **Safety** – files in a container can’t access files on the host machine, so users can trust containerised applications
 * **Ease-of-Use** – they can be run using a single run command
 * **Easy Upgrades** – they can be easily swapped out for newer versions, while all persistent data can be retained in a data volume
+* **Stackable** 
 
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
@@ -365,7 +366,7 @@ class: center, middle
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 1
 ]
 .message-body[
 Run the following command to ensure that you have a supported version of Docker. What does it output?
@@ -379,7 +380,7 @@ $ docker --version
 
 .message.is-success[
 .message-header[
-Answer
+Answer 1
 ]
 .message-body[
 ```
@@ -392,7 +393,7 @@ Docker version 19.03.1, build 74b1e89
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 2
 ]
 .message-body[
 Run the following command to view even more details about your Docker installation. What does it output?
@@ -406,7 +407,7 @@ $ docker info
 
 .message.is-success[
 .message-header[
-Answer
+Answer 2
 ]
 .message-body[
 ```
@@ -426,7 +427,7 @@ Storage Driver: overlay2
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 3
 ]
 .message-body[
 Run the following command for the list of available Docker commands. What does it output?
@@ -440,7 +441,7 @@ $ docker --help
 
 .message.is-success[
 .message-header[
-Answer
+Answer 3
 ]
 .message-body[
 ```
@@ -465,7 +466,7 @@ Options:
 
 .message.is-info[
 .message-header[
-Exercise
+Exercise 4
 ]
 .message-body[
 Run the following command. What does it output?
@@ -480,7 +481,7 @@ $ docker run hello-world
 
 .message.is-success[
 .message-header[
-Answer
+Answer 4
 ]
 .message-body[
 ```
