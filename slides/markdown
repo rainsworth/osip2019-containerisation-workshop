@@ -299,6 +299,28 @@ It is vital for researchers to understand and capture the computational environm
 ]
 ]
 ---
+# Docker 
+
+* [Docker](https://www.docker.com/) is an open-source tool that automates the deployment of an application inside a software container. The easiest way to grasp the idea behind Docker is to compare it to standard shipping containers.
+* In the past, transportation companies faced the following challenges:
+  * How to transport different (incompatible) types of goods side by side (like food and chemicals, or glass and bricks).
+  * How to handle packages of various sizes using the same vehicle.
+* After the introduction of containers, bricks could be put over glass, and chemicals could be stored next to food. Cargo of various sizes can be put inside a standardized container and loaded/unloaded by the same vehicle.
+
+.img-half[![](assets/sergio-souza-CtI_zen2NSk-unsplash.jpg)]
+
+.center[Attribution: [What is Docker and How to Use it With Python (Tutorial) by Alexander Ryabtsev](https://djangostars.com/blog/what-is-docker-and-how-to-use-it-with-python/)]
+---
+# Docker 
+
+* When you develop an application, you need to provide your code along with all possible dependencies like libraries, the web server, databases, etc. You may end up in a situation when the application is working on your computer, but won’t even start on your collaborator's computer or your referee's.
+* This challenge can be addressed by isolating the app to make it independent of the system.
+
+.img-half[![](assets/laurel-docker-containers.png)]
+
+.center[Attribution: [What is Docker and How to Use it With Python (Tutorial) by Alexander Ryabtsev](https://djangostars.com/blog/what-is-docker-and-how-to-use-it-with-python/)]
+
+---
 # Terminology: Images and Containers
 
 A container is launched by running an image.
@@ -333,14 +355,13 @@ Distributing and using software as a container image gives you:
 
 .center[Attribution: [Melbourne Bioinformatics' Containerized Bioinformatics tutorial](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/)]
 ---
-# Containers on HPC
+# Containers on HPC: Singularity
 * Security on HPC:
 	* If you have Docker access, you effectively have `root` permissions over the entire operating system
 	* This works fine for your own machine or on the cloud, where instances are rarely shared between multiple users
 	* However on HPC (computing clusters), this would allow Docker users to access each other's files
 	* For this reason, it is unlikely you will find Docker installed on an HPC system
-* A few alternatives exist for running containers on HPC, but there's only one that really matters
-	* [Singularity](http://singularity.lbl.gov/) - A ground-up reimplementation of Docker, with a fairly different CLI. Actively developed.
+* A few alternatives exist for running containers on HPC, but we will focus on [Singularity](http://singularity.lbl.gov/) - a ground-up reimplementation of Docker, with a fairly different CLI. Actively developed.
 
 .columns.is-centered[
 .column.is-narrow[
